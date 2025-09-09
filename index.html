@@ -1,67 +1,80 @@
-<!-- Harsha Kumar Portfolio - Glassmorphism Design (HTML + TailwindCSS) -->
-<!-- To run: Save as index.html and open in browser. Ensure Tailwind is included via CDN. -->
-
+<!-- Harsha Kumar Portfolio - Modern Glassmorphism with Abstract Background -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Harsha Kumar Veelu - Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    /* Glass Effect */
     .glass-card{
-      background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.06);
-      backdrop-filter: blur(10px) saturate(120%);
-      -webkit-backdrop-filter: blur(10px) saturate(120%);
-      border-radius: 16px;
-      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(12px) saturate(140%);
+      -webkit-backdrop-filter: blur(12px) saturate(140%);
+      border-radius: 18px;
+      transition: transform .3s ease, box-shadow .3s ease;
     }
+    .glass-card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    }
+
     .glass-btn{
       display: inline-flex;
       align-items: center;
       gap: .5rem;
-      padding: .5rem 0.9rem;
-      border-radius: 10px;
-      font-size: .85rem;
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      color: #e6eef8;
-      text-decoration: none;
+      padding: .6rem 1.1rem;
+      border-radius: 12px;
+      font-size: .9rem;
+      font-weight: 500;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: #f1f5f9;
+      transition: background .3s ease, transform .2s ease;
     }
+    .glass-btn:hover{
+      background: rgba(255,255,255,0.15);
+      transform: scale(1.03);
+    }
+
+    /* Abstract Blobs */
     @keyframes blob {
       0%{ transform: translate(0px,0px) scale(1); }
-      33%{ transform: translate(20px,-10px) scale(1.05); }
-      66%{ transform: translate(-10px,20px) scale(0.95); }
+      33%{ transform: translate(25px,-15px) scale(1.05); }
+      66%{ transform: translate(-20px,20px) scale(0.95); }
       100%{ transform: translate(0px,0px) scale(1); }
     }
-    .animate-blob{ animation: blob 8s infinite ease-in-out; }
+    .animate-blob{ animation: blob 9s infinite ease-in-out; }
     .animation-delay-2000{ animation-delay: 2s; }
+    .animation-delay-4000{ animation-delay: 4s; }
   </style>
 </head>
-<body class="min-h-screen bg-gradient-to-b from-[#0f172a] via-[#07112a] to-[#041025] text-slate-100 p-6 md:p-12 font-sans">
+<body class="min-h-screen bg-gradient-to-b from-[#0a0f1e] via-[#0d162a] to-[#0b0f1d] text-slate-100 p-6 md:p-12 font-sans">
 
-  <!-- Background -->
+  <!-- Abstract Background -->
   <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-    <div class="absolute -left-32 -top-32 w-80 h-80 rounded-full opacity-20 blur-3xl bg-gradient-to-tr from-purple-500 to-indigo-400 animate-blob"></div>
-    <div class="absolute right-0 top-20 w-60 h-60 rounded-full opacity-15 blur-2xl bg-gradient-to-br from-emerald-400 to-cyan-400 animate-blob animation-delay-2000"></div>
+    <div class="absolute -left-40 -top-40 w-96 h-96 rounded-full opacity-20 blur-3xl bg-gradient-to-tr from-purple-500 via-indigo-400 to-blue-400 animate-blob"></div>
+    <div class="absolute right-20 top-32 w-72 h-72 rounded-full opacity-15 blur-3xl bg-gradient-to-br from-cyan-400 via-emerald-400 to-teal-500 animate-blob animation-delay-2000"></div>
+    <div class="absolute left-1/3 bottom-10 w-80 h-80 rounded-full opacity-10 blur-3xl bg-gradient-to-bl from-pink-400 via-rose-500 to-orange-400 animate-blob animation-delay-4000"></div>
   </div>
 
   <!-- Header -->
   <header class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
     <div class="flex items-center gap-4">
-      <div class="w-24 h-24 rounded-2xl bg-white/6 backdrop-blur-md border border-white/10 shadow-lg flex items-center justify-center">
-        <div class="text-2xl font-bold">HK</div>
+      <div class="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 shadow-lg flex items-center justify-center">
+        <div class="text-xl font-bold">HK</div>
       </div>
       <div>
-        <h1 class="text-2xl md:text-3xl font-semibold">Harsha Kumar Veelu</h1>
+        <h1 class="text-2xl md:text-3xl font-bold">Harsha Kumar Veelu</h1>
         <p class="text-sm text-slate-300">Backend Java Developer @ Tapplent Technologies — Bangalore</p>
       </div>
     </div>
     <div class="flex gap-3">
-      <a href="mailto:vharshakumar6143@gmail.com" class="glass-btn">vharshakumar6143@gmail.com</a>
+      <a href="mailto:vharshakumar6143@gmail.com" class="glass-btn">Email</a>
       <a href="#contact" class="glass-btn">Contact</a>
     </div>
   </header>
@@ -73,29 +86,31 @@
     <section class="md:col-span-1 space-y-6">
       <div class="glass-card p-6">
         <h2 class="text-lg font-semibold mb-2">About</h2>
-        <p class="text-sm text-slate-300 leading-relaxed">I am a Backend Java Developer with hands-on experience in building scalable RESTful APIs, microservices, and performant SQL databases. I enjoy optimizing systems and shipping reliable software.</p>
-        <div class="mt-4 text-sm text-slate-300">
-          <div><strong>Location:</strong> Bangalore, India</div>
-          <div><strong>Phone:</strong> +91 6304245658</div>
-          <div><strong>Education:</strong> Aditya College of Engineering and Technology — ECE (2019-2023)</div>
+        <p class="text-sm text-slate-300 leading-relaxed">I am a Backend Java Developer with expertise in building scalable RESTful APIs, microservices, and performant SQL databases. Passionate about designing robust systems and delivering clean, efficient code.</p>
+        <div class="mt-4 text-sm text-slate-300 space-y-1">
+          <div><strong>📍 Location:</strong> Bangalore, India</div>
+          <div><strong>📞 Phone:</strong> +91 6304245658</div>
+          <div><strong>🎓 Education:</strong> Aditya College of Engineering and Technology — ECE (2019-2023)</div>
         </div>
       </div>
+
       <div class="glass-card p-6">
         <h2 class="text-lg font-semibold mb-3">Skills</h2>
         <div class="flex flex-wrap gap-2 text-sm">
-          <span class="px-3 py-1 rounded-full bg-white/6 border border-white/8">Java</span>
-          <span class="px-3 py-1 rounded-full bg-white/6 border border-white/8">Spring Boot</span>
-          <span class="px-3 py-1 rounded-full bg-white/6 border border-white/8">Hibernate</span>
-          <span class="px-3 py-1 rounded-full bg-white/6 border border-white/8">SQL / MySQL</span>
-          <span class="px-3 py-1 rounded-full bg-white/6 border border-white/8">Docker</span>
-          <span class="px-3 py-1 rounded-full bg-white/6 border border-white/8">Git</span>
-          <span class="px-3 py-1 rounded-full bg-white/6 border border-white/8">REST APIs</span>
-          <span class="px-3 py-1 rounded-full bg-white/6 border border-white/8">Python</span>
+          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Java</span>
+          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Spring Boot</span>
+          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Hibernate</span>
+          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">SQL / MySQL</span>
+          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Docker</span>
+          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Git</span>
+          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">REST APIs</span>
+          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Python</span>
         </div>
       </div>
+
       <div class="glass-card p-6">
         <h2 class="text-lg font-semibold mb-3">Certifications</h2>
-        <ul class="text-sm text-slate-300 space-y-2">
+        <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside">
           <li>Python Programming – APSSDC</li>
           <li>Web Development</li>
           <li>AWS Certified Cloud Practitioner (Score: 767)</li>
@@ -108,32 +123,34 @@
     <section class="md:col-span-2 space-y-6">
       <div class="glass-card p-6">
         <h2 class="text-xl font-semibold">Experience</h2>
-        <div class="text-sm text-slate-300 mt-2">Tapplent Technologies — Backend Java Developer (2024 - Present)</div>
+        <p class="text-sm text-slate-300 mt-2">Tapplent Technologies — Backend Java Developer (2024 - Present)</p>
         <ul class="mt-4 text-slate-300 text-sm space-y-2 list-disc list-inside">
           <li>Developed and optimised RESTful APIs using Java, Spring Boot, and Hibernate.</li>
-          <li>Improved MySQL performance by optimising queries and adding indexes.</li>
-          <li>Built and maintained microservices for scalable deployments.</li>
-          <li>Automated builds with Maven and reduced bugs through code reviews.</li>
+          <li>Improved MySQL performance with query optimisation and indexing.</li>
+          <li>Built and deployed microservices for scalable enterprise applications.</li>
+          <li>Automated builds with Maven and reduced bugs via peer code reviews.</li>
           <li>Collaborated in Agile sprints with cross-functional teams.</li>
         </ul>
       </div>
+
       <div class="glass-card p-6">
         <h2 class="text-xl font-semibold mb-4">Projects</h2>
-        <div class="p-4 rounded-xl bg-white/4 border border-white/8 mb-4">
+        <div class="p-4 rounded-xl bg-white/5 border border-white/10 mb-4 hover:scale-[1.02] transition">
           <h3 class="font-semibold">Kaizen Monitoring System</h3>
-          <p class="mt-2 text-sm text-slate-300">Real-time tracking and analytics for continuous improvement initiatives.</p>
+          <p class="mt-2 text-sm text-slate-300">Real-time tracking and analytics platform for continuous improvement initiatives with data-driven dashboards.</p>
         </div>
-        <div class="p-4 rounded-xl bg-white/4 border border-white/8">
+        <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:scale-[1.02] transition">
           <h3 class="font-semibold">Leave Management System</h3>
-          <p class="mt-2 text-sm text-slate-300">Scalable, role-based leave management with notification workflows.</p>
+          <p class="mt-2 text-sm text-slate-300">Role-based leave management system with approval workflows, email notifications, and calendar integration.</p>
         </div>
       </div>
+
       <div class="glass-card p-6" id="contact">
         <h2 class="text-lg font-semibold mb-3">Contact</h2>
-        <p class="text-sm text-slate-300">Feel free to get in touch — I reply quickly to emails.</p>
+        <p class="text-sm text-slate-300">I’m open to new opportunities and collaborations — feel free to reach out.</p>
         <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <a class="glass-btn" href="mailto:vharshakumar6143@gmail.com">Email</a>
-          <a class="glass-btn" href="tel:+916304245658">Call</a>
+          <a class="glass-btn" href="mailto:vharshakumar6143@gmail.com">📧 Email</a>
+          <a class="glass-btn" href="tel:+916304245658">📞 Call</a>
         </div>
       </div>
     </section>
