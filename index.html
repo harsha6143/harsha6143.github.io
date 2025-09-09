@@ -1,2 +1,149 @@
-<h1> Hello, I'm harsha</h1>
-<P>welcome </P>
+<!-- Harsha Kumar Portfolio - Glassmorphism Design (HTML + TailwindCSS) -->
+<!-- To run: Save as index.html and open in browser. Ensure Tailwind is included via CDN. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harsha Kumar Veelu - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .glass-card{
+      background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px) saturate(120%);
+      -webkit-backdrop-filter: blur(10px) saturate(120%);
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+    }
+    .glass-btn{
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .5rem 0.9rem;
+      border-radius: 10px;
+      font-size: .85rem;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      color: #e6eef8;
+      text-decoration: none;
+    }
+    @keyframes blob {
+      0%{ transform: translate(0px,0px) scale(1); }
+      33%{ transform: translate(20px,-10px) scale(1.05); }
+      66%{ transform: translate(-10px,20px) scale(0.95); }
+      100%{ transform: translate(0px,0px) scale(1); }
+    }
+    .animate-blob{ animation: blob 8s infinite ease-in-out; }
+    .animation-delay-2000{ animation-delay: 2s; }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-[#0f172a] via-[#07112a] to-[#041025] text-slate-100 p-6 md:p-12 font-sans">
+
+  <!-- Background -->
+  <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+    <div class="absolute -left-32 -top-32 w-80 h-80 rounded-full opacity-20 blur-3xl bg-gradient-to-tr from-purple-500 to-indigo-400 animate-blob"></div>
+    <div class="absolute right-0 top-20 w-60 h-60 rounded-full opacity-15 blur-2xl bg-gradient-to-br from-emerald-400 to-cyan-400 animate-blob animation-delay-2000"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-4">
+      <div class="w-24 h-24 rounded-2xl bg-white/6 backdrop-blur-md border border-white/10 shadow-lg flex items-center justify-center">
+        <div class="text-2xl font-bold">HK</div>
+      </div>
+      <div>
+        <h1 class="text-2xl md:text-3xl font-semibold">Harsha Kumar Veelu</h1>
+        <p class="text-sm text-slate-300">Backend Java Developer @ Tapplent Technologies — Bangalore</p>
+      </div>
+    </div>
+    <div class="flex gap-3">
+      <a href="mailto:vharshakumar6143@gmail.com" class="glass-btn">vharshakumar6143@gmail.com</a>
+      <a href="#contact" class="glass-btn">Contact</a>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="max-w-5xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+
+    <!-- Left -->
+    <section class="md:col-span-1 space-y-6">
+      <div class="glass-card p-6">
+        <h2 class="text-lg font-semibold mb-2">About</h2>
+        <p class="text-sm text-slate-300 leading-relaxed">I am a Backend Java Developer with hands-on experience in building scalable RESTful APIs, microservices, and performant SQL databases. I enjoy optimizing systems and shipping reliable software.</p>
+        <div class="mt-4 text-sm text-slate-300">
+          <div><strong>Location:</strong> Bangalore, India</div>
+          <div><strong>Phone:</strong> +91 6304245658</div>
+          <div><strong>Education:</strong> Aditya College of Engineering and Technology — ECE (2019-2023)</div>
+        </div>
+      </div>
+      <div class="glass-card p-6">
+        <h2 class="text-lg font-semibold mb-3">Skills</h2>
+        <div class="flex flex-wrap gap-2 text-sm">
+          <span class="px-3 py-1 rounded-full bg-white/6 border border-white/8">Java</span>
+          <span class="px-3 py-1 rounded-full bg-white/6 border border-white/8">Spring Boot</span>
+          <span class="px-3 py-1 rounded-full bg-white/6 border border-white/8">Hibernate</span>
+          <span class="px-3 py-1 rounded-full bg-white/6 border border-white/8">SQL / MySQL</span>
+          <span class="px-3 py-1 rounded-full bg-white/6 border border-white/8">Docker</span>
+          <span class="px-3 py-1 rounded-full bg-white/6 border border-white/8">Git</span>
+          <span class="px-3 py-1 rounded-full bg-white/6 border border-white/8">REST APIs</span>
+          <span class="px-3 py-1 rounded-full bg-white/6 border border-white/8">Python</span>
+        </div>
+      </div>
+      <div class="glass-card p-6">
+        <h2 class="text-lg font-semibold mb-3">Certifications</h2>
+        <ul class="text-sm text-slate-300 space-y-2">
+          <li>Python Programming – APSSDC</li>
+          <li>Web Development</li>
+          <li>AWS Certified Cloud Practitioner (Score: 767)</li>
+          <li>Java J2EE – Wipro TalentNext</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Right -->
+    <section class="md:col-span-2 space-y-6">
+      <div class="glass-card p-6">
+        <h2 class="text-xl font-semibold">Experience</h2>
+        <div class="text-sm text-slate-300 mt-2">Tapplent Technologies — Backend Java Developer (2024 - Present)</div>
+        <ul class="mt-4 text-slate-300 text-sm space-y-2 list-disc list-inside">
+          <li>Developed and optimised RESTful APIs using Java, Spring Boot, and Hibernate.</li>
+          <li>Improved MySQL performance by optimising queries and adding indexes.</li>
+          <li>Built and maintained microservices for scalable deployments.</li>
+          <li>Automated builds with Maven and reduced bugs through code reviews.</li>
+          <li>Collaborated in Agile sprints with cross-functional teams.</li>
+        </ul>
+      </div>
+      <div class="glass-card p-6">
+        <h2 class="text-xl font-semibold mb-4">Projects</h2>
+        <div class="p-4 rounded-xl bg-white/4 border border-white/8 mb-4">
+          <h3 class="font-semibold">Kaizen Monitoring System</h3>
+          <p class="mt-2 text-sm text-slate-300">Real-time tracking and analytics for continuous improvement initiatives.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-white/4 border border-white/8">
+          <h3 class="font-semibold">Leave Management System</h3>
+          <p class="mt-2 text-sm text-slate-300">Scalable, role-based leave management with notification workflows.</p>
+        </div>
+      </div>
+      <div class="glass-card p-6" id="contact">
+        <h2 class="text-lg font-semibold mb-3">Contact</h2>
+        <p class="text-sm text-slate-300">Feel free to get in touch — I reply quickly to emails.</p>
+        <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <a class="glass-btn" href="mailto:vharshakumar6143@gmail.com">Email</a>
+          <a class="glass-btn" href="tel:+916304245658">Call</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="max-w-5xl mx-auto mt-10 text-center text-slate-400 text-sm">
+    Built with ♥ • Harsha Kumar Veelu • <span id="year"></span>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
