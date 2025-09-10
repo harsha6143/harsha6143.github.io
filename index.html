@@ -1,28 +1,31 @@
-<!-- Harsha Kumar Portfolio - Modern Glassmorphism with Abstract Background -->
+<!-- 🌐 Harsha Kumar Portfolio - Modern Glassmorphism with Abstract Background -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Harsha Kumar Veelu - Portfolio</title>
+
+  <!-- ✅ TailwindCSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    /* ----------------- Glass Effect ----------------- */
-    .glass-card{
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      backdrop-filter: blur(12px) saturate(140%);
+    /* ----------------- 🎨 Glass Effect (Card Styling) ----------------- */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.06); /* Transparent white overlay */
+      border: 1px solid rgba(255, 255, 255, 0.12); /* Light border */
+      backdrop-filter: blur(12px) saturate(140%); /* Blur effect */
       -webkit-backdrop-filter: blur(12px) saturate(140%);
       border-radius: 18px;
       transition: transform .3s ease, box-shadow .3s ease;
     }
-    .glass-card:hover{
-      transform: translateY(-4px);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    .glass-card:hover {
+      transform: translateY(-4px); /* Slight hover lift */
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4); /* Shadow on hover */
     }
 
-    /* ----------------- Glass Button ----------------- */
-    .glass-btn{
+    /* ----------------- 🎨 Glass Button ----------------- */
+    .glass-btn {
       display: inline-flex;
       align-items: center;
       gap: .5rem;
@@ -37,71 +40,85 @@
       color: #f1f5f9;
       transition: background .3s ease, transform .2s ease;
     }
-    .glass-btn:hover{
+    .glass-btn:hover {
       background: rgba(255,255,255,0.15);
-      transform: scale(1.03);
+      transform: scale(1.03); /* Slight zoom */
     }
 
-    /* ----------------- Animated Abstract Blobs ----------------- */
+    /* ----------------- 🌀 Animated Abstract Blobs ----------------- */
     @keyframes blob {
-      0%{ transform: translate(0px,0px) scale(1); }
-      33%{ transform: translate(25px,-15px) scale(1.05); }
-      66%{ transform: translate(-20px,20px) scale(0.95); }
-      100%{ transform: translate(0px,0px) scale(1); }
+      0% { transform: translate(0px,0px) scale(1); }
+      33% { transform: translate(25px,-15px) scale(1.05); }
+      66% { transform: translate(-20px,20px) scale(0.95); }
+      100% { transform: translate(0px,0px) scale(1); }
     }
-    .animate-blob{ animation: blob 9s infinite ease-in-out; }
-    .animation-delay-2000{ animation-delay: 2s; }
-    .animation-delay-4000{ animation-delay: 4s; }
+    .animate-blob { animation: blob 9s infinite ease-in-out; }
+    .animation-delay-2000 { animation-delay: 2s; }
+    .animation-delay-4000 { animation-delay: 4s; }
   </style>
 </head>
+
 <body class="min-h-screen bg-gradient-to-b from-[#0a0f1e] via-[#0d162a] to-[#0b0f1d] text-slate-100 p-6 md:p-12 font-sans">
 
-  <!-- ----------------- Abstract Purple + Dark Blue Background (Dimmed) ----------------- -->
-<div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-black">
-  <!-- Large Purple / Indigo Blob -->
-  <div class="absolute -left-40 -top-40 w-[36rem] h-[36rem] rounded-full opacity-25 blur-3xl bg-gradient-to-tr from-purple-900 via-indigo-800 to-blue-900 animate-blob"></div>
-  
-  <!-- Mid Purple Blob (center-right) -->
-  <div class="absolute right-40 top-1/4 w-[28rem] h-[28rem] rounded-full opacity-20 blur-3xl bg-gradient-to-br from-purple-800 via-indigo-900 to-blue-950 animate-blob animation-delay-2000"></div>
-  
-  <!-- Bottom Purple / Dark Blue Blob -->
-  <div class="absolute left-1/3 bottom-10 w-[30rem] h-[30rem] rounded-full opacity-20 blur-3xl bg-gradient-to-bl from-indigo-900 via-purple-800 to-blue-950 animate-blob animation-delay-4000"></div>
-  
-  <!-- Extra Deep Blue Blob -->
-  <div class="absolute right-1/4 bottom-20 w-[24rem] h-[24rem] rounded-full opacity-15 blur-3xl bg-gradient-to-tr from-blue-950 via-indigo-900 to-purple-900 animate-blob animation-delay-6000"></div>
-</div>
+  <!-- 🌌 Animated Background Blobs -->
+  <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-black">
+    <!-- Top Left Blob -->
+    <div class="absolute -left-40 -top-40 w-[36rem] h-[36rem] rounded-full 
+                opacity-25 blur-3xl bg-gradient-to-tr 
+                from-purple-900 via-indigo-800 to-blue-900 animate-blob"></div>
+    
+    <!-- Right Middle Blob -->
+    <div class="absolute right-40 top-1/4 w-[28rem] h-[28rem] rounded-full 
+                opacity-20 blur-3xl bg-gradient-to-br 
+                from-purple-800 via-indigo-900 to-blue-950 animate-blob animation-delay-2000"></div>
+    
+    <!-- Bottom Center Blob -->
+    <div class="absolute left-1/3 bottom-10 w-[30rem] h-[30rem] rounded-full 
+                opacity-20 blur-3xl bg-gradient-to-bl 
+                from-indigo-900 via-purple-800 to-blue-950 animate-blob animation-delay-4000"></div>
+    
+    <!-- Bottom Right Blob -->
+    <div class="absolute right-1/4 bottom-20 w-[24rem] h-[24rem] rounded-full 
+                opacity-15 blur-3xl bg-gradient-to-tr 
+                from-blue-950 via-indigo-900 to-purple-900 animate-blob"></div>
+  </div>
 
-  <!-- ----------------- Header Section ----------------- -->
+  <!-- 🔹 Header Section -->
   <header class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
     <!-- Logo + Name -->
     <div class="flex items-center gap-4">
+      <!-- Square Logo Box -->
       <div class="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 shadow-lg flex items-center justify-center">
         <div class="text-xl font-bold">HK</div>
       </div>
+      <!-- Name + Title -->
       <div>
         <h1 class="text-2xl md:text-3xl font-bold">Harsha Kumar Veelu</h1>
         <p class="text-sm text-slate-300">Backend Java Developer @ Tapplent Technologies — Bangalore</p>
       </div>
     </div>
-    <!-- Buttons -->
+
+    <!-- Contact Buttons -->
     <div class="flex gap-3">
       <a href="mailto:vharshakumar6143@gmail.com" class="glass-btn">Email</a>
       <a href="#contact" class="glass-btn">Contact</a>
     </div>
   </header>
 
-  <!-- ----------------- Main Content ----------------- -->
+  <!-- 🔹 Main Content Area -->
   <main class="max-w-5xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
 
-    <!-- -------- Left Column -------- -->
+    <!-- 📌 Left Column -->
     <section class="space-y-6">
+      
       <!-- About -->
       <div class="glass-card p-6">
         <h2 class="text-lg font-semibold mb-2">About</h2>
         <div class="p-4 rounded-xl bg-white/5 border border-white/10 mb-4 hover:scale-[1.02] transition">
-        <p class="text-sm text-slate-300 leading-relaxed">
-          I am a Backend Java Developer with expertise in building scalable RESTful APIs, microservices, and performant SQL databases. Passionate about designing robust systems and delivering clean, efficient code.
-        </p>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            I am a Backend Java Developer with expertise in building scalable RESTful APIs, microservices, 
+            and performant SQL databases. Passionate about designing robust systems and delivering clean, efficient code.
+          </p>
         </div>
       </div>
 
@@ -118,6 +135,7 @@
       <div class="glass-card p-6">
         <h2 class="text-lg font-semibold mb-3">Skills</h2>
         <div class="flex flex-wrap gap-2 text-sm">
+          <!-- Each skill inside a pill -->
           <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Java</span>
           <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Spring Boot</span>
           <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Hibernate</span>
@@ -130,20 +148,31 @@
       </div>
     </section>
 
-    <!-- -------- Right Column (2/3 width) -------- -->
+    <!-- 📌 Right Column (2/3 width) -->
     <section class="md:col-span-2 space-y-6">
+
       <!-- Experience -->
-      <div class="glass-card p-6">
+      <div class="glass-card p-6 relative">
         <h2 class="text-xl font-semibold mb-4">Experience</h2>
-            <div class="p-4 rounded-xl bg-white/5 border border-white/10 mb-4 hover:scale-[1.02] transition">
-        <p class="text-sm text-slate-300 mt-2">Tapplent Technologies — Backend Java Developer (2024 - Present)</p>
-        <ul class="mt-4 text-slate-300 text-sm space-y-2 list-disc list-inside">
-          <li>Developed and optimised RESTful APIs using Java, Spring Boot, and Hibernate.</li>
-          <li>Improved MySQL performance with query optimisation and indexing.</li>
-          <li>Built and deployed microservices for scalable enterprise applications.</li>
-          <li>Automated builds with Maven and reduced bugs via peer code reviews.</li>
-          <li>Collaborated in Agile sprints with cross-functional teams.</li>
-        </ul>
+        
+        <!-- Experience Card -->
+        <div class="p-4 rounded-xl bg-white/5 border border-white/10 mb-4 hover:scale-[1.02] transition relative">
+          <!-- Badge showing duration -->
+          <span class="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-sm text-slate-200">
+            2 Years
+          </span>
+
+          <h3 class="font-semibold">Tapplent Technologies</h3>
+          <p class="text-sm text-slate-300 mt-2">Backend Java Developer (2024 - Present)</p>
+          
+          <!-- Work responsibilities -->
+          <ul class="mt-4 text-slate-300 text-sm space-y-2 list-disc list-inside">
+            <li>Developed and optimised RESTful APIs using Java, Spring Boot, and Hibernate.</li>
+            <li>Improved MySQL performance with query optimisation and indexing.</li>
+            <li>Built and deployed microservices for scalable enterprise applications.</li>
+            <li>Automated builds with Maven and reduced bugs via peer code reviews.</li>
+            <li>Collaborated in Agile sprints with cross-functional teams.</li>
+          </ul>
         </div>
       </div>
 
@@ -166,24 +195,20 @@
         <div class="space-y-4">
           <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:scale-[1.02] transition">
             <h3 class="font-semibold">AWS Certified Cloud Practitioner (Score: 767)</h3>
-            <p class="mt-2 text-sm text-slate-300">aws</p>
           </div>
           <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:scale-[1.02] transition">
             <h3 class="font-semibold">Java J2EE – Wipro TalentNext</h3>
-            <p class="mt-2 text-sm text-slate-300">java</p>
           </div>
           <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:scale-[1.02] transition">
             <h3 class="font-semibold">Python Programming – APSSDC</h3>
-            <p class="mt-2 text-sm text-slate-300">python</p>
           </div>
           <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:scale-[1.02] transition">
             <h3 class="font-semibold">Web Development</h3>
-            <p class="mt-2 text-sm text-slate-300">web</p>
           </div>
         </div>
       </div>
 
-      <!-- Contact -->
+      <!-- Contact Section -->
       <div class="glass-card p-6" id="contact">
         <h2 class="text-lg font-semibold mb-3">Contact</h2>
         <p class="text-sm text-slate-300">I’m open to new opportunities and collaborations — feel free to reach out.</p>
@@ -195,14 +220,15 @@
     </section>
   </main>
 
-  <!-- ----------------- Footer ----------------- -->
+  <!-- 🔹 Footer -->
   <footer class="max-w-5xl mx-auto mt-10 text-center text-slate-400 text-sm">
     Built with ♥ • Harsha Kumar Veelu • <span id="year"></span>
   </footer>
 
-  <!-- Auto Year Update -->
+  <!-- 📅 Auto Year Update -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
