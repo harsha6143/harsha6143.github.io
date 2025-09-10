@@ -56,12 +56,20 @@
 </head>
 <body class="min-h-screen bg-gradient-to-b from-[#0a0f1e] via-[#0d162a] to-[#0b0f1d] text-slate-100 p-6 md:p-12 font-sans">
 
-  <!-- ----------------- Abstract Background ----------------- -->
-  <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-    <div class="absolute -left-40 -top-40 w-96 h-96 rounded-full opacity-20 blur-3xl bg-gradient-to-tr from-purple-500 via-indigo-400 to-blue-400 animate-blob"></div>
-    <div class="absolute right-20 top-32 w-72 h-72 rounded-full opacity-15 blur-3xl bg-gradient-to-br from-cyan-400 via-emerald-400 to-teal-500 animate-blob animation-delay-2000"></div>
-    <div class="absolute left-1/3 bottom-10 w-80 h-80 rounded-full opacity-10 blur-3xl bg-gradient-to-bl from-pink-400 via-rose-500 to-orange-400 animate-blob animation-delay-4000"></div>
-  </div>
+  <!-- ----------------- Abstract Purple + Dark Blue Background (Dimmed) ----------------- -->
+<div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-black">
+  <!-- Large Purple / Indigo Blob -->
+  <div class="absolute -left-40 -top-40 w-[36rem] h-[36rem] rounded-full opacity-25 blur-3xl bg-gradient-to-tr from-purple-900 via-indigo-800 to-blue-900 animate-blob"></div>
+  
+  <!-- Mid Purple Blob (center-right) -->
+  <div class="absolute right-40 top-1/4 w-[28rem] h-[28rem] rounded-full opacity-20 blur-3xl bg-gradient-to-br from-purple-800 via-indigo-900 to-blue-950 animate-blob animation-delay-2000"></div>
+  
+  <!-- Bottom Purple / Dark Blue Blob -->
+  <div class="absolute left-1/3 bottom-10 w-[30rem] h-[30rem] rounded-full opacity-20 blur-3xl bg-gradient-to-bl from-indigo-900 via-purple-800 to-blue-950 animate-blob animation-delay-4000"></div>
+  
+  <!-- Extra Deep Blue Blob -->
+  <div class="absolute right-1/4 bottom-20 w-[24rem] h-[24rem] rounded-full opacity-15 blur-3xl bg-gradient-to-tr from-blue-950 via-indigo-900 to-purple-900 animate-blob animation-delay-6000"></div>
+</div>
 
   <!-- ----------------- Header Section ----------------- -->
   <header class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
