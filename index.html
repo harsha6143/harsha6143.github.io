@@ -10,21 +10,21 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    /* ----------------- 🎨 Glass Effect (Card Styling) ----------------- */
+    /* 🎨 Glass Effect (Card Styling) */
     .glass-card {
-      background: rgba(255, 255, 255, 0.06); /* Transparent white overlay */
-      border: 1px solid rgba(255, 255, 255, 0.12); /* Light border */
-      backdrop-filter: blur(12px) saturate(140%); /* Blur effect */
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px) saturate(140%);
       -webkit-backdrop-filter: blur(12px) saturate(140%);
       border-radius: 18px;
       transition: transform .3s ease, box-shadow .3s ease;
     }
     .glass-card:hover {
-      transform: translateY(-4px); /* Slight hover lift */
-      box-shadow: 0 10px 40px rgba(0,0,0,0.4); /* Shadow on hover */
+      transform: translateY(-4px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
     }
 
-    /* ----------------- 🎨 Glass Button ----------------- */
+    /* 🎨 Glass Button */
     .glass-btn {
       display: inline-flex;
       align-items: center;
@@ -36,16 +36,15 @@
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.14);
       backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
       color: #f1f5f9;
       transition: background .3s ease, transform .2s ease;
     }
     .glass-btn:hover {
       background: rgba(255,255,255,0.15);
-      transform: scale(1.03); /* Slight zoom */
+      transform: scale(1.03);
     }
 
-    /* ----------------- 🌀 Animated Abstract Blobs ----------------- */
+    /* 🌀 Abstract Blobs Animation */
     @keyframes blob {
       0% { transform: translate(0px,0px) scale(1); }
       33% { transform: translate(25px,-15px) scale(1.05); }
@@ -62,62 +61,42 @@
 
   <!-- 🌌 Animated Background Blobs -->
   <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-black">
-    <!-- Top Left Blob -->
-    <div class="absolute -left-40 -top-40 w-[36rem] h-[36rem] rounded-full 
-                opacity-25 blur-3xl bg-gradient-to-tr 
-                from-purple-900 via-indigo-800 to-blue-900 animate-blob"></div>
-    
-    <!-- Right Middle Blob -->
-    <div class="absolute right-40 top-1/4 w-[28rem] h-[28rem] rounded-full 
-                opacity-20 blur-3xl bg-gradient-to-br 
-                from-purple-800 via-indigo-900 to-blue-950 animate-blob animation-delay-2000"></div>
-    
-    <!-- Bottom Center Blob -->
-    <div class="absolute left-1/3 bottom-10 w-[30rem] h-[30rem] rounded-full 
-                opacity-20 blur-3xl bg-gradient-to-bl 
-                from-indigo-900 via-purple-800 to-blue-950 animate-blob animation-delay-4000"></div>
-    
-    <!-- Bottom Right Blob -->
-    <div class="absolute right-1/4 bottom-20 w-[24rem] h-[24rem] rounded-full 
-                opacity-15 blur-3xl bg-gradient-to-tr 
-                from-blue-950 via-indigo-900 to-purple-900 animate-blob"></div>
+    <div class="absolute -left-40 -top-40 w-[36rem] h-[36rem] rounded-full opacity-25 blur-3xl bg-gradient-to-tr from-purple-900 via-indigo-800 to-blue-900 animate-blob"></div>
+    <div class="absolute right-40 top-1/4 w-[28rem] h-[28rem] rounded-full opacity-20 blur-3xl bg-gradient-to-br from-purple-800 via-indigo-900 to-blue-950 animate-blob animation-delay-2000"></div>
+    <div class="absolute left-1/3 bottom-10 w-[30rem] h-[30rem] rounded-full opacity-20 blur-3xl bg-gradient-to-bl from-indigo-900 via-purple-800 to-blue-950 animate-blob animation-delay-4000"></div>
+    <div class="absolute right-1/4 bottom-20 w-[24rem] h-[24rem] rounded-full opacity-15 blur-3xl bg-gradient-to-tr from-blue-950 via-indigo-900 to-purple-900 animate-blob"></div>
   </div>
 
-  <!-- 🔹 Header Section -->
+  <!-- 🔹 Header -->
   <header class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-    <!-- Logo + Name -->
     <div class="flex items-center gap-4">
-      <!-- Square Logo Box -->
       <div class="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 shadow-lg flex items-center justify-center">
         <div class="text-xl font-bold">HK</div>
       </div>
-      <!-- Name + Title -->
       <div>
         <h1 class="text-2xl md:text-3xl font-bold">Harsha Kumar Veelu</h1>
         <p class="text-sm text-slate-300">Backend Java Developer @ Tapplent Technologies — Bangalore</p>
       </div>
     </div>
-
-    <!-- Contact Buttons -->
     <div class="flex gap-3">
       <a href="mailto:vharshakumar6143@gmail.com" class="glass-btn">Email</a>
       <a href="#contact" class="glass-btn">Contact</a>
+      <a href="https://github.com/harsha6143" target="_blank" class="glass-btn">GitHub</a>
     </div>
   </header>
 
-  <!-- 🔹 Main Content Area -->
+  <!-- 🔹 Main -->
   <main class="max-w-5xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
 
     <!-- 📌 Left Column -->
     <section class="space-y-6">
-      
       <!-- About -->
       <div class="glass-card p-6">
         <h2 class="text-lg font-semibold mb-2">About</h2>
-        <div class="p-4 rounded-xl bg-white/5 border border-white/10 mb-4 hover:scale-[1.02] transition">
+        <div class="p-4 rounded-xl bg-white/5 border border-white/10 mb-4">
           <p class="text-sm text-slate-300 leading-relaxed">
-            I am a Backend Java Developer with expertise in building scalable RESTful APIs, microservices, 
-            and performant SQL databases. Passionate about designing robust systems and delivering clean, efficient code.
+            I’m a Backend Java Developer with 1.5+ years of experience in designing and developing RESTful APIs,
+            microservices, and optimized database systems. Passionate about clean code, performance tuning, and building scalable enterprise software.
           </p>
         </div>
       </div>
@@ -125,9 +104,9 @@
       <!-- Education -->
       <div class="glass-card p-6">
         <h2 class="text-xl font-semibold mb-4">Education</h2>
-        <div class="p-4 rounded-xl bg-white/5 border border-white/10 mb-4 hover:scale-[1.02] transition">
+        <div class="p-4 rounded-xl bg-white/5 border border-white/10">
           <h3 class="font-semibold">Aditya College of Engineering and Technology</h3>
-          <p class="mt-2 text-sm text-slate-300">ECE (2019-2023) GPA : 7.75</p>
+          <p class="mt-2 text-sm text-slate-300">B.Tech in Electronics & Communication (2019–2023) — GPA: 7.57</p>
         </div>
       </div>
 
@@ -135,43 +114,37 @@
       <div class="glass-card p-6">
         <h2 class="text-lg font-semibold mb-3">Skills</h2>
         <div class="flex flex-wrap gap-2 text-sm">
-          <!-- Each skill inside a pill -->
           <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Java</span>
           <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Spring Boot</span>
+          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Spring Cloud</span>
+          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Spring Security</span>
           <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Hibernate</span>
           <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">SQL / MySQL</span>
+          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Redis</span>
           <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Docker</span>
-          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Git</span>
+          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Kubernetes</span>
+          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Jenkins</span>
+          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Maven</span>
+          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Grafana</span>
           <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">REST APIs</span>
-          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Python</span>
         </div>
       </div>
     </section>
 
-    <!-- 📌 Right Column (2/3 width) -->
+    <!-- 📌 Right Column -->
     <section class="md:col-span-2 space-y-6">
-
       <!-- Experience -->
       <div class="glass-card p-6 relative">
         <h2 class="text-xl font-semibold mb-4">Experience</h2>
-        
-        <!-- Experience Card -->
-        <div class="p-4 rounded-xl bg-white/5 border border-white/10 mb-4 hover:scale-[1.02] transition relative">
-          <!-- Badge showing duration -->
-          <span class="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-sm text-slate-200">
-            2 Years
-          </span>
-
-          <h3 class="font-semibold">Tapplent Technologies</h3>
-          <p class="text-sm text-slate-300 mt-2">Backend Java Developer (2024 - Present)</p>
-          
-          <!-- Work responsibilities -->
-          <ul class="mt-4 text-slate-300 text-sm space-y-2 list-disc list-inside">
-            <li>Developed and optimised RESTful APIs using Java, Spring Boot, and Hibernate.</li>
-            <li>Improved MySQL performance with query optimisation and indexing.</li>
-            <li>Built and deployed microservices for scalable enterprise applications.</li>
-            <li>Automated builds with Maven and reduced bugs via peer code reviews.</li>
-            <li>Collaborated in Agile sprints with cross-functional teams.</li>
+        <div class="p-4 rounded-xl bg-white/5 border border-white/10 mb-4">
+          <h3 class="font-semibold">Backend Java Developer — Tapplent Technologies</h3>
+          <p class="text-sm text-slate-300 mt-1">Mar 2023 – Present | Bangalore, India</p>
+          <ul class="mt-3 text-slate-300 text-sm list-disc list-inside space-y-2">
+            <li>Designed and developed RESTful APIs and business logic using Java and Spring Boot.</li>
+            <li>Refactored monolithic architecture to microservices with Spring Cloud and Docker.</li>
+            <li>Improved performance by optimizing queries and adding Redis caching.</li>
+            <li>Resolved security vulnerabilities to ensure compliance and robustness.</li>
+            <li>Implemented analytics dashboards and automation with SQL and Spring Boot.</li>
           </ul>
         </div>
       </div>
@@ -179,40 +152,52 @@
       <!-- Projects -->
       <div class="glass-card p-6">
         <h2 class="text-xl font-semibold mb-4">Projects</h2>
-        <div class="p-4 rounded-xl bg-white/5 border border-white/10 mb-4 hover:scale-[1.02] transition">
-          <h3 class="font-semibold">Kaizen Monitoring System</h3>
-          <p class="mt-2 text-sm text-slate-300">Real-time tracking and analytics platform for continuous improvement initiatives with data-driven dashboards.</p>
-        </div>
-        <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:scale-[1.02] transition">
-          <h3 class="font-semibold">Leave Management System</h3>
-          <p class="mt-2 text-sm text-slate-300">Role-based leave management system with approval workflows, email notifications, and calendar integration.</p>
+        <div class="space-y-4">
+          <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+            <h3 class="font-semibold">Kaizen Monitoring System</h3>
+            <p class="mt-2 text-sm text-slate-300">Developed a system to track and analyze continuous improvement (Kaizen) initiatives with real-time dashboards. <br><strong>Tech:</strong> Java, Spring Boot, Hibernate, SQL</p>
+          </div>
+          <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+            <h3 class="font-semibold">Leave Management System</h3>
+            <p class="mt-2 text-sm text-slate-300">Built a secure leave management system with RBAC, approval workflows, and automation. <br><strong>Tech:</strong> Java, Spring Boot, MySQL, Spring Security</p>
+          </div>
+          <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+            <h3 class="font-semibold">Reports & Dashboards</h3>
+            <p class="mt-2 text-sm text-slate-300">Real-time analytics dashboards with data caching using Redis. <br><strong>Tech:</strong> Spring Boot, SQL, Redis</p>
+          </div>
+          <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+            <h3 class="font-semibold">Microservices Migration Initiative</h3>
+            <p class="mt-2 text-sm text-slate-300">Migrated monolithic modules to microservices, improving scalability and response time by 30%. <br><strong>Tech:</strong> Spring Cloud, Docker, Jenkins</p>
+          </div>
         </div>
       </div>
 
       <!-- Certifications -->
       <div class="glass-card p-6">
         <h2 class="text-xl font-semibold mb-4">Certifications</h2>
-        <div class="space-y-4">
-          <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:scale-[1.02] transition">
-            <h3 class="font-semibold">AWS Certified Cloud Practitioner (Score: 767)</h3>
-          </div>
-          <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:scale-[1.02] transition">
-            <h3 class="font-semibold">Java J2EE – Wipro TalentNext</h3>
-          </div>
-          <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:scale-[1.02] transition">
-            <h3 class="font-semibold">Python Programming – APSSDC</h3>
-          </div>
-          <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:scale-[1.02] transition">
-            <h3 class="font-semibold">Web Development</h3>
-          </div>
-        </div>
+        <ul class="space-y-3 text-sm text-slate-300">
+          <li>✅ Java J2EE – Wipro TalentNext</li>
+          <li>✅ AWS Certified Cloud Practitioner – Amazon</li>
+          <li>✅ Web Development – Internshala</li>
+          <li>✅ Python Programming – APSSDC</li>
+        </ul>
       </div>
 
-      <!-- Contact Section -->
+      <!-- Achievements -->
+      <div class="glass-card p-6">
+        <h2 class="text-xl font-semibold mb-4">Achievements</h2>
+        <ul class="list-disc list-inside text-sm text-slate-300 space-y-2">
+          <li>Delivered Leave Management module within 2 months.</li>
+          <li>Improved system performance by 30% using query optimization and caching.</li>
+          <li>Resolved multiple security vulnerabilities ensuring compliance and stability.</li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
       <div class="glass-card p-6" id="contact">
         <h2 class="text-lg font-semibold mb-3">Contact</h2>
-        <p class="text-sm text-slate-300">I’m open to new opportunities and collaborations — feel free to reach out.</p>
-        <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <p class="text-sm text-slate-300 mb-3">I’m open to new opportunities and collaborations — feel free to connect!</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <a class="glass-btn" href="mailto:vharshakumar6143@gmail.com">📧 Email</a>
           <a class="glass-btn" href="tel:+916304245658">📞 Call</a>
         </div>
@@ -222,13 +207,11 @@
 
   <!-- 🔹 Footer -->
   <footer class="max-w-5xl mx-auto mt-10 text-center text-slate-400 text-sm">
-    Built with ♥ • Harsha Kumar Veelu • <span id="year"></span>
+    © <span id="year"></span> • Built by Harsha Kumar Veelu • Backend Developer
   </footer>
 
-  <!-- 📅 Auto Year Update -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
