@@ -1,217 +1,296 @@
-<!-- 🌐 Harsha Kumar Portfolio - Modern Glassmorphism with Abstract Background -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Harsha Kumar Veelu - Portfolio</title>
-
-  <!-- ✅ TailwindCSS CDN -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harsha Kumar | Backend Java Engineer</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* 🎨 Glass Effect (Card Styling) */
-    .glass-card {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(12px) saturate(140%);
-      -webkit-backdrop-filter: blur(12px) saturate(140%);
-      border-radius: 18px;
-      transition: transform .3s ease, box-shadow .3s ease;
+    body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+    .fade-up { animation: fadeUp 1s ease forwards; }
+    .fade-delay-1 { animation-delay: .2s; }
+    .fade-delay-2 { animation-delay: .4s; }
+    .fade-delay-3 { animation-delay: .6s; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    .glass-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    .glass {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.12);
     }
+  
+/* Background animated gradient */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  background: radial-gradient(circle at 20% 20%, rgba(99,102,241,0.15), transparent 40%),
+              radial-gradient(circle at 80% 30%, rgba(16,185,129,0.15), transparent 40%),
+              radial-gradient(circle at 50% 80%, rgba(236,72,153,0.15), transparent 40%);
+  animation: floatBg 20s ease-in-out infinite alternate;
+  z-index: -1;
+}
 
-    /* 🎨 Glass Button */
-    .glass-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      padding: .6rem 1.1rem;
-      border-radius: 12px;
-      font-size: .9rem;
-      font-weight: 500;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.14);
-      backdrop-filter: blur(8px);
-      color: #f1f5f9;
-      transition: background .3s ease, transform .2s ease;
-    }
-    .glass-btn:hover {
-      background: rgba(255,255,255,0.15);
-      transform: scale(1.03);
-    }
+@keyframes floatBg {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(40px) translateX(-40px); }
+}
 
-    /* 🌀 Abstract Blobs Animation */
-    @keyframes blob {
-      0% { transform: translate(0px,0px) scale(1); }
-      33% { transform: translate(25px,-15px) scale(1.05); }
-      66% { transform: translate(-20px,20px) scale(0.95); }
-      100% { transform: translate(0px,0px) scale(1); }
-    }
-    .animate-blob { animation: blob 9s infinite ease-in-out; }
-    .animation-delay-2000 { animation-delay: 2s; }
-    .animation-delay-4000 { animation-delay: 4s; }
-  </style>
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  header h1 { font-size: 2rem; }
+  section { padding: 1.5rem; }
+  .grid { grid-template-columns: 1fr; }
+}
+
+/* Glassy slow scroll animations */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(0px);
+}
+
+.animate-on-scroll.reveal {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  backdrop-filter: blur(8px);
+}
+
+/* Slow parallax feel */
+section {
+  will-change: transform;
+}
+</style>
 </head>
+<body class="bg-gradient-to-br from-gray-950 via-gray-900 to-black text-gray-100 overflow-x-hidden">
 
-<body class="min-h-screen bg-gradient-to-b from-[#0a0f1e] via-[#0d162a] to-[#0b0f1d] text-slate-100 p-6 md:p-12 font-sans">
+<!-- BACKGROUND ANIMATION -->
+<div class="fixed inset-0 -z-10 overflow-hidden">
+  <div class="absolute -top-32 -left-32 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl animate-pulse"></div>
+  <div class="absolute top-1/3 -right-40 w-[30rem] h-[30rem] bg-purple-600/20 rounded-full blur-3xl animate-pulse"></div>
+  <div class="absolute bottom-0 left-1/4 w-[28rem] h-[28rem] bg-blue-600/10 rounded-full blur-3xl animate-pulse"></div>
+</div>
 
-  <!-- 🌌 Animated Background Blobs -->
-  <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-black">
-    <div class="absolute -left-40 -top-40 w-[36rem] h-[36rem] rounded-full opacity-25 blur-3xl bg-gradient-to-tr from-purple-900 via-indigo-800 to-blue-900 animate-blob"></div>
-    <div class="absolute right-40 top-1/4 w-[28rem] h-[28rem] rounded-full opacity-20 blur-3xl bg-gradient-to-br from-purple-800 via-indigo-900 to-blue-950 animate-blob animation-delay-2000"></div>
-    <div class="absolute left-1/3 bottom-10 w-[30rem] h-[30rem] rounded-full opacity-20 blur-3xl bg-gradient-to-bl from-indigo-900 via-purple-800 to-blue-950 animate-blob animation-delay-4000"></div>
-    <div class="absolute right-1/4 bottom-20 w-[24rem] h-[24rem] rounded-full opacity-15 blur-3xl bg-gradient-to-tr from-blue-950 via-indigo-900 to-purple-900 animate-blob"></div>
+<!-- NAVBAR -->
+<nav class="fixed top-0 w-full z-50 glass backdrop-blur-xl">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <span class="font-bold text-lg">Harsha Kumar</span>
+    <div class="space-x-6 text-sm text-gray-300">
+      <a href="#about" class="hover:text-white">About</a>
+      <a href="#skills" class="hover:text-white">Skills</a>
+      <a href="#architecture" class="hover:text-white">Design</a>
+      <a href="#projects" class="hover:text-white">Projects</a>
+      <a href="#impact" class="hover:text-white">Impact</a>
+      <a href="#contact" class="hover:text-white">Contact</a>
+    </div>
   </div>
+</nav>
 
-  <!-- 🔹 Header -->
-  <header class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-    <div class="flex items-center gap-4">
-      <div class="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 shadow-lg flex items-center justify-center">
-        <div class="text-xl font-bold">HK</div>
+<!-- HERO -->
+<section class="min-h-screen flex flex-col justify-center items-center text-center px-4 sm:px-6">
+  <h1 class="text-5xl md:text-6xl font-bold fade-up">Backend Java Engineer</h1>
+  <p class="mt-4 text-xl text-gray-400 fade-up fade-delay-1">Designing scalable, secure, production-grade systems</p>
+  <p class="mt-6 max-w-2xl text-gray-500 fade-up fade-delay-2">
+    2+ years experience building enterprise HR platforms using Java, Spring Boot, Microservices,
+    Redis caching, and secure API design. Focused on performance, reliability, and clean architecture.
+  </p>
+  <div class="mt-8 flex gap-4 fade-up fade-delay-3">
+    <a href="#projects" class="px-6 py-3 bg-indigo-600 rounded-2xl hover:bg-indigo-500 transition">View Projects</a>
+    <a href="https://github.com/harsha6143" target="_blank" class="px-6 py-3 border border-gray-600 rounded-2xl hover:bg-gray-800 transition">GitHub</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="max-w-6xl mx-auto px-4 sm:px-6 py-24 sm:py-28">
+  <h2 class="text-3xl font-semibold mb-8">About Me</h2>
+  <div class="glass p-10 rounded-3xl">
+    <p class="text-gray-400 leading-relaxed">
+      I am a Backend Java Engineer currently working at Tapplent Technologies, building
+      large-scale HR and employee management systems used by thousands of users.
+      My work focuses on backend architecture, API design, database optimization,
+      security hardening, and system scalability.
+    </p>
+    <p class="mt-4 text-gray-400 leading-relaxed">
+      I have hands-on experience migrating monolithic applications to microservices,
+      implementing Redis caching for high-traffic APIs, securing systems with Spring Security + JWT,
+      and optimizing SQL queries to significantly reduce response times.
+    </p>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="relative py-24 sm:py-28 overflow-hidden">
+  <!-- animated smoke background -->
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute -top-24 left-10 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute top-1/3 -right-24 w-[28rem] h-[28rem] bg-purple-600/25 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-0 left-1/3 w-[30rem] h-[30rem] bg-indigo-600/20 rounded-full blur-3xl animate-pulse"></div>
+  </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+<section id="skills" class="relative py-24 sm:py-28 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl font-semibold mb-12">Technical Skills</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="glass p-6 rounded-2xl">Java (Core, Collections, Concurrency)</div>
+      <div class="glass p-6 rounded-2xl">Spring Boot / MVC</div>
+      <div class="glass p-6 rounded-2xl">Spring Security (JWT, RBAC)</div>
+      <div class="glass p-6 rounded-2xl">Spring Cloud (Microservices)</div>
+      <div class="glass p-6 rounded-2xl">MySQL (Indexing, Optimization)</div>
+      <div class="glass p-6 rounded-2xl">Redis (Caching, TTL, Eviction)</div>
+      <div class="glass p-6 rounded-2xl">Docker & CI/CD</div>
+      <div class="glass p-6 rounded-2xl">AWS (Foundational)</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SYSTEM DESIGN -->
+<section id="architecture" class="max-w-7xl mx-auto px-4 sm:px-6 py-24 sm:py-28">
+  <h2 class="text-3xl font-semibold mb-12">System Design & Architecture</h2>
+
+  <div class="grid md:grid-cols-2 gap-10">
+
+    <div class="glass p-8 rounded-3xl">
+      <h3 class="text-xl font-semibold mb-4">Backend API Architecture</h3>
+      <ul class="text-gray-400 text-sm space-y-2">
+        <li>• Client → API Gateway → Auth Filter (JWT)</li>
+        <li>• Controller → Service → Repository layering</li>
+        <li>• Global exception handling & validation</li>
+        <li>• DTO mapping & response standardization</li>
+      </ul>
+      <p class="mt-4 text-indigo-400 text-sm">Goal: Maintainability, testability, clarity</p>
+    </div>
+
+    <div class="glass p-8 rounded-3xl">
+      <h3 class="text-xl font-semibold mb-4">Caching Strategy (Redis)</h3>
+      <ul class="text-gray-400 text-sm space-y-2">
+        <li>• Cache-aside pattern for read-heavy APIs</li>
+        <li>• TTL-based expiry to avoid stale data</li>
+        <li>• Cache eviction on write operations</li>
+        <li>• Reduced DB load for high-frequency endpoints</li>
+      </ul>
+      <p class="mt-4 text-indigo-400 text-sm">Impact: ~30% faster API response</p>
+    </div>
+
+    <div class="glass p-8 rounded-3xl">
+      <h3 class="text-xl font-semibold mb-4">Microservices Design</h3>
+      <ul class="text-gray-400 text-sm space-y-2">
+        <li>• Service-based decomposition from monolith</li>
+        <li>• Independent service databases</li>
+        <li>• Spring Cloud for service management</li>
+        <li>• Dockerized deployment pipelines</li>
+      </ul>
+      <p class="mt-4 text-indigo-400 text-sm">Benefit: Independent scaling & faster releases</p>
+    </div>
+
+    <div class="glass p-8 rounded-3xl">
+      <h3 class="text-xl font-semibold mb-4">Security Architecture</h3>
+      <ul class="text-gray-400 text-sm space-y-2">
+        <li>• Spring Security filter chain</li>
+        <li>• JWT authentication & authorization</li>
+        <li>• Role-Based Access Control (RBAC)</li>
+        <li>• Input validation & audit logging</li>
+      </ul>
+      <p class="mt-4 text-indigo-400 text-sm">Principle: Secure-by-default</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="max-w-7xl mx-auto px-4 sm:px-6 py-24 sm:py-28">
+  <h2 class="text-3xl font-semibold mb-12">Production Projects</h2>
+  <div class="grid md:grid-cols-2 gap-10">
+
+    <div class="glass p-8 rounded-3xl">
+      <h3 class="text-xl font-semibold">Kaizen Monitoring System</h3>
+      <p class="mt-3 text-gray-400">Enterprise system to track continuous improvement initiatives with analytics dashboards.</p>
+      <ul class="mt-4 text-gray-400 text-sm space-y-1">
+        <li>• Designed REST APIs and database schema</li>
+        <li>• Implemented real-time reporting</li>
+        <li>• Optimized SQL queries for large datasets</li>
+      </ul>
+    </div>
+
+    <div class="glass p-8 rounded-3xl">
+      <h3 class="text-xl font-semibold">Leave Management Platform</h3>
+      <p class="mt-3 text-gray-400">Secure RBAC-based leave automation system.</p>
+      <ul class="mt-4 text-gray-400 text-sm space-y-1">
+        <li>• Role-based access control</li>
+        <li>• Approval workflows</li>
+        <li>• Integrated reporting dashboards</li>
+      </ul>
+    </div>
+
+    <div class="glass p-8 rounded-3xl">
+      <h3 class="text-xl font-semibold">Mass Upload Engine</h3>
+      <p class="mt-3 text-gray-400">High-volume batch upload framework for enterprise data.</p>
+      <ul class="mt-4 text-gray-400 text-sm space-y-1">
+        <li>• Batch processing with validation</li>
+        <li>• Error handling & rollback</li>
+        <li>• Performance-optimized inserts</li>
+      </ul>
+    </div>
+
+    <div class="glass p-8 rounded-3xl">
+      <h3 class="text-xl font-semibold">Microservices Migration</h3>
+      <p class="mt-3 text-gray-400">Migrated monolithic services to microservices architecture.</p>
+      <ul class="mt-4 text-gray-400 text-sm space-y-1">
+        <li>• Service decomposition</li>
+        <li>• Docker-based deployments</li>
+        <li>• Reduced deployment coupling</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section id="impact" class="relative py-24 sm:py-28 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-semibold mb-12">Impact & Results</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="glass p-8 rounded-3xl text-center">
+        <p class="text-4xl font-bold text-indigo-400">30%</p>
+        <p class="mt-2 text-gray-400">API Response Time Improvement</p>
       </div>
-      <div>
-        <h1 class="text-2xl md:text-3xl font-bold">Harsha Kumar Veelu</h1>
-        <p class="text-sm text-slate-300">Backend Java Developer @ Tapplent Technologies — Bangalore</p>
+      <div class="glass p-8 rounded-3xl text-center">
+        <p class="text-4xl font-bold text-indigo-400">100k+</p>
+        <p class="mt-2 text-gray-400">Records Processed via Mass Upload</p>
+      </div>
+      <div class="glass p-8 rounded-3xl text-center">
+        <p class="text-4xl font-bold text-indigo-400">0</p>
+        <p class="mt-2 text-gray-400">Critical Security Issues Post-Fix</p>
       </div>
     </div>
-    <div class="flex gap-3">
-      <a href="mailto:vharshakumar6143@gmail.com" class="glass-btn">Email</a>
-      <a href="#contact" class="glass-btn">Contact</a>
-      <a href="https://github.com/harsha6143" target="_blank" class="glass-btn">GitHub</a>
-    </div>
-  </header>
+  </div>
+</section>
 
-  <!-- 🔹 Main -->
-  <main class="max-w-5xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- CONTACT -->
+<section id="contact" class="relative py-24 sm:py-28 overflow-hidden text-center">
+  <h2 class="text-3xl font-semibold">Let's Build Scalable Systems</h2>
+  <p class="mt-4 text-gray-400">📧 vharshakumar6143@gmail.com</p>
+  <p class="text-gray-400">📱 +91 6304245658</p>
+  <p class="mt-6 text-gray-600 text-sm">© 2026 Harsha Kumar Velu</p>
+</section>
 
-    <!-- 📌 Left Column -->
-    <section class="space-y-6">
-      <!-- About -->
-      <div class="glass-card p-6">
-        <h2 class="text-lg font-semibold mb-2">About</h2>
-        <div class="p-4 rounded-xl bg-white/5 border border-white/10 mb-4">
-          <p class="text-sm text-slate-300 leading-relaxed">
-            I’m a Backend Java Developer with 1.5+ years of experience in designing and developing RESTful APIs,
-            microservices, and optimized database systems. Passionate about clean code, performance tuning, and building scalable enterprise software.
-          </p>
-        </div>
-      </div>
 
-      <!-- Education -->
-      <div class="glass-card p-6">
-        <h2 class="text-xl font-semibold mb-4">Education</h2>
-        <div class="p-4 rounded-xl bg-white/5 border border-white/10">
-          <h3 class="font-semibold">Aditya College of Engineering and Technology</h3>
-          <p class="mt-2 text-sm text-slate-300">B.Tech in Electronics & Communication (2019–2023) — GPA: 7.57</p>
-        </div>
-      </div>
+<!-- Scroll Animations -->
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal');
+      }
+    });
+  }, { threshold: 0.15 });
 
-      <!-- Skills -->
-      <div class="glass-card p-6">
-        <h2 class="text-lg font-semibold mb-3">Skills</h2>
-        <div class="flex flex-wrap gap-2 text-sm">
-          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Java</span>
-          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Spring Boot</span>
-          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Spring Cloud</span>
-          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Spring Security</span>
-          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Hibernate</span>
-          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">SQL / MySQL</span>
-          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Redis</span>
-          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Docker</span>
-          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Kubernetes</span>
-          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Jenkins</span>
-          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Maven</span>
-          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">Grafana</span>
-          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20">REST APIs</span>
-        </div>
-      </div>
-    </section>
+  document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+</script>
 
-    <!-- 📌 Right Column -->
-    <section class="md:col-span-2 space-y-6">
-      <!-- Experience -->
-      <div class="glass-card p-6 relative">
-        <h2 class="text-xl font-semibold mb-4">Experience</h2>
-        <div class="p-4 rounded-xl bg-white/5 border border-white/10 mb-4">
-          <h3 class="font-semibold">Backend Java Developer — Tapplent Technologies</h3>
-          <p class="text-sm text-slate-300 mt-1">Mar 2023 – Present | Bangalore, India</p>
-          <ul class="mt-3 text-slate-300 text-sm list-disc list-inside space-y-2">
-            <li>Designed and developed RESTful APIs and business logic using Java and Spring Boot.</li>
-            <li>Refactored monolithic architecture to microservices with Spring Cloud and Docker.</li>
-            <li>Improved performance by optimizing queries and adding Redis caching.</li>
-            <li>Resolved security vulnerabilities to ensure compliance and robustness.</li>
-            <li>Implemented analytics dashboards and automation with SQL and Spring Boot.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Projects -->
-      <div class="glass-card p-6">
-        <h2 class="text-xl font-semibold mb-4">Projects</h2>
-        <div class="space-y-4">
-          <div class="p-4 rounded-xl bg-white/5 border border-white/10">
-            <h3 class="font-semibold">Kaizen Monitoring System</h3>
-            <p class="mt-2 text-sm text-slate-300">Developed a system to track and analyze continuous improvement (Kaizen) initiatives with real-time dashboards. <br><strong>Tech:</strong> Java, Spring Boot, Hibernate, SQL</p>
-          </div>
-          <div class="p-4 rounded-xl bg-white/5 border border-white/10">
-            <h3 class="font-semibold">Leave Management System</h3>
-            <p class="mt-2 text-sm text-slate-300">Built a secure leave management system with RBAC, approval workflows, and automation. <br><strong>Tech:</strong> Java, Spring Boot, MySQL, Spring Security</p>
-          </div>
-          <div class="p-4 rounded-xl bg-white/5 border border-white/10">
-            <h3 class="font-semibold">Reports & Dashboards</h3>
-            <p class="mt-2 text-sm text-slate-300">Real-time analytics dashboards with data caching using Redis. <br><strong>Tech:</strong> Spring Boot, SQL, Redis</p>
-          </div>
-          <div class="p-4 rounded-xl bg-white/5 border border-white/10">
-            <h3 class="font-semibold">Microservices Migration Initiative</h3>
-            <p class="mt-2 text-sm text-slate-300">Migrated monolithic modules to microservices, improving scalability and response time by 30%. <br><strong>Tech:</strong> Spring Cloud, Docker, Jenkins</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Certifications -->
-      <div class="glass-card p-6">
-        <h2 class="text-xl font-semibold mb-4">Certifications</h2>
-        <ul class="space-y-3 text-sm text-slate-300">
-          <li>✅ Java J2EE – Wipro TalentNext</li>
-          <li>✅ AWS Certified Cloud Practitioner – Amazon</li>
-          <li>✅ Web Development – Internshala</li>
-          <li>✅ Python Programming – APSSDC</li>
-        </ul>
-      </div>
-
-      <!-- Achievements -->
-      <div class="glass-card p-6">
-        <h2 class="text-xl font-semibold mb-4">Achievements</h2>
-        <ul class="list-disc list-inside text-sm text-slate-300 space-y-2">
-          <li>Delivered Leave Management module within 2 months.</li>
-          <li>Improved system performance by 30% using query optimization and caching.</li>
-          <li>Resolved multiple security vulnerabilities ensuring compliance and stability.</li>
-        </ul>
-      </div>
-
-      <!-- Contact -->
-      <div class="glass-card p-6" id="contact">
-        <h2 class="text-lg font-semibold mb-3">Contact</h2>
-        <p class="text-sm text-slate-300 mb-3">I’m open to new opportunities and collaborations — feel free to connect!</p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <a class="glass-btn" href="mailto:vharshakumar6143@gmail.com">📧 Email</a>
-          <a class="glass-btn" href="tel:+916304245658">📞 Call</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- 🔹 Footer -->
-  <footer class="max-w-5xl mx-auto mt-10 text-center text-slate-400 text-sm">
-    © <span id="year"></span> • Built by Harsha Kumar Veelu • Backend Developer
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
