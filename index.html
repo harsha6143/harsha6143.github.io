@@ -1,296 +1,537 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Harsha Kumar | Backend Java Engineer</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-    .fade-up { animation: fadeUp 1s ease forwards; }
-    .fade-delay-1 { animation-delay: .2s; }
-    .fade-delay-2 { animation-delay: .4s; }
-    .fade-delay-3 { animation-delay: .6s; }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .glass {
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-  
-/* Background animated gradient */
-body::before {
-  content: "";
-  position: fixed;
-  inset: -20%;
-  background: radial-gradient(circle at 20% 20%, rgba(99,102,241,0.15), transparent 40%),
-              radial-gradient(circle at 80% 30%, rgba(16,185,129,0.15), transparent 40%),
-              radial-gradient(circle at 50% 80%, rgba(236,72,153,0.15), transparent 40%);
-  animation: floatBg 20s ease-in-out infinite alternate;
-  z-index: -1;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>DSA Tracker</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800&display=swap');
+:root {
+–blur: blur(40px) saturate(180%);
+–blur-sm: blur(20px) saturate(160%);
+–radius-xl: 28px;
+–radius-lg: 20px;
+–radius-md: 14px;
+–radius-sm: 10px;
+–blue: #0A84FF;
+–green: #30D158;
+–indigo: #5E5CE6;
+–pink: #FF375F;
+–yellow: #FFD60A;
+–orange: #FF9F0A;
+–teal: #5AC8FA;
+–bg-primary: rgba(255,255,255,0.72);
+–bg-secondary: rgba(255,255,255,0.55);
+–border: rgba(255,255,255,0.65);
+–border-subtle: rgba(0,0,0,0.06);
+–text-primary: #1C1C1E;
+–text-secondary: #3C3C43;
+–text-tertiary: rgba(60,60,67,0.6);
+–text-quaternary: rgba(60,60,67,0.28);
+–shadow-sm: 0 2px 8px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+–shadow-md: 0 8px 32px rgba(0,0,0,0.11), 0 2px 8px rgba(0,0,0,0.05);
+–shadow-lg: 0 20px 60px rgba(0,0,0,0.14), 0 4px 16px rgba(0,0,0,0.07);
 }
-
-@keyframes floatBg {
-  0% { transform: translateY(0) translateX(0); }
-  100% { transform: translateY(40px) translateX(-40px); }
+- { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+body {
+font-family: ‘Inter’, -apple-system, BlinkMacSystemFont, sans-serif;
+min-height: 100vh;
+background: #F2F2F7;
+background-attachment: fixed;
+overflow-x: hidden;
+padding-bottom: calc(env(safe-area-inset-bottom) + 90px);
 }
-
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  header h1 { font-size: 2rem; }
-  section { padding: 1.5rem; }
-  .grid { grid-template-columns: 1fr; }
+.app {
+max-width: 430px;
+margin: 0 auto;
 }
-
-/* Glassy slow scroll animations */
-.animate-on-scroll {
-  opacity: 0;
-  transform: translateY(40px) scale(0.98);
-  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-  backdrop-filter: blur(0px);
+/* ── Header ── */
+.header {
+padding: 56px 20px 20px;
 }
-
-.animate-on-scroll.reveal {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  backdrop-filter: blur(8px);
+.header-inner {
+display: flex;
+align-items: flex-start;
+justify-content: space-between;
+margin-bottom: 6px;
 }
-
-/* Slow parallax feel */
-section {
-  will-change: transform;
+.header-titles h1 {
+font-size: 34px;
+font-weight: 800;
+letter-spacing: -0.8px;
+color: var(–text-primary);
+line-height: 1.05;
+}
+.header-titles p {
+font-size: 13px;
+color: var(–text-tertiary);
+margin-top: 4px;
+font-weight: 500;
+}
+.app-icon {
+width: 52px; height: 52px;
+background: linear-gradient(145deg, #1A73E8, #5E5CE6);
+border-radius: 14px;
+display: flex; align-items: center; justify-content: center;
+font-size: 26px;
+box-shadow: 0 6px 20px rgba(30,100,255,0.35), inset 0 1px 0 rgba(255,255,255,0.3);
+}
+/* ── Progress Card ── */
+.progress-card {
+margin: 0 16px 16px;
+background: var(–bg-primary);
+backdrop-filter: var(–blur);
+-webkit-backdrop-filter: var(–blur);
+border-radius: var(–radius-xl);
+border: 1px solid var(–border);
+padding: 18px 20px;
+box-shadow: var(–shadow-md), inset 0 1px 0 rgba(255,255,255,0.8);
+}
+.progress-top {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 10px;
+}
+.progress-top span {
+font-size: 12px;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 0.6px;
+color: var(–text-tertiary);
+}
+.progress-pct {
+font-size: 13px !important;
+font-weight: 700 !important;
+color: var(–blue) !important;
+letter-spacing: 0 !important;
+text-transform: none !important;
+}
+.track {
+height: 8px;
+background: rgba(0,0,0,0.07);
+border-radius: 999px;
+overflow: hidden;
+margin-bottom: 14px;
+}
+.fill {
+height: 100%;
+background: linear-gradient(90deg, var(–blue), var(–indigo));
+border-radius: 999px;
+transition: width 0.5s cubic-bezier(0.34,1.56,0.64,1);
+box-shadow: 0 0 10px rgba(10,132,255,0.35);
+}
+.stats {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+gap: 8px;
+}
+.stat {
+background: rgba(0,0,0,0.04);
+border-radius: 12px;
+padding: 9px 8px;
+text-align: center;
+}
+.stat-n {
+font-size: 22px;
+font-weight: 800;
+color: var(–text-primary);
+line-height: 1;
+letter-spacing: -0.5px;
+}
+.stat-l {
+font-size: 10px;
+color: var(–text-tertiary);
+margin-top: 2px;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.4px;
+}
+/* ── Tabs ── */
+.tabs-scroll {
+padding: 0 16px 14px;
+overflow-x: auto;
+scrollbar-width: none;
+}
+.tabs-scroll::-webkit-scrollbar { display: none; }
+.tabs {
+display: flex;
+gap: 7px;
+width: max-content;
+}
+.tab {
+font-size: 13px;
+font-weight: 600;
+padding: 8px 15px;
+border-radius: 999px;
+border: 1px solid var(–border);
+cursor: pointer;
+transition: all 0.28s cubic-bezier(0.34,1.56,0.64,1);
+white-space: nowrap;
+background: var(–bg-secondary);
+backdrop-filter: var(–blur-sm);
+-webkit-backdrop-filter: var(–blur-sm);
+color: var(–text-secondary);
+box-shadow: var(–shadow-sm);
+font-family: inherit;
+}
+.tab.active {
+background: var(–text-primary);
+color: #fff;
+border-color: transparent;
+box-shadow: var(–shadow-md);
+transform: scale(1.04);
+}
+/* ── Sections ── */
+.section { display: none; padding: 0 16px; }
+.section.active { display: block; }
+/* ── Pattern Group ── */
+.pg {
+margin-bottom: 10px;
+background: var(–bg-primary);
+backdrop-filter: var(–blur);
+-webkit-backdrop-filter: var(–blur);
+border-radius: var(–radius-xl);
+border: 1px solid var(–border);
+overflow: hidden;
+box-shadow: var(–shadow-sm), inset 0 1px 0 rgba(255,255,255,0.7);
+animation: su 0.45s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+@keyframes su {
+from { opacity:0; transform:translateY(18px); }
+to   { opacity:1; transform:translateY(0); }
+}
+.pg:nth-child(1){animation-delay:.04s}
+.pg:nth-child(2){animation-delay:.09s}
+.pg:nth-child(3){animation-delay:.14s}
+.pg:nth-child(4){animation-delay:.19s}
+.pg:nth-child(5){animation-delay:.24s}
+.pg:nth-child(6){animation-delay:.29s}
+.pg:nth-child(7){animation-delay:.34s}
+.pg:nth-child(8){animation-delay:.39s}
+.ph {
+display: flex;
+align-items: center;
+gap: 12px;
+padding: 14px 16px;
+cursor: pointer;
+user-select: none;
+-webkit-user-select: none;
+}
+.ph-icon {
+width: 34px; height: 34px;
+border-radius: 10px;
+display: flex; align-items: center; justify-content: center;
+font-size: 17px;
+flex-shrink: 0;
+}
+.ph-info { flex: 1; min-width: 0; }
+.ph-name {
+font-size: 15px;
+font-weight: 600;
+color: var(–text-primary);
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+.ph-sub {
+font-size: 12px;
+color: var(–text-tertiary);
+margin-top: 1px;
+font-weight: 500;
+}
+.chevron {
+color: var(–text-quaternary);
+transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+flex-shrink: 0;
+}
+.pg.open .chevron { transform: rotate(90deg); }
+/* mini progress bar */
+.mini-track {
+height: 3px;
+background: rgba(0,0,0,0.06);
+margin: 0 16px 10px;
+border-radius: 999px;
+overflow: hidden;
+}
+.mini-fill {
+height: 100%;
+border-radius: 999px;
+transition: width 0.4s ease;
+}
+/* Problems */
+.problems {
+display: none;
+border-top: 1px solid var(–border-subtle);
+}
+.pg.open .problems { display: block; }
+.prob {
+display: flex;
+align-items: center;
+gap: 13px;
+padding: 12px 16px;
+cursor: pointer;
+transition: background 0.14s;
+border-bottom: 1px solid var(–border-subtle);
+}
+.prob:last-child { border-bottom: none; }
+.prob:active { background: rgba(0,0,0,0.04); }
+/* Checkbox */
+.cb {
+width: 23px; height: 23px;
+border-radius: 50%;
+border: 2px solid rgba(0,0,0,0.14);
+background: rgba(255,255,255,0.5);
+flex-shrink: 0;
+display: flex; align-items: center; justify-content: center;
+transition: all 0.26s cubic-bezier(0.34,1.56,0.64,1);
+}
+.cb.on {
+background: var(–green);
+border-color: var(–green);
+box-shadow: 0 2px 10px rgba(48,209,88,0.45);
+transform: scale(1.08);
+}
+.cb.on::after {
+content: ‘’;
+display: block;
+width: 6px; height: 10px;
+border: 2px solid #fff;
+border-top: none;
+border-left: none;
+transform: rotate(45deg) translate(-0.5px,-1px);
+}
+.prob-lbl {
+flex: 1;
+font-size: 15px;
+color: var(–text-primary);
+line-height: 1.3;
+transition: color 0.2s;
+}
+.prob.done .prob-lbl {
+color: var(–text-quaternary);
+text-decoration: line-through;
+}
+.prob-idx {
+font-size: 11px;
+color: var(–text-quaternary);
+font-weight: 600;
+flex-shrink: 0;
 }
 </style>
 </head>
-<body class="bg-gradient-to-br from-gray-950 via-gray-900 to-black text-gray-100 overflow-x-hidden">
-
-<!-- BACKGROUND ANIMATION -->
-<div class="fixed inset-0 -z-10 overflow-hidden">
-  <div class="absolute -top-32 -left-32 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl animate-pulse"></div>
-  <div class="absolute top-1/3 -right-40 w-[30rem] h-[30rem] bg-purple-600/20 rounded-full blur-3xl animate-pulse"></div>
-  <div class="absolute bottom-0 left-1/4 w-[28rem] h-[28rem] bg-blue-600/10 rounded-full blur-3xl animate-pulse"></div>
+<body>
+<div class="app">
+<div class="header">
+<div class="header-inner">
+<div class="header-titles">
+<h1>DSA Tracker</h1>
+<p>ProPeers · Parikh Jain</p>
 </div>
-
-<!-- NAVBAR -->
-<nav class="fixed top-0 w-full z-50 glass backdrop-blur-xl">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <span class="font-bold text-lg">Harsha Kumar</span>
-    <div class="space-x-6 text-sm text-gray-300">
-      <a href="#about" class="hover:text-white">About</a>
-      <a href="#skills" class="hover:text-white">Skills</a>
-      <a href="#architecture" class="hover:text-white">Design</a>
-      <a href="#projects" class="hover:text-white">Projects</a>
-      <a href="#impact" class="hover:text-white">Impact</a>
-      <a href="#contact" class="hover:text-white">Contact</a>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="min-h-screen flex flex-col justify-center items-center text-center px-4 sm:px-6">
-  <h1 class="text-5xl md:text-6xl font-bold fade-up">Backend Java Engineer</h1>
-  <p class="mt-4 text-xl text-gray-400 fade-up fade-delay-1">Designing scalable, secure, production-grade systems</p>
-  <p class="mt-6 max-w-2xl text-gray-500 fade-up fade-delay-2">
-    2+ years experience building enterprise HR platforms using Java, Spring Boot, Microservices,
-    Redis caching, and secure API design. Focused on performance, reliability, and clean architecture.
-  </p>
-  <div class="mt-8 flex gap-4 fade-up fade-delay-3">
-    <a href="#projects" class="px-6 py-3 bg-indigo-600 rounded-2xl hover:bg-indigo-500 transition">View Projects</a>
-    <a href="https://github.com/harsha6143" target="_blank" class="px-6 py-3 border border-gray-600 rounded-2xl hover:bg-gray-800 transition">GitHub</a>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="max-w-6xl mx-auto px-4 sm:px-6 py-24 sm:py-28">
-  <h2 class="text-3xl font-semibold mb-8">About Me</h2>
-  <div class="glass p-10 rounded-3xl">
-    <p class="text-gray-400 leading-relaxed">
-      I am a Backend Java Engineer currently working at Tapplent Technologies, building
-      large-scale HR and employee management systems used by thousands of users.
-      My work focuses on backend architecture, API design, database optimization,
-      security hardening, and system scalability.
-    </p>
-    <p class="mt-4 text-gray-400 leading-relaxed">
-      I have hands-on experience migrating monolithic applications to microservices,
-      implementing Redis caching for high-traffic APIs, securing systems with Spring Security + JWT,
-      and optimizing SQL queries to significantly reduce response times.
-    </p>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills" class="relative py-24 sm:py-28 overflow-hidden">
-  <!-- animated smoke background -->
-  <div class="absolute inset-0 -z-10">
-    <div class="absolute -top-24 left-10 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse"></div>
-    <div class="absolute top-1/3 -right-24 w-[28rem] h-[28rem] bg-purple-600/25 rounded-full blur-3xl animate-pulse"></div>
-    <div class="absolute bottom-0 left-1/3 w-[30rem] h-[30rem] bg-indigo-600/20 rounded-full blur-3xl animate-pulse"></div>
-  </div>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6">
-<section id="skills" class="relative py-24 sm:py-28 overflow-hidden">
-  <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-3xl font-semibold mb-12">Technical Skills</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-      <div class="glass p-6 rounded-2xl">Java (Core, Collections, Concurrency)</div>
-      <div class="glass p-6 rounded-2xl">Spring Boot / MVC</div>
-      <div class="glass p-6 rounded-2xl">Spring Security (JWT, RBAC)</div>
-      <div class="glass p-6 rounded-2xl">Spring Cloud (Microservices)</div>
-      <div class="glass p-6 rounded-2xl">MySQL (Indexing, Optimization)</div>
-      <div class="glass p-6 rounded-2xl">Redis (Caching, TTL, Eviction)</div>
-      <div class="glass p-6 rounded-2xl">Docker & CI/CD</div>
-      <div class="glass p-6 rounded-2xl">AWS (Foundational)</div>
-    </div>
-  </div>
+<div class="app-icon">🧠</div>
 </div>
-</section>
-
-<!-- SYSTEM DESIGN -->
-<section id="architecture" class="max-w-7xl mx-auto px-4 sm:px-6 py-24 sm:py-28">
-  <h2 class="text-3xl font-semibold mb-12">System Design & Architecture</h2>
-
-  <div class="grid md:grid-cols-2 gap-10">
-
-    <div class="glass p-8 rounded-3xl">
-      <h3 class="text-xl font-semibold mb-4">Backend API Architecture</h3>
-      <ul class="text-gray-400 text-sm space-y-2">
-        <li>• Client → API Gateway → Auth Filter (JWT)</li>
-        <li>• Controller → Service → Repository layering</li>
-        <li>• Global exception handling & validation</li>
-        <li>• DTO mapping & response standardization</li>
-      </ul>
-      <p class="mt-4 text-indigo-400 text-sm">Goal: Maintainability, testability, clarity</p>
-    </div>
-
-    <div class="glass p-8 rounded-3xl">
-      <h3 class="text-xl font-semibold mb-4">Caching Strategy (Redis)</h3>
-      <ul class="text-gray-400 text-sm space-y-2">
-        <li>• Cache-aside pattern for read-heavy APIs</li>
-        <li>• TTL-based expiry to avoid stale data</li>
-        <li>• Cache eviction on write operations</li>
-        <li>• Reduced DB load for high-frequency endpoints</li>
-      </ul>
-      <p class="mt-4 text-indigo-400 text-sm">Impact: ~30% faster API response</p>
-    </div>
-
-    <div class="glass p-8 rounded-3xl">
-      <h3 class="text-xl font-semibold mb-4">Microservices Design</h3>
-      <ul class="text-gray-400 text-sm space-y-2">
-        <li>• Service-based decomposition from monolith</li>
-        <li>• Independent service databases</li>
-        <li>• Spring Cloud for service management</li>
-        <li>• Dockerized deployment pipelines</li>
-      </ul>
-      <p class="mt-4 text-indigo-400 text-sm">Benefit: Independent scaling & faster releases</p>
-    </div>
-
-    <div class="glass p-8 rounded-3xl">
-      <h3 class="text-xl font-semibold mb-4">Security Architecture</h3>
-      <ul class="text-gray-400 text-sm space-y-2">
-        <li>• Spring Security filter chain</li>
-        <li>• JWT authentication & authorization</li>
-        <li>• Role-Based Access Control (RBAC)</li>
-        <li>• Input validation & audit logging</li>
-      </ul>
-      <p class="mt-4 text-indigo-400 text-sm">Principle: Secure-by-default</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="max-w-7xl mx-auto px-4 sm:px-6 py-24 sm:py-28">
-  <h2 class="text-3xl font-semibold mb-12">Production Projects</h2>
-  <div class="grid md:grid-cols-2 gap-10">
-
-    <div class="glass p-8 rounded-3xl">
-      <h3 class="text-xl font-semibold">Kaizen Monitoring System</h3>
-      <p class="mt-3 text-gray-400">Enterprise system to track continuous improvement initiatives with analytics dashboards.</p>
-      <ul class="mt-4 text-gray-400 text-sm space-y-1">
-        <li>• Designed REST APIs and database schema</li>
-        <li>• Implemented real-time reporting</li>
-        <li>• Optimized SQL queries for large datasets</li>
-      </ul>
-    </div>
-
-    <div class="glass p-8 rounded-3xl">
-      <h3 class="text-xl font-semibold">Leave Management Platform</h3>
-      <p class="mt-3 text-gray-400">Secure RBAC-based leave automation system.</p>
-      <ul class="mt-4 text-gray-400 text-sm space-y-1">
-        <li>• Role-based access control</li>
-        <li>• Approval workflows</li>
-        <li>• Integrated reporting dashboards</li>
-      </ul>
-    </div>
-
-    <div class="glass p-8 rounded-3xl">
-      <h3 class="text-xl font-semibold">Mass Upload Engine</h3>
-      <p class="mt-3 text-gray-400">High-volume batch upload framework for enterprise data.</p>
-      <ul class="mt-4 text-gray-400 text-sm space-y-1">
-        <li>• Batch processing with validation</li>
-        <li>• Error handling & rollback</li>
-        <li>• Performance-optimized inserts</li>
-      </ul>
-    </div>
-
-    <div class="glass p-8 rounded-3xl">
-      <h3 class="text-xl font-semibold">Microservices Migration</h3>
-      <p class="mt-3 text-gray-400">Migrated monolithic services to microservices architecture.</p>
-      <ul class="mt-4 text-gray-400 text-sm space-y-1">
-        <li>• Service decomposition</li>
-        <li>• Docker-based deployments</li>
-        <li>• Reduced deployment coupling</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<!-- IMPACT -->
-<section id="impact" class="relative py-24 sm:py-28 overflow-hidden">
-  <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-3xl font-semibold mb-12">Impact & Results</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="glass p-8 rounded-3xl text-center">
-        <p class="text-4xl font-bold text-indigo-400">30%</p>
-        <p class="mt-2 text-gray-400">API Response Time Improvement</p>
-      </div>
-      <div class="glass p-8 rounded-3xl text-center">
-        <p class="text-4xl font-bold text-indigo-400">100k+</p>
-        <p class="mt-2 text-gray-400">Records Processed via Mass Upload</p>
-      </div>
-      <div class="glass p-8 rounded-3xl text-center">
-        <p class="text-4xl font-bold text-indigo-400">0</p>
-        <p class="mt-2 text-gray-400">Critical Security Issues Post-Fix</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="relative py-24 sm:py-28 overflow-hidden text-center">
-  <h2 class="text-3xl font-semibold">Let's Build Scalable Systems</h2>
-  <p class="mt-4 text-gray-400">📧 vharshakumar6143@gmail.com</p>
-  <p class="text-gray-400">📱 +91 6304245658</p>
-  <p class="mt-6 text-gray-600 text-sm">© 2026 Harsha Kumar Velu</p>
-</section>
-
-
-<!-- Scroll Animations -->
+</div>
+<div class="progress-card">
+<div class="progress-top">
+<span>Overall Progress</span>
+<span class="progress-pct" id="pct">0%</span>
+</div>
+<div class="track"><div class="fill" id="fill" style="width:0%"></div></div>
+<div class="stats">
+<div class="stat"><div class="stat-n" id="sDone">0</div><div class="stat-l">Solved</div></div>
+<div class="stat"><div class="stat-n" id="sLeft">0</div><div class="stat-l">Left</div></div>
+<div class="stat"><div class="stat-n" id="sTotal">0</div><div class="stat-l">Total</div></div>
+</div>
+</div>
+<div class="tabs-scroll"><div class="tabs" id="tabs"></div></div>
+<div id="sections"></div>
+</div>
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('reveal');
-      }
-    });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+const ICONS=[['↔️','⏱️','↕️','∑','🔢'],['↔️','🪟','#️⃣','✏️','.*'],['🎯','📐','📦','🔢','🗻'],['🔁','⚔️','🌿','🔍'],['🐢','🪄','♻️','🔃'],['🏗️','📊','🧮','📚','🪟'],['🌿','🏗️','🪞','🛤️','🔎','✅'],['🏆','📊','🔀','🪟','🏗️','🔧','🕸️'],['💡','🏗️','📏','🎒','∑','🔢','✂️','🎲'],['🔗','🗺️','🔄','⚖️','🌲','🧭','🎨']];
+const CLRS=[
+ {bg:'rgba(10,132,255,0.13)',ic:'#0A84FF',f:'linear-gradient(90deg,#0A84FF,#5E5CE6)'},
+ {bg:'rgba(48,209,88,0.13)',ic:'#30D158',f:'linear-gradient(90deg,#30D158,#34C759)'},
+ {bg:'rgba(94,92,230,0.13)',ic:'#5E5CE6',f:'linear-gradient(90deg,#5E5CE6,#BF5AF2)'},
+ {bg:'rgba(255,159,10,0.13)',ic:'#FF9F0A',f:'linear-gradient(90deg,#FF9F0A,#FF6B00)'},
+ {bg:'rgba(255,55,95,0.13)',ic:'#FF375F',f:'linear-gradient(90deg,#FF375F,#FF2D55)'},
+ {bg:'rgba(90,200,250,0.13)',ic:'#5AC8FA',f:'linear-gradient(90deg,#5AC8FA,#32ADE6)'},
+ {bg:'rgba(255,214,10,0.13)',ic:'#B8960A',f:'linear-gradient(90deg,#FFD60A,#FF9F0A)'},
+];
+const data=[
+ {topic:"Arrays",patterns:[
+   {name:"Two Pointers",probs:["Two Sum","3Sum","3Sum Closest","Remove Duplicates from Sorted Array","Squares of a Sorted Array"]},
+   {name:"Merge Intervals",probs:["Merge Intervals","Insert Interval","Non-overlapping Intervals","Interval List Intersections"]},
+   {name:"Sorting",probs:["Sort Colors","Meeting Rooms II","Largest Number","Wiggle Sort II","Merge Sorted Array"]},
+   {name:"Sliding Window",probs:["Minimum Size Subarray Sum","Longest Mountain in Array","Longest Continuous Increasing Subsequence","Maximum Points You Can Obtain from Cards","Maximum Product Subarray"]},
+   {name:"Prefix Sums",probs:["Count of Smaller Numbers After Self","Range Sum Query - Mutable","Count of Range Sum","Subarray Product Less Than K","Find All Duplicates in an Array"]},
+ ]},
+ {topic:"Strings",patterns:[
+   {name:"Two Pointers",probs:["Valid Palindrome","Reverse Words in a String","Longest Palindromic Substring","Implement strStr()","Remove Duplicates from Sorted Array"]},
+   {name:"Sliding Window",probs:["Minimum Window Substring","Longest Substring Without Repeating Characters","Longest Substring with At Most K Distinct Characters","Find All Anagrams in a String","Longest Repeating Character Replacement"]},
+   {name:"Hashmaps",probs:["Group Anagrams","First Unique Character in a String","Valid Anagram","Longest Palindromic Substring","String Compression"]},
+   {name:"String Manipulation",probs:["Reverse String","Reverse Integer","String to Integer (atoi)","Count and Say","Implement strStr()"]},
+   {name:"Regular Expressions",probs:["Regular Expression Matching","Regular Expression Matching (with . and *)","Wildcard Matching","Decode String","Validate IP Address"]},
+ ]},
+ {topic:"Binary Search",patterns:[
+   {name:"Basic Binary Search",probs:["Search Insert Position","Find Minimum in Rotated Sorted Array","Peak Index in a Mountain Array","Find Smallest Letter Greater Than Target","Valid Perfect Square"]},
+   {name:"Range Search",probs:["Split Array Largest Sum","Find Kth Smallest Element in a Sorted Matrix","Capacity To Ship Packages Within D Days","Maximum Average Subarray I"]},
+   {name:"Allocation Problems",probs:["Allocate Minimum Number of Pages","Minimize Maximum Pair Sum in Array","Divide Chocolate","Maximum Distance to Gas Station"]},
+   {name:"Counting Occurrences",probs:["Find First and Last Position of Element in Sorted Array","Count Negative Numbers in a Sorted Matrix","Search a 2D Matrix II","Find Minimum in Rotated Sorted Array II","Count Primes"]},
+   {name:"Bitonic Array Search",probs:["Find Peak Element","Find in Mountain Array","Longest Mountain in Array","Peak Index in a Mountain Array","Maximum Value at a Given Index in a Bounded Array"]},
+ ]},
+ {topic:"Recursion",patterns:[
+   {name:"Basic Recursive Functions",probs:["Factorial","Fibonacci Number","Pow(x, n)","Greatest Common Divisor of Strings","Minimum Moves to Move a Box to Their Target Location"]},
+   {name:"Divide & Conquer",probs:["Binary Search","Merge Sort","Quick Sort","Maximum Subarray","Maximum Subarray"]},
+   {name:"Backtracking",probs:["Generate Parentheses","Combination Sum","N-Queens","Letter Combinations of a Phone Number","Word Search"]},
+   {name:"Recursive Search",probs:["Sudoku Solver","Number of Islands","Path Sum","Word Search II"]},
+ ]},
+ {topic:"Linked List",patterns:[
+   {name:"Fast and Slow Pointers",probs:["Middle of the Linked List","Linked List Cycle","Intersection of Two Linked Lists","Merge Two Sorted Lists","Palindrome Linked List"]},
+   {name:"Dummy Node Technique",probs:["Add Two Numbers","Swap Nodes in Pairs","Remove Duplicates from Sorted List II","Palindrome Linked List","Rotate List"]},
+   {name:"Recursion Technique",probs:["Reverse Linked List","Swap Nodes in Pairs","Flatten a Multilevel Doubly Linked List"]},
+   {name:"In-Place Reversal",probs:["Reverse Linked List","Reorder List","Rotate List","Reverse Nodes in k-Group","Split Linked List in Parts"]},
+ ]},
+ {topic:"Stacks & Queues",patterns:[
+   {name:"Design Problems",probs:["Implement Queue using Stacks","Implement Stack using Queues","Design Browser History","Design Hit Counter","Design Circular Queue","Design Twitter","Design Snake Game"]},
+   {name:"Monotonic Stack",probs:["Next Greater Element I","Largest Rectangle in Histogram","Online Stock Span","Daily Temperatures","Remove Duplicate Letters"]},
+   {name:"Expression Evaluation",probs:["Basic Calculator II","Evaluate Division","Simplify Path","Basic Calculator","Decode String"]},
+   {name:"Two Stacks",probs:["Evaluate Reverse Polish Notation","Min Stack","Design a Stack With Increment Operation","Baseball Game","Backspace String Compare"]},
+   {name:"Sliding Window & Monotonic Queue",probs:["Sliding Window Maximum","Design Circular Deque","Moving Average from Data Stream","First Unique Number","Max Sum of Rectangle No Larger Than K"]},
+ ]},
+ {topic:"Binary Trees",patterns:[
+   {name:"Traversal",probs:["Binary Tree Inorder Traversal","Binary Tree Preorder Traversal","Binary Tree Postorder Traversal","Binary Tree Level Order Traversal","Binary Tree Zigzag Level Order Traversal"]},
+   {name:"Construction",probs:["Construct Binary Tree from Preorder and Inorder","Construct Binary Tree from Inorder and Postorder","Construct Binary Tree from Preorder and Postorder","Daily Temperatures","Remove Duplicate Letters"]},
+   {name:"Mirror & Symmetry",probs:["Invert Binary Tree","Symmetric Tree","Flip Equivalent Binary Trees","Convert Sorted Array to BST","Convert Sorted List to BST"]},
+   {name:"Path Sum & Root to Leaf",probs:["Path Sum","Path Sum II","Sum Root to Leaf Numbers","Binary Tree Maximum Path Sum","Path Sum III"]},
+   {name:"Traversal & Search",probs:["Lowest Common Ancestor","Binary Tree Level Order Traversal II","Search in a BST","Validate Binary Search Tree","Closest BST Value"]},
+   {name:"Validation & Properties",probs:["Diameter of Binary Tree","Count Complete Tree Nodes","Balanced Binary Tree","Binary Tree Longest Consecutive Sequence","Subtree of Another Tree"]},
+ ]},
+ {topic:"Priority Queues",patterns:[
+   {name:"Finding Kth Largest/Smallest",probs:["Kth Largest Element in an Array","Kth Smallest Element in a Sorted Matrix","Find Median from Data Stream","K Closest Points to Origin","Kth Largest Element in a Stream"]},
+   {name:"Top K Frequent Elements",probs:["Top K Frequent Elements","Sort Characters By Frequency","Top K Frequent Words","Top K Frequent Elements in a Sorted Matrix","Maximum Frequency Stack"]},
+   {name:"Merge K Lists",probs:["Merge k Sorted Lists","Merge Sorted Array","Merge Intervals","Find Smallest Common Number","Smallest Range Covering Elements from K Lists"]},
+   {name:"Sliding Window Max/Min",probs:["Sliding Window Maximum","Maximum Sum of Subarray of Size K","Minimum Window Substring","Max Consecutive Ones III","Longest Continuous Subarray With Absolute Diff <= Limit"]},
+   {name:"Design Problems",probs:["Design Twitter","Design Hit Counter","Design Browser History","Design Snake Game","Design a Leaderboard"]},
+   {name:"Construction and Manipulation",probs:["Task Scheduler","Rearrange String k Distance Apart","Reorganize String","Rearrange Words in a Sentence","Distant Barcodes"]},
+   {name:"With Graphs",probs:["Network Delay Time","Cheapest Flights Within K Stops","Path with Maximum Probability","The Maze II","Kth Smallest Element in a Sorted Matrix"]},
+ ]},
+ {topic:"Dynamic Programming",patterns:[
+   {name:"Basic DP",probs:["Fibonacci Number","Climbing Stairs","House Robber","Unique Paths","Minimum Path Sum"]},
+   {name:"Optimal Substructure",probs:["Maximum Subarray","Longest Increasing Subsequence","Coin Change","Edit Distance","Longest Common Subsequence"]},
+   {name:"Interval/Range DP",probs:["Minimum Falling Path Sum","Burst Balloons","Partition Equal Subset Sum","Strange Printer","Maximum Vacation Days"]},
+   {name:"Knapsack Problems",probs:["0/1 Knapsack","Partition Equal Subset Sum","Target Sum","Partition to K Equal Subsets","Equal Subset Sum Partition"]},
+   {name:"Prefix Sums DP",probs:["Subarray Sum Equals K","Range Sum Query - Immutable","Count of Range Sum","Number of Submatrices That Sum to Target","Subarray Sums Divisible by K"]},
+   {name:"Counting Problems",probs:["Unique Paths III","Distinct Subsequences","Count Different Palindromic Subsequences","Count Numbers with Consecutive Digits","Count of Smaller Numbers After Self"]},
+   {name:"Interval Partitioning",probs:["Non-overlapping Intervals","Maximum Number of Non-Overlapping Subarrays","Split Array Into Consecutive Subsequences","Longest Continuous Increasing Subsequence"]},
+   {name:"Probability & Expectations",probs:["Knight Probability in Chessboard","Dice Roll Simulation","Stone Game VII","Predict the Winner","Cherry Pickup"]},
+ ]},
+ {topic:"Graphs",patterns:[
+   {name:"Finding Connected Components",probs:["Number of Islands","Connected Components in Undirected Graph","Friend Circles","Accounts Merge","Redundant Connection"]},
+   {name:"Shortest Path Finding",probs:["Network Delay Time","Cheapest Flights Within K Stops","Shortest Path in Binary Matrix","Word Ladder","Maze"]},
+   {name:"Cycle Detection",probs:["Course Schedule","Find Eventual Safe States","Course Schedule II","Detect Cycle in Directed Graph","Redundant Connection II"]},
+   {name:"Bipartite Graph Check",probs:["Is Graph Bipartite?","Possible Bipartition","Bipartite","Graph Coloring","Matching Bipartite Graph"]},
+   {name:"Minimum Spanning Tree",probs:["Minimum Spanning Tree","Connecting Cities With Minimum Cost","Campus Bikes II","Optimal Division","Redundant Connection II"]},
+   {name:"DAG Traversal",probs:["Alien Dictionary","Longest Increasing Path in a Matrix","Course Schedule III","Sequence Reconstruction","All Paths from Source Lead to Destination"]},
+   {name:"Graph Coloring",probs:["Graph Coloring","Course Schedule IV","Minimum Number of Vertices to Reach All Nodes","Flower Planting With No Adjacent"]},
+ ]},
+];
+let ck={};
+try{ck=JSON.parse(localStorage.getItem('dsa_v3')||'{}');}catch(e){}
+function save(){try{localStorage.setItem('dsa_v3',JSON.stringify(ck));}catch(e){}}
+function updateGlobal(){
+ let t=0,d=0;
+ data.forEach((topic,ti)=>topic.patterns.forEach((pat,pi)=>pat.probs.forEach((_,qi)=>{t++;if(ck[`${ti}-${pi}-${qi}`])d++;})));
+ const p=t?Math.round(d/t*100):0;
+ document.getElementById('fill').style.width=p+'%';
+ document.getElementById('pct').textContent=p+'%';
+ document.getElementById('sDone').textContent=d;
+ document.getElementById('sLeft').textContent=t-d;
+ document.getElementById('sTotal').textContent=t;
+}
+function build(){
+ const tabsEl=document.getElementById('tabs');
+ const secsEl=document.getElementById('sections');
+ data.forEach((topic,ti)=>{
+   const tab=document.createElement('button');
+   tab.className='tab'+(ti===0?' active':'');
+   tab.textContent=topic.topic;
+   tab.onclick=()=>{
+     document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+     document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+     tab.classList.add('active');
+     const sec=document.getElementById('s'+ti);
+     sec.classList.add('active');
+     sec.querySelectorAll('.pg').forEach((pg,i)=>{
+       pg.style.animation='none';pg.offsetHeight;
+       pg.style.animation=`su 0.45s cubic-bezier(0.34,1.56,0.64,1) ${i*0.05+0.02}s both`;
+     });
+   };
+   tabsEl.appendChild(tab);
+   const sec=document.createElement('div');
+   sec.className='section'+(ti===0?' active':'');
+sec.id='s'+ti;
+   topic.patterns.forEach((pat,pi)=>{
+     const c=CLRS[pi%CLRS.length];
+     const icArr=ICONS[ti]||[];
+     const ic=icArr[pi]||'📌';
+     const total=pat.probs.length;
+     const getDone=()=>pat.probs.filter((_,qi)=>ck[`${ti}-${pi}-${qi}`]).length;
+     const pg=document.createElement('div');
+     pg.className='pg';
+     // Header
+     const ph=document.createElement('div');
+     ph.className='ph';
+     ph.innerHTML=`
+<div class="ph-icon" style="background:${c.bg};">${ic}</div>
+<div class="ph-info">
+<div class="ph-name">${pat.name}</div>
+<div class="ph-sub" id="sub-${ti}-${pi}">${getDone()}/${total} completed</div>
+</div>
+<svg class="chevron" width="8" height="13" viewBox="0 0 8 13" fill="none">
+<path d="M1 1.5l5.5 5L1 11.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>`;
+     ph.onclick=()=>pg.classList.toggle('open');
+     // Mini bar
+     const mt=document.createElement('div');mt.className='mini-track';
+     const mf=document.createElement('div');mf.className='mini-fill';
+     mf.style.background=c.f;
+     mf.style.width=(total?getDone()/total*100:0)+'%';
+     mt.appendChild(mf);
+     // Problems
+     const pl=document.createElement('div');pl.className='problems';
+     pat.probs.forEach((name,qi)=>{
+       const key=`${ti}-${pi}-${qi}`;
+       const div=document.createElement('div');
+       div.className='prob'+(ck[key]?' done':'');
+       const cb=document.createElement('div');
+       cb.className='cb'+(ck[key]?' on':'');
+       const lbl=document.createElement('span');
+       lbl.className='prob-lbl';lbl.textContent=name;
+       const idx=document.createElement('span');
+       idx.className='prob-idx';idx.textContent=`${qi+1}`;
+       div.appendChild(cb);div.appendChild(lbl);div.appendChild(idx);
+       div.onclick=()=>{
+         ck[key]=!ck[key];
+         const on=ck[key];
+         cb.classList.toggle('on',on);
+         div.classList.toggle('done',on);
+         cb.style.transform='scale(1.35)';
+         setTimeout(()=>{cb.style.transform='';},220);
+         const d2=getDone();
+         document.getElementById(`sub-${ti}-${pi}`).textContent=`${d2}/${total} completed`;
+         mf.style.width=(total?d2/total*100:0)+'%';
+         save();updateGlobal();
+       };
+       pl.appendChild(div);
+     });
+     pg.appendChild(ph);pg.appendChild(mt);pg.appendChild(pl);
+     sec.appendChild(pg);
+   });
+   secsEl.appendChild(sec);
+ });
+ updateGlobal();
+}
+build();
 </script>
-
 </body>
 </html>
