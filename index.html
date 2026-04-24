@@ -3,563 +3,904 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>DSA</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>AURA</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 :root {
  --blur: blur(48px) saturate(200%) brightness(1.06);
  --blur-sm: blur(24px) saturate(180%);
- --radius-xl: 26px;
- --radius-lg: 20px;
- --radius-md: 14px;
- --radius-sm: 10px;
- --blue: #0A84FF;
- --green: #30D158;
- --indigo: #5E5CE6;
- --bg: #F2F2F7;
- --glass: rgba(255,255,255,0.80);
- --glass-tab: rgba(255,255,255,0.62);
- --glass-stat: rgba(0,0,0,0.045);
- --glass-mini-track: rgba(0,0,0,0.07);
- --border: rgba(255,255,255,0.88);
- --border-subtle: rgba(0,0,0,0.055);
- --text-primary: #1C1C1E;
- --text-secondary: #3C3C43;
- --text-tertiary: rgba(60,60,67,0.58);
- --text-quaternary: rgba(60,60,67,0.26);
- --tab-text: #3C3C43;
- --tab-active-bg: rgba(28,28,30,0.92);
- --tab-active-text: #ffffff;
- --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.07);
- --shadow-md: 0 4px 24px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06);
- --cb-border: rgba(0,0,0,0.14);
- --cb-bg: rgba(255,255,255,0.6);
- --inset-top: rgba(255,255,255,0.7);
+ --rx: 26px; --rl: 20px; --rm: 14px; --rs: 10px;
+ --blue:#0A84FF; --green:#30D158; --indigo:#5E5CE6; --pink:#FF375F; --orange:#FF9F0A; --teal:#5AC8FA;
+ --bg:#F2F2F7;
+ --glass:rgba(255,255,255,0.82);
+ --glass-tab:rgba(255,255,255,0.65);
+ --glass-stat:rgba(0,0,0,0.045);
+ --glass-track:rgba(0,0,0,0.07);
+ --border:rgba(255,255,255,0.9);
+ --border-sub:rgba(0,0,0,0.055);
+ --tp:#1C1C1E; --ts:#3C3C43;
+ --tt:rgba(60,60,67,0.58); --tq:rgba(60,60,67,0.26);
+ --tab-t:#3C3C43;
+ --tab-abg:rgba(28,28,30,0.92); --tab-at:#fff;
+ --sh-sm:0 1px 3px rgba(0,0,0,0.06),0 4px 12px rgba(0,0,0,0.07);
+ --sh-md:0 4px 24px rgba(0,0,0,0.10),0 1px 4px rgba(0,0,0,0.06);
+ --cb-b:rgba(0,0,0,0.14); --cb-bg:rgba(255,255,255,0.6);
+ --ins:rgba(255,255,255,0.7);
 }
-@media (prefers-color-scheme: dark) {
- :root {
-   --blur: blur(48px) saturate(220%) brightness(0.85);
-   --bg: #000000;
-   --glass: rgba(18,18,18,0.80);
-   --glass-tab: rgba(26,26,26,0.75);
-   --glass-stat: rgba(255,255,255,0.07);
-   --glass-mini-track: rgba(255,255,255,0.09);
-   --border: rgba(255,255,255,0.11);
-   --border-subtle: rgba(255,255,255,0.065);
-   --text-primary: #F2F2F7;
-   --text-secondary: #EBEBF5;
-   --text-tertiary: rgba(235,235,245,0.55);
-   --text-quaternary: rgba(235,235,245,0.24);
-   --tab-text: rgba(235,235,245,0.68);
-   --tab-active-bg: rgba(248,248,255,0.95);
-   --tab-active-text: #1C1C1E;
-   --shadow-sm: 0 1px 3px rgba(0,0,0,0.35), 0 4px 12px rgba(0,0,0,0.28);
-   --shadow-md: 0 4px 24px rgba(0,0,0,0.50), 0 1px 4px rgba(0,0,0,0.35);
-   --cb-border: rgba(255,255,255,0.17);
-   --cb-bg: rgba(255,255,255,0.07);
-   --inset-top: rgba(255,255,255,0.07);
- }
+@media(prefers-color-scheme:dark){:root{
+ --blur:blur(48px) saturate(220%) brightness(0.85);
+ --bg:#000;
+ --glass:rgba(18,18,18,0.82);
+ --glass-tab:rgba(26,26,26,0.78);
+ --glass-stat:rgba(255,255,255,0.07);
+ --glass-track:rgba(255,255,255,0.09);
+ --border:rgba(255,255,255,0.11);
+ --border-sub:rgba(255,255,255,0.065);
+ --tp:#F2F2F7; --ts:#EBEBF5;
+ --tt:rgba(235,235,245,0.55); --tq:rgba(235,235,245,0.24);
+ --tab-t:rgba(235,235,245,0.68);
+ --tab-abg:rgba(248,248,255,0.95); --tab-at:#1C1C1E;
+ --sh-sm:0 1px 3px rgba(0,0,0,0.35),0 4px 12px rgba(0,0,0,0.28);
+ --sh-md:0 4px 24px rgba(0,0,0,0.50),0 1px 4px rgba(0,0,0,0.35);
+ --cb-b:rgba(255,255,255,0.17); --cb-bg:rgba(255,255,255,0.07);
+ --ins:rgba(255,255,255,0.07);
+}}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;min-height:100vh;background:var(--bg);overflow-x:hidden;transition:background .35s ease}
+/* ══ SCREEN SYSTEM ══ */
+.screen{display:none;min-height:100vh;padding-bottom:calc(env(safe-area-inset-bottom)+80px)}
+.screen.active{display:block}
+/* ══ HOME SCREEN ══ */
+#home{background:var(--bg)}
+.home-wrap{max-width:430px;margin:0 auto;padding:0 20px}
+.home-hero{padding:70px 0 32px;text-align:center}
+.aura-logo{
+ font-size:58px;font-weight:900;letter-spacing:-2px;
+ background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,0.9) 30%,#a8d4ff 60%,#c9b3ff 80%,#fff 100%);
+ -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+ filter:drop-shadow(0 0 30px rgba(150,180,255,0.5)) drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+ line-height:1;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-body {
- font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
- min-height: 100vh;
- background: var(--bg);
- overflow-x: hidden;
- padding-bottom: calc(env(safe-area-inset-bottom) + 90px);
- transition: background 0.35s ease;
+@media(prefers-color-scheme:light){.aura-logo{
+ background:linear-gradient(135deg,#1C1C1E 0%,#3a3a5c 40%,#0A84FF 70%,#5E5CE6 100%);
+ -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+ filter:drop-shadow(0 2px 8px rgba(10,132,255,0.25));
+}}
+.home-sub{font-size:14px;color:var(--tt);margin-top:8px;font-weight:500;letter-spacing:0.5px}
+/* Home category cards */
+.home-cats{display:flex;flex-direction:column;gap:14px;padding-bottom:20px}
+.cat-card{
+ background:var(--glass);
+ backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
+ border-radius:var(--rx);border:1px solid var(--border);
+ padding:20px;box-shadow:var(--sh-md),inset 0 1px 0 var(--ins);
+ cursor:pointer;transition:transform .2s cubic-bezier(.34,1.56,.64,1),box-shadow .2s;
+ animation:su .45s cubic-bezier(.34,1.56,.64,1) both;
 }
-.app {
- max-width: 430px;
- margin: 0 auto;
+.cat-card:nth-child(1){animation-delay:.05s}
+.cat-card:nth-child(2){animation-delay:.12s}
+.cat-card:active{transform:scale(.97)}
+.cat-header{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.cat-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,0.15)}
+.cat-title{font-size:20px;font-weight:800;color:var(--tp);letter-spacing:-.3px}
+.cat-desc{font-size:13px;color:var(--tt);margin-top:2px;font-weight:500}
+.sub-items{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sub-item{
+ background:var(--glass-stat);border-radius:var(--rm);padding:12px 14px;
+ cursor:pointer;transition:all .2s;border:1px solid var(--border-sub);
+ display:flex;align-items:center;gap:10px;
 }
-/* ── Header ── */
-.header {
- padding: 56px 20px 20px;
+.sub-item:active{transform:scale(.95)}
+.sub-emoji{font-size:20px}
+.sub-label{font-size:13px;font-weight:600;color:var(--tp)}
+.sub-count{font-size:11px;color:var(--tt);margin-top:1px}
+/* Physical sub items full width */
+.sub-items.full .sub-item{grid-column:span 1}
+/* ══ INNER PAGE COMMON ══ */
+.page{max-width:430px;margin:0 auto}
+.page-header{padding:56px 20px 16px;display:flex;align-items:center;gap:14px}
+.back-btn{
+ width:36px;height:36px;border-radius:50%;background:var(--glass-tab);
+ backdrop-filter:var(--blur-sm);-webkit-backdrop-filter:var(--blur-sm);
+ border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
+ cursor:pointer;box-shadow:var(--sh-sm);flex-shrink:0;font-size:18px;
+ transition:transform .2s;
 }
-.header-inner {
- display: flex;
- align-items: flex-start;
- justify-content: space-between;
- margin-bottom: 6px;
+.back-btn:active{transform:scale(.9)}
+.page-title-wrap{flex:1}
+.page-title{font-size:26px;font-weight:800;color:var(--tp);letter-spacing:-.4px}
+.page-subtitle{font-size:12px;color:var(--tt);margin-top:2px;font-weight:500}
+/* ══ TRACKER COMMON ══ */
+.progress-card{
+ margin:0 16px 16px;background:var(--glass);
+ backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
+ border-radius:var(--rx);border:1px solid var(--border);
+ padding:18px 20px;box-shadow:var(--sh-md),inset 0 1px 0 var(--ins);
 }
-.header-titles h1 {
- font-size: 34px;
- font-weight: 800;
- letter-spacing: -0.8px;
- color: var(--text-primary);
- line-height: 1.05;
-}
-.header-titles p {
- font-size: 13px;
- color: var(--text-tertiary);
- margin-top: 4px;
- font-weight: 500;
-}
-.app-icon {
- width: 52px; height: 52px;
- background: linear-gradient(145deg, #1A73E8, #5E5CE6);
- border-radius: 14px;
- display: flex; align-items: center; justify-content: center;
- font-size: 26px;
- box-shadow: 0 6px 20px rgba(30,100,255,0.35), inset 0 1px 0 rgba(255,255,255,0.3);
-}
-/* ── Progress Card ── */
-.progress-card {
- margin: 0 16px 16px;
- background: var(--glass);
- backdrop-filter: var(--blur);
- -webkit-backdrop-filter: var(--blur);
- border-radius: var(--radius-xl);
- border: 1px solid var(--border);
- padding: 18px 20px;
- box-shadow: var(--shadow-md), inset 0 1px 0 var(--inset-top);
-}
-.progress-top {
- display: flex;
- justify-content: space-between;
- align-items: center;
- margin-bottom: 10px;
-}
-.progress-top span {
- font-size: 12px;
- font-weight: 700;
- text-transform: uppercase;
- letter-spacing: 0.6px;
- color: var(--text-tertiary);
-}
-.progress-pct {
- font-size: 13px !important;
- font-weight: 700 !important;
- color: var(--blue) !important;
- letter-spacing: 0 !important;
- text-transform: none !important;
-}
-.track {
- height: 8px;
- background: var(--glass-mini-track);
- border-radius: 999px;
- overflow: hidden;
- margin-bottom: 14px;
-}
-.fill {
- height: 100%;
- background: linear-gradient(90deg, var(--blue), var(--indigo));
- border-radius: 999px;
- transition: width 0.5s cubic-bezier(0.34,1.56,0.64,1);
- box-shadow: 0 0 10px rgba(10,132,255,0.35);
-}
-.stats {
- display: grid;
- grid-template-columns: 1fr 1fr 1fr;
- gap: 8px;
-}
-.stat {
- background: var(--glass-stat);
- border-radius: 12px;
- padding: 9px 8px;
- text-align: center;
-}
-.stat-n {
- font-size: 22px;
- font-weight: 800;
- color: var(--text-primary);
- line-height: 1;
- letter-spacing: -0.5px;
-}
-.stat-l {
- font-size: 10px;
- color: var(--text-tertiary);
- margin-top: 2px;
- font-weight: 600;
- text-transform: uppercase;
- letter-spacing: 0.4px;
-}
-/* ── Tabs ── */
-.tabs-scroll {
- padding: 0 16px 14px;
- overflow-x: auto;
- scrollbar-width: none;
-}
-.tabs-scroll::-webkit-scrollbar { display: none; }
-.tabs {
- display: flex;
- gap: 7px;
- width: max-content;
-}
-.tab {
- font-size: 13px;
- font-weight: 600;
- padding: 8px 15px;
- border-radius: 999px;
- border: 1px solid var(--border);
- cursor: pointer;
- transition: all 0.28s cubic-bezier(0.34,1.56,0.64,1);
- white-space: nowrap;
- background: var(--glass-tab);
- backdrop-filter: var(--blur-sm);
- -webkit-backdrop-filter: var(--blur-sm);
- color: var(--tab-text);
- box-shadow: var(--shadow-sm);
- font-family: inherit;
-}
-.tab.active {
- background: var(--tab-active-bg);
- color: var(--tab-active-text);
- border-color: transparent;
- box-shadow: var(--shadow-md);
- transform: scale(1.04);
-}
-/* ── Sections ── */
-.section { display: none; padding: 0 16px; }
-.section.active { display: block; }
-/* ── Pattern Group ── */
-.pg {
- margin-bottom: 10px;
- background: var(--glass);
- backdrop-filter: var(--blur);
- -webkit-backdrop-filter: var(--blur);
- border-radius: var(--radius-xl);
- border: 1px solid var(--border);
- overflow: hidden;
- box-shadow: var(--shadow-sm), inset 0 1px 0 var(--inset-top);
- animation: su 0.45s cubic-bezier(0.34,1.56,0.64,1) both;
-}
-@keyframes su {
- from { opacity:0; transform:translateY(18px); }
- to   { opacity:1; transform:translateY(0); }
-}
-.pg:nth-child(1){animation-delay:.04s}
-.pg:nth-child(2){animation-delay:.09s}
-.pg:nth-child(3){animation-delay:.14s}
-.pg:nth-child(4){animation-delay:.19s}
-.pg:nth-child(5){animation-delay:.24s}
-.pg:nth-child(6){animation-delay:.29s}
-.pg:nth-child(7){animation-delay:.34s}
-.pg:nth-child(8){animation-delay:.39s}
-.ph {
- display: flex;
- align-items: center;
- gap: 12px;
- padding: 14px 16px;
- cursor: pointer;
- user-select: none;
- -webkit-user-select: none;
-}
-.ph-icon {
- width: 34px; height: 34px;
- border-radius: 10px;
- display: flex; align-items: center; justify-content: center;
- font-size: 17px;
- flex-shrink: 0;
-}
-.ph-info { flex: 1; min-width: 0; }
-.ph-name {
- font-size: 15px;
- font-weight: 600;
- color: var(--text-primary);
- white-space: nowrap;
- overflow: hidden;
- text-overflow: ellipsis;
-}
-.ph-sub {
- font-size: 12px;
- color: var(--text-tertiary);
- margin-top: 1px;
- font-weight: 500;
-}
-.chevron {
- color: var(--text-quaternary);
- transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
- flex-shrink: 0;
-}
-.pg.open .chevron { transform: rotate(90deg); }
-/* mini progress bar */
-.mini-track {
- height: 3px;
- background: var(--glass-mini-track);
- margin: 0 16px 10px;
- border-radius: 999px;
- overflow: hidden;
-}
-.mini-fill {
- height: 100%;
- border-radius: 999px;
- transition: width 0.4s ease;
-}
-/* Problems */
-.problems {
- display: none;
- border-top: 1px solid var(--border-subtle);
-}
-.pg.open .problems { display: block; }
-.prob {
- display: flex;
- align-items: center;
- gap: 13px;
- padding: 12px 16px;
- cursor: pointer;
- transition: background 0.14s;
- border-bottom: 1px solid var(--border-subtle);
-}
-.prob:last-child { border-bottom: none; }
-.prob:active { background: rgba(128,128,128,0.08); }
-/* Checkbox */
-.cb {
- width: 23px; height: 23px;
- border-radius: 50%;
- border: 2px solid var(--cb-border);
- background: var(--cb-bg);
- flex-shrink: 0;
- display: flex; align-items: center; justify-content: center;
- transition: all 0.26s cubic-bezier(0.34,1.56,0.64,1);
-}
-.cb.on {
- background: var(--green);
- border-color: var(--green);
- box-shadow: 0 2px 10px rgba(48,209,88,0.45);
- transform: scale(1.08);
-}
-.cb.on::after {
- content: '';
- display: block;
- width: 6px; height: 10px;
- border: 2px solid #fff;
- border-top: none;
- border-left: none;
- transform: rotate(45deg) translate(-0.5px,-1px);
-}
-.prob-lbl {
- flex: 1;
- font-size: 15px;
- color: var(--text-primary);
- line-height: 1.3;
- transition: color 0.2s;
-}
-.prob.done .prob-lbl {
- color: var(--text-quaternary);
- text-decoration: line-through;
-}
-.prob-idx {
- font-size: 11px;
- color: var(--text-quaternary);
- font-weight: 600;
- flex-shrink: 0;
-}
+.progress-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.progress-top span{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--tt)}
+.p-pct{font-size:13px!important;font-weight:700!important;color:var(--blue)!important;letter-spacing:0!important;text-transform:none!important}
+.p-track{height:8px;background:var(--glass-track);border-radius:999px;overflow:hidden;margin-bottom:14px}
+.p-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--indigo));border-radius:999px;transition:width .5s cubic-bezier(.34,1.56,.64,1);box-shadow:0 0 10px rgba(10,132,255,.35)}
+.stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.stat{background:var(--glass-stat);border-radius:12px;padding:9px 8px;text-align:center}
+.stat-n{font-size:22px;font-weight:800;color:var(--tp);line-height:1;letter-spacing:-.5px}
+.stat-l{font-size:10px;color:var(--tt);margin-top:2px;font-weight:600;text-transform:uppercase;letter-spacing:.4px}
+.tabs-scroll{padding:0 16px 14px;overflow-x:auto;scrollbar-width:none}
+.tabs-scroll::-webkit-scrollbar{display:none}
+.tabs{display:flex;gap:7px;width:max-content}
+.tab{font-size:13px;font-weight:600;padding:8px 15px;border-radius:999px;border:1px solid var(--border);cursor:pointer;transition:all .28s cubic-bezier(.34,1.56,.64,1);white-space:nowrap;background:var(--glass-tab);backdrop-filter:var(--blur-sm);-webkit-backdrop-filter:var(--blur-sm);color:var(--tab-t);box-shadow:var(--sh-sm);font-family:inherit}
+.tab.active{background:var(--tab-abg);color:var(--tab-at);border-color:transparent;box-shadow:var(--sh-md);transform:scale(1.04)}
+.section{display:none;padding:0 16px}
+.section.active{display:block}
+.pg{margin-bottom:10px;background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border-radius:var(--rx);border:1px solid var(--border);overflow:hidden;box-shadow:var(--sh-sm),inset 0 1px 0 var(--ins);animation:su .45s cubic-bezier(.34,1.56,.64,1) both}
+@keyframes su{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.pg:nth-child(1){animation-delay:.04s}.pg:nth-child(2){animation-delay:.09s}.pg:nth-child(3){animation-delay:.14s}
+.pg:nth-child(4){animation-delay:.19s}.pg:nth-child(5){animation-delay:.24s}.pg:nth-child(6){animation-delay:.29s}
+.pg:nth-child(7){animation-delay:.34s}.pg:nth-child(8){animation-delay:.39s}
+.ph{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.ph-icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.ph-info{flex:1;min-width:0}
+.ph-name{font-size:15px;font-weight:600;color:var(--tp);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ph-sub{font-size:12px;color:var(--tt);margin-top:1px;font-weight:500}
+.chevron{color:var(--tq);transition:transform .25s cubic-bezier(.34,1.56,.64,1);flex-shrink:0}
+.pg.open .chevron{transform:rotate(90deg)}
+.mini-track{height:3px;background:var(--glass-track);margin:0 16px 10px;border-radius:999px;overflow:hidden}
+.mini-fill{height:100%;border-radius:999px;transition:width .4s ease}
+.problems{display:none;border-top:1px solid var(--border-sub)}
+.pg.open .problems{display:block}
+.prob{display:flex;align-items:center;gap:13px;padding:12px 16px;cursor:pointer;transition:background .14s;border-bottom:1px solid var(--border-sub)}
+.prob:last-child{border-bottom:none}
+.prob:active{background:rgba(128,128,128,.08)}
+.cb{width:23px;height:23px;border-radius:50%;border:2px solid var(--cb-b);background:var(--cb-bg);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .26s cubic-bezier(.34,1.56,.64,1)}
+.cb.on{background:var(--green);border-color:var(--green);box-shadow:0 2px 10px rgba(48,209,88,.45);transform:scale(1.08)}
+.cb.on::after{content:'';display:block;width:6px;height:10px;border:2px solid #fff;border-top:none;border-left:none;transform:rotate(45deg) translate(-.5px,-1px)}
+.prob-lbl{flex:1;font-size:15px;color:var(--tp);line-height:1.3;transition:color .2s}
+.prob.done .prob-lbl{color:var(--tq);text-decoration:line-through}
+.prob-idx{font-size:11px;color:var(--tq);font-weight:600;flex-shrink:0}
+/* ══ WORKOUT SCREEN ══ */
+.workout-day{margin:0 16px 12px;background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border-radius:var(--rx);border:1px solid var(--border);overflow:hidden;box-shadow:var(--sh-sm),inset 0 1px 0 var(--ins);animation:su .45s cubic-bezier(.34,1.56,.64,1) both}
+.workout-day:nth-child(1){animation-delay:.04s}.workout-day:nth-child(2){animation-delay:.1s}
+.workout-day:nth-child(3){animation-delay:.16s}.workout-day:nth-child(4){animation-delay:.22s}
+.wd-header{padding:16px 18px;display:flex;align-items:center;gap:12px;cursor:pointer}
+.wd-badge{padding:5px 12px;border-radius:999px;font-size:12px;font-weight:700;color:#fff}
+.wd-title{font-size:16px;font-weight:700;color:var(--tp);flex:1}
+.wd-body{display:none;padding:0 18px 16px;border-top:1px solid var(--border-sub)}
+.workout-day.open .wd-body{display:block}
+.workout-day.open .chevron{transform:rotate(90deg)}
+.ex-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border-sub)}
+.ex-row:last-child{border-bottom:none}
+.ex-cb{width:22px;height:22px;border-radius:50%;border:2px solid var(--cb-b);background:var(--cb-bg);flex-shrink:0;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .26s cubic-bezier(.34,1.56,.64,1)}
+.ex-cb.on{background:var(--orange);border-color:var(--orange);box-shadow:0 2px 10px rgba(255,159,10,.45);transform:scale(1.08)}
+.ex-cb.on::after{content:'';display:block;width:5px;height:9px;border:2px solid #fff;border-top:none;border-left:none;transform:rotate(45deg) translate(-.5px,-1px)}
+.ex-name{flex:1;font-size:14px;color:var(--tp);font-weight:500}
+.ex-done .ex-name{color:var(--tq);text-decoration:line-through}
+.ex-sets{font-size:12px;color:var(--tt);font-weight:600;white-space:nowrap}
+/* ══ DIET SCREEN ══ */
+.diet-card{margin:0 16px 12px;background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border-radius:var(--rx);border:1px solid var(--border);overflow:hidden;box-shadow:var(--sh-sm),inset 0 1px 0 var(--ins);animation:su .45s cubic-bezier(.34,1.56,.64,1) both}
+.diet-card:nth-child(1){animation-delay:.04s}.diet-card:nth-child(2){animation-delay:.09s}
+.diet-card:nth-child(3){animation-delay:.14s}.diet-card:nth-child(4){animation-delay:.19s}
+.diet-card:nth-child(5){animation-delay:.24s}.diet-card:nth-child(6){animation-delay:.29s}
+.diet-card:nth-child(7){animation-delay:.34s}
+.dc-header{padding:15px 18px;display:flex;align-items:center;gap:12px}
+.dc-time{font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.5px}
+.dc-meal{font-size:16px;font-weight:700;color:var(--tp);flex:1}
+.dc-kcal{font-size:12px;color:var(--tt);font-weight:600}
+.dc-body{padding:0 18px 14px}
+.dc-item{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border-sub);font-size:14px;color:var(--ts)}
+.dc-item:last-child{border-bottom:none}
+.dc-item::before{content:'•';color:var(--blue);font-size:18px;line-height:1;flex-shrink:0}
+.dc-note{font-size:12px;color:var(--tt);margin-top:8px;padding:8px 12px;background:var(--glass-stat);border-radius:var(--rs);font-style:italic}
+.macro-bar{margin:0 16px 16px;background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border-radius:var(--rx);border:1px solid var(--border);padding:18px;box-shadow:var(--sh-md),inset 0 1px 0 var(--ins)}
+.macro-title{font-size:13px;font-weight:700;color:var(--tt);text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
+.macro-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.macro-item{background:var(--glass-stat);border-radius:var(--rm);padding:12px;text-align:center}
+.macro-val{font-size:22px;font-weight:800;color:var(--tp);letter-spacing:-.5px}
+.macro-unit{font-size:11px;color:var(--tt);font-weight:600;text-transform:uppercase}
+/* ══ SHOP SCREEN ══ */
+.shop-section{margin:0 16px 12px}
+.shop-sec-title{font-size:13px;font-weight:700;color:var(--tt);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px;padding-left:4px}
+.shop-card{background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border-radius:var(--rx);border:1px solid var(--border);overflow:hidden;box-shadow:var(--sh-sm),inset 0 1px 0 var(--ins)}
+.shop-item{display:flex;align-items:center;gap:13px;padding:13px 16px;border-bottom:1px solid var(--border-sub);cursor:pointer;transition:background .14s}
+.shop-item:last-child{border-bottom:none}
+.shop-item:active{background:rgba(128,128,128,.08)}
+.shop-emoji{font-size:22px;flex-shrink:0}
+.shop-info{flex:1}
+.shop-name{font-size:15px;font-weight:600;color:var(--tp)}
+.shop-qty{font-size:12px;color:var(--tt);margin-top:1px;font-weight:500}
+.shop-cb{width:23px;height:23px;border-radius:50%;border:2px solid var(--cb-b);background:var(--cb-bg);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .26s cubic-bezier(.34,1.56,.64,1)}
+.shop-cb.on{background:var(--green);border-color:var(--green);box-shadow:0 2px 10px rgba(48,209,88,.45);transform:scale(1.08)}
+.shop-cb.on::after{content:'';display:block;width:6px;height:10px;border:2px solid #fff;border-top:none;border-left:none;transform:rotate(45deg) translate(-.5px,-1px)}
+.shop-avail{background:var(--glass-stat);border-radius:var(--rx);border:1px solid var(--border-sub);padding:14px 16px;margin-top:8px}
+.shop-avail-title{font-size:12px;font-weight:700;color:var(--tt);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.avail-grid{display:flex;flex-wrap:wrap;gap:6px}
+.avail-pill{background:var(--glass-tab);border:1px solid var(--border);border-radius:999px;padding:4px 12px;font-size:12px;color:var(--ts);font-weight:500}
+/* ══ BOTTOM NAV ══ */
+.bnav{position:fixed;bottom:0;left:0;right:0;z-index:100;padding:0 16px calc(env(safe-area-inset-bottom)+10px);pointer-events:none}
+.bnav-inner{background:rgba(255,255,255,.78);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border-radius:var(--rx);border:1px solid var(--border);box-shadow:0 16px 48px rgba(0,0,0,.13),0 4px 12px rgba(0,0,0,.07);padding:10px 4px;display:flex;justify-content:space-around;pointer-events:all;max-width:430px;margin:0 auto}
+@media(prefers-color-scheme:dark){.bnav-inner{background:rgba(18,18,18,.82)}}
+.bnav-btn{display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 16px;border-radius:var(--rm);cursor:pointer;transition:background .15s;border:none;background:none;font-family:inherit}
+.bnav-btn.active{background:rgba(10,132,255,.12)}
+.bnav-icon{font-size:22px;line-height:1}
+.bnav-lbl{font-size:10px;font-weight:600;color:var(--tt)}
+.bnav-btn.active .bnav-lbl{color:var(--blue)}
+/* ══ INTERVIEW SECTION ══ */
+.iq-card{margin:0 16px 12px;background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border-radius:var(--rx);border:1px solid var(--border);overflow:hidden;box-shadow:var(--sh-sm),inset 0 1px 0 var(--ins)}
+.iq-header{padding:14px 16px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.iq-badge{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.iq-title{flex:1;font-size:15px;font-weight:600;color:var(--tp)}
+.iq-body{display:none;border-top:1px solid var(--border-sub);padding:4px 0}
+.iq-card.open .iq-body{display:block}
+.iq-card.open .chevron{transform:rotate(90deg)}
+.iq-item{display:flex;align-items:flex-start;gap:13px;padding:11px 16px;border-bottom:1px solid var(--border-sub);cursor:pointer;transition:background .14s}
+.iq-item:last-child{border-bottom:none}
+.iq-item:active{background:rgba(128,128,128,.08)}
+.iq-q{flex:1;font-size:14px;color:var(--tp);line-height:1.4}
+.iq-item.done .iq-q{color:var(--tq);text-decoration:line-through}
+/* Section label inside tracker pages */
+.sec-label{font-size:11px;font-weight:700;color:var(--tt);text-transform:uppercase;letter-spacing:.6px;padding:12px 16px 4px;display:block}
 </style>
 </head>
 <body>
-<div class="app">
-<div class="header">
-<div class="header-inner">
-<div class="header-titles">
-<h1>DSA Tracker</h1>
-<p>Harsha</p>
+<!-- ══════════════════ HOME SCREEN ══════════════════ -->
+<div id="home" class="screen active">
+<div class="home-wrap">
+<div class="home-hero">
+<div class="aura-logo">AURA</div>
+<div class="home-sub">Harsha's Personal OS</div>
 </div>
-<div class="app-icon">🧠</div>
+<div class="home-cats">
+<!-- Mental -->
+<div class="cat-card">
+<div class="cat-header">
+<div class="cat-icon" style="background:linear-gradient(135deg,#0A84FF,#5E5CE6)">🧠</div>
+<div>
+<div class="cat-title">Mental Tasks</div>
+<div class="cat-desc">DSA · Java · Spring Boot · System Design</div>
+</div>
+</div>
+<div class="sub-items">
+<div class="sub-item" onclick="goTo('dsa')">
+<span class="sub-emoji">⚡</span>
+<div><div class="sub-label">DSA Tracker</div><div class="sub-count">10 topics</div></div>
+</div>
+<div class="sub-item" onclick="goTo('java')">
+<span class="sub-emoji">☕</span>
+<div><div class="sub-label">Java</div><div class="sub-count">Topics + Interview</div></div>
+</div>
+<div class="sub-item" onclick="goTo('spring')">
+<span class="sub-emoji">🌱</span>
+<div><div class="sub-label">Spring Boot</div><div class="sub-count">Topics + Interview</div></div>
+</div>
+<div class="sub-item" onclick="goTo('sd')">
+<span class="sub-emoji">🏗️</span>
+<div><div class="sub-label">System Design</div><div class="sub-count">Topics + Interview</div></div>
+</div>
+</div>
+</div>
+<!-- Physical -->
+<div class="cat-card">
+<div class="cat-header">
+<div class="cat-icon" style="background:linear-gradient(135deg,#30D158,#34C759)">💪</div>
+<div>
+<div class="cat-title">Physical Tasks</div>
+<div class="cat-desc">Workout · Diet · Shopping</div>
+</div>
+</div>
+<div class="sub-items">
+<div class="sub-item" onclick="goTo('workout')">
+<span class="sub-emoji">🏋️</span>
+<div><div class="sub-label">Workout</div><div class="sub-count">4-Day Split</div></div>
+</div>
+<div class="sub-item" onclick="goTo('diet')">
+<span class="sub-emoji">🍽️</span>
+<div><div class="sub-label">Diet</div><div class="sub-count">Lean Bulk Plan</div></div>
+</div>
+<div class="sub-item" onclick="goTo('shop')" style="grid-column:span 2">
+<span class="sub-emoji">🛒</span>
+<div><div class="sub-label">Weekly Shop</div><div class="sub-count">Groceries checklist</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ══════════════════ DSA SCREEN ══════════════════ -->
+<div id="dsa" class="screen">
+<div class="page">
+<div class="page-header">
+<div class="back-btn" onclick="goTo('home')">←</div>
+<div class="page-title-wrap">
+<div class="page-title">⚡ DSA Tracker</div>
+<div class="page-subtitle">LeetCode patterns & problems</div>
 </div>
 </div>
 <div class="progress-card">
-<div class="progress-top">
-<span>Overall Progress</span>
-<span class="progress-pct" id="pct">0%</span>
-</div>
-<div class="track"><div class="fill" id="fill" style="width:0%"></div></div>
+<div class="progress-top"><span>DSA Progress</span><span class="p-pct" id="dsa-pct">0%</span></div>
+<div class="p-track"><div class="p-fill" id="dsa-fill" style="width:0%"></div></div>
 <div class="stats">
-<div class="stat"><div class="stat-n" id="sDone">0</div><div class="stat-l">Solved</div></div>
-<div class="stat"><div class="stat-n" id="sLeft">0</div><div class="stat-l">Left</div></div>
-<div class="stat"><div class="stat-n" id="sTotal">0</div><div class="stat-l">Total</div></div>
+<div class="stat"><div class="stat-n" id="dsa-done">0</div><div class="stat-l">Solved</div></div>
+<div class="stat"><div class="stat-n" id="dsa-left">0</div><div class="stat-l">Left</div></div>
+<div class="stat"><div class="stat-n" id="dsa-total">0</div><div class="stat-l">Total</div></div>
 </div>
 </div>
-<div class="tabs-scroll"><div class="tabs" id="tabs"></div></div>
-<div id="sections"></div>
+<div class="tabs-scroll"><div class="tabs" id="dsa-tabs"></div></div>
+<div id="dsa-secs"></div>
+</div>
+</div>
+<!-- ══════════════════ JAVA SCREEN ══════════════════ -->
+<div id="java" class="screen">
+<div class="page">
+<div class="page-header">
+<div class="back-btn" onclick="goTo('home')">←</div>
+<div class="page-title-wrap">
+<div class="page-title">☕ Java</div>
+<div class="page-subtitle">Core topics + interview questions</div>
+</div>
+</div>
+<div class="progress-card">
+<div class="progress-top"><span>Java Progress</span><span class="p-pct" id="java-pct">0%</span></div>
+<div class="p-track"><div class="p-fill" id="java-fill" style="width:0%"></div></div>
+<div class="stats">
+<div class="stat"><div class="stat-n" id="java-done">0</div><div class="stat-l">Done</div></div>
+<div class="stat"><div class="stat-n" id="java-left">0</div><div class="stat-l">Left</div></div>
+<div class="stat"><div class="stat-n" id="java-total">0</div><div class="stat-l">Total</div></div>
+</div>
+</div>
+<div class="tabs-scroll"><div class="tabs" id="java-tabs"></div></div>
+<div id="java-secs"></div>
+</div>
+</div>
+<!-- ══════════════════ SPRING BOOT SCREEN ══════════════════ -->
+<div id="spring" class="screen">
+<div class="page">
+<div class="page-header">
+<div class="back-btn" onclick="goTo('home')">←</div>
+<div class="page-title-wrap">
+<div class="page-title">🌱 Spring Boot</div>
+<div class="page-subtitle">Topics + interview questions</div>
+</div>
+</div>
+<div class="progress-card">
+<div class="progress-top"><span>Spring Progress</span><span class="p-pct" id="spring-pct">0%</span></div>
+<div class="p-track"><div class="p-fill" id="spring-fill" style="width:0%"></div></div>
+<div class="stats">
+<div class="stat"><div class="stat-n" id="spring-done">0</div><div class="stat-l">Done</div></div>
+<div class="stat"><div class="stat-n" id="spring-left">0</div><div class="stat-l">Left</div></div>
+<div class="stat"><div class="stat-n" id="spring-total">0</div><div class="stat-l">Total</div></div>
+</div>
+</div>
+<div class="tabs-scroll"><div class="tabs" id="spring-tabs"></div></div>
+<div id="spring-secs"></div>
+</div>
+</div>
+<!-- ══════════════════ SYSTEM DESIGN SCREEN ══════════════════ -->
+<div id="sd" class="screen">
+<div class="page">
+<div class="page-header">
+<div class="back-btn" onclick="goTo('home')">←</div>
+<div class="page-title-wrap">
+<div class="page-title">🏗️ System Design</div>
+<div class="page-subtitle">HLD · LLD + interview questions</div>
+</div>
+</div>
+<div class="progress-card">
+<div class="progress-top"><span>SD Progress</span><span class="p-pct" id="sd-pct">0%</span></div>
+<div class="p-track"><div class="p-fill" id="sd-fill" style="width:0%"></div></div>
+<div class="stats">
+<div class="stat"><div class="stat-n" id="sd-done">0</div><div class="stat-l">Done</div></div>
+<div class="stat"><div class="stat-n" id="sd-left">0</div><div class="stat-l">Left</div></div>
+<div class="stat"><div class="stat-n" id="sd-total">0</div><div class="stat-l">Total</div></div>
+</div>
+</div>
+<div class="tabs-scroll"><div class="tabs" id="sd-tabs"></div></div>
+<div id="sd-secs"></div>
+</div>
+</div>
+<!-- ══════════════════ WORKOUT SCREEN ══════════════════ -->
+<div id="workout" class="screen">
+<div class="page">
+<div class="page-header">
+<div class="back-btn" onclick="goTo('home')">←</div>
+<div class="page-title-wrap">
+<div class="page-title">🏋️ Workout</div>
+<div class="page-subtitle">4-Day Split — Push · Pull · Legs · Shoulders</div>
+</div>
+</div>
+<div id="workout-content"></div>
+</div>
+</div>
+<!-- ══════════════════ DIET SCREEN ══════════════════ -->
+<div id="diet" class="screen">
+<div class="page">
+<div class="page-header">
+<div class="back-btn" onclick="goTo('home')">←</div>
+<div class="page-title-wrap">
+<div class="page-title">🍽️ Diet Plan</div>
+<div class="page-subtitle">Lean Bulk · 2650 kcal · ~150g protein</div>
+</div>
+</div>
+<div class="macro-bar">
+<div class="macro-title">Daily Targets</div>
+<div class="macro-grid">
+<div class="macro-item"><div class="macro-val">2650</div><div class="macro-unit">kcal</div></div>
+<div class="macro-item"><div class="macro-val">~150g</div><div class="macro-unit">protein</div></div>
+<div class="macro-item"><div class="macro-val">~300g</div><div class="macro-unit">carbs</div></div>
+<div class="macro-item"><div class="macro-val">~70g</div><div class="macro-unit">fats</div></div>
+</div>
+</div>
+<div id="diet-content"></div>
+</div>
+</div>
+<!-- ══════════════════ SHOP SCREEN ══════════════════ -->
+<div id="shop" class="screen">
+<div class="page">
+<div class="page-header">
+<div class="back-btn" onclick="goTo('home')">←</div>
+<div class="page-title-wrap">
+<div class="page-title">🛒 Weekly Shop</div>
+<div class="page-subtitle">Tap items to mark as bought</div>
+</div>
+</div>
+<div id="shop-content"></div>
+</div>
+</div>
+<!-- ══════════════════ BOTTOM NAV ══════════════════ -->
+<div class="bnav">
+<div class="bnav-inner">
+<button class="bnav-btn active" id="nav-home" onclick="goTo('home')">
+<span class="bnav-icon">🏠</span><span class="bnav-lbl">Home</span>
+</button>
+<button class="bnav-btn" id="nav-mental" onclick="goTo('dsa')">
+<span class="bnav-icon">🧠</span><span class="bnav-lbl">Mental</span>
+</button>
+<button class="bnav-btn" id="nav-physical" onclick="goTo('workout')">
+<span class="bnav-icon">💪</span><span class="bnav-lbl">Physical</span>
+</button>
+<button class="bnav-btn" id="nav-shop" onclick="goTo('shop')">
+<span class="bnav-icon">🛒</span><span class="bnav-lbl">Shop</span>
+</button>
+</div>
 </div>
 <script>
-const ICONS=[['↔️','⏱️','↕️','∑','🔢'],['↔️','🪟','#️⃣','✏️','.*'],['🎯','📐','📦','🔢','🗻'],['🔁','⚔️','🌿','🔍'],['🐢','🪄','♻️','🔃'],['🏗️','📊','🧮','📚','🪟'],['🌿','🏗️','🪞','🛤️','🔎','✅'],['🏆','📊','🔀','🪟','🏗️','🔧','🕸️'],['💡','🏗️','📏','🎒','∑','🔢','✂️','🎲'],['🔗','🗺️','🔄','⚖️','🌲','🧭','🎨']];
-const CLRS=[
- {bg:'rgba(10,132,255,0.13)',ic:'#0A84FF',f:'linear-gradient(90deg,#0A84FF,#5E5CE6)'},
- {bg:'rgba(48,209,88,0.13)',ic:'#30D158',f:'linear-gradient(90deg,#30D158,#34C759)'},
- {bg:'rgba(94,92,230,0.13)',ic:'#5E5CE6',f:'linear-gradient(90deg,#5E5CE6,#BF5AF2)'},
- {bg:'rgba(255,159,10,0.13)',ic:'#FF9F0A',f:'linear-gradient(90deg,#FF9F0A,#FF6B00)'},
- {bg:'rgba(255,55,95,0.13)',ic:'#FF375F',f:'linear-gradient(90deg,#FF375F,#FF2D55)'},
- {bg:'rgba(90,200,250,0.13)',ic:'#5AC8FA',f:'linear-gradient(90deg,#5AC8FA,#32ADE6)'},
- {bg:'rgba(255,214,10,0.13)',ic:'#B8960A',f:'linear-gradient(90deg,#FFD60A,#FF9F0A)'},
-];
-const data=[
- {topic:"Arrays",patterns:[
-   {name:"Two Pointers",probs:["Two Sum","3Sum","3Sum Closest","Remove Duplicates from Sorted Array","Squares of a Sorted Array"]},
-   {name:"Merge Intervals",probs:["Merge Intervals","Insert Interval","Non-overlapping Intervals","Interval List Intersections"]},
-   {name:"Sorting",probs:["Sort Colors","Meeting Rooms II","Largest Number","Wiggle Sort II","Merge Sorted Array"]},
-   {name:"Sliding Window",probs:["Minimum Size Subarray Sum","Longest Mountain in Array","Longest Continuous Increasing Subsequence","Maximum Points You Can Obtain from Cards","Maximum Product Subarray"]},
-   {name:"Prefix Sums",probs:["Count of Smaller Numbers After Self","Range Sum Query - Mutable","Count of Range Sum","Subarray Product Less Than K","Find All Duplicates in an Array"]},
- ]},
- {topic:"Strings",patterns:[
-   {name:"Two Pointers",probs:["Valid Palindrome","Reverse Words in a String","Longest Palindromic Substring","Implement strStr()","Remove Duplicates from Sorted Array"]},
-   {name:"Sliding Window",probs:["Minimum Window Substring","Longest Substring Without Repeating Characters","Longest Substring with At Most K Distinct Characters","Find All Anagrams in a String","Longest Repeating Character Replacement"]},
-   {name:"Hashmaps",probs:["Group Anagrams","First Unique Character in a String","Valid Anagram","Longest Palindromic Substring","String Compression"]},
-   {name:"String Manipulation",probs:["Reverse String","Reverse Integer","String to Integer (atoi)","Count and Say","Implement strStr()"]},
-   {name:"Regular Expressions",probs:["Regular Expression Matching","Regular Expression Matching (with . and *)","Wildcard Matching","Decode String","Validate IP Address"]},
- ]},
- {topic:"Binary Search",patterns:[
-   {name:"Basic Binary Search",probs:["Search Insert Position","Find Minimum in Rotated Sorted Array","Peak Index in a Mountain Array","Find Smallest Letter Greater Than Target","Valid Perfect Square"]},
-   {name:"Range Search",probs:["Split Array Largest Sum","Find Kth Smallest Element in a Sorted Matrix","Capacity To Ship Packages Within D Days","Maximum Average Subarray I"]},
-   {name:"Allocation Problems",probs:["Allocate Minimum Number of Pages","Minimize Maximum Pair Sum in Array","Divide Chocolate","Maximum Distance to Gas Station"]},
-   {name:"Counting Occurrences",probs:["Find First and Last Position of Element in Sorted Array","Count Negative Numbers in a Sorted Matrix","Search a 2D Matrix II","Find Minimum in Rotated Sorted Array II","Count Primes"]},
-   {name:"Bitonic Array Search",probs:["Find Peak Element","Find in Mountain Array","Longest Mountain in Array","Peak Index in a Mountain Array","Maximum Value at a Given Index in a Bounded Array"]},
- ]},
- {topic:"Recursion",patterns:[
-   {name:"Basic Recursive Functions",probs:["Factorial","Fibonacci Number","Pow(x, n)","Greatest Common Divisor of Strings","Minimum Moves to Move a Box to Their Target Location"]},
-   {name:"Divide & Conquer",probs:["Binary Search","Merge Sort","Quick Sort","Maximum Subarray","Maximum Subarray"]},
-   {name:"Backtracking",probs:["Generate Parentheses","Combination Sum","N-Queens","Letter Combinations of a Phone Number","Word Search"]},
-   {name:"Recursive Search",probs:["Sudoku Solver","Number of Islands","Path Sum","Word Search II"]},
- ]},
- {topic:"Linked List",patterns:[
-   {name:"Fast and Slow Pointers",probs:["Middle of the Linked List","Linked List Cycle","Intersection of Two Linked Lists","Merge Two Sorted Lists","Palindrome Linked List"]},
-   {name:"Dummy Node Technique",probs:["Add Two Numbers","Swap Nodes in Pairs","Remove Duplicates from Sorted List II","Palindrome Linked List","Rotate List"]},
-   {name:"Recursion Technique",probs:["Reverse Linked List","Swap Nodes in Pairs","Flatten a Multilevel Doubly Linked List"]},
-   {name:"In-Place Reversal",probs:["Reverse Linked List","Reorder List","Rotate List","Reverse Nodes in k-Group","Split Linked List in Parts"]},
- ]},
- {topic:"Stacks & Queues",patterns:[
-   {name:"Design Problems",probs:["Implement Queue using Stacks","Implement Stack using Queues","Design Browser History","Design Hit Counter","Design Circular Queue","Design Twitter","Design Snake Game"]},
-   {name:"Monotonic Stack",probs:["Next Greater Element I","Largest Rectangle in Histogram","Online Stock Span","Daily Temperatures","Remove Duplicate Letters"]},
-   {name:"Expression Evaluation",probs:["Basic Calculator II","Evaluate Division","Simplify Path","Basic Calculator","Decode String"]},
-   {name:"Two Stacks",probs:["Evaluate Reverse Polish Notation","Min Stack","Design a Stack With Increment Operation","Baseball Game","Backspace String Compare"]},
-   {name:"Sliding Window & Monotonic Queue",probs:["Sliding Window Maximum","Design Circular Deque","Moving Average from Data Stream","First Unique Number","Max Sum of Rectangle No Larger Than K"]},
- ]},
- {topic:"Binary Trees",patterns:[
-   {name:"Traversal",probs:["Binary Tree Inorder Traversal","Binary Tree Preorder Traversal","Binary Tree Postorder Traversal","Binary Tree Level Order Traversal","Binary Tree Zigzag Level Order Traversal"]},
-   {name:"Construction",probs:["Construct Binary Tree from Preorder and Inorder","Construct Binary Tree from Inorder and Postorder","Construct Binary Tree from Preorder and Postorder","Daily Temperatures","Remove Duplicate Letters"]},
-   {name:"Mirror & Symmetry",probs:["Invert Binary Tree","Symmetric Tree","Flip Equivalent Binary Trees","Convert Sorted Array to BST","Convert Sorted List to BST"]},
-   {name:"Path Sum & Root to Leaf",probs:["Path Sum","Path Sum II","Sum Root to Leaf Numbers","Binary Tree Maximum Path Sum","Path Sum III"]},
-   {name:"Traversal & Search",probs:["Lowest Common Ancestor","Binary Tree Level Order Traversal II","Search in a BST","Validate Binary Search Tree","Closest BST Value"]},
-   {name:"Validation & Properties",probs:["Diameter of Binary Tree","Count Complete Tree Nodes","Balanced Binary Tree","Binary Tree Longest Consecutive Sequence","Subtree of Another Tree"]},
- ]},
- {topic:"Priority Queues",patterns:[
-   {name:"Finding Kth Largest/Smallest",probs:["Kth Largest Element in an Array","Kth Smallest Element in a Sorted Matrix","Find Median from Data Stream","K Closest Points to Origin","Kth Largest Element in a Stream"]},
-   {name:"Top K Frequent Elements",probs:["Top K Frequent Elements","Sort Characters By Frequency","Top K Frequent Words","Top K Frequent Elements in a Sorted Matrix","Maximum Frequency Stack"]},
-   {name:"Merge K Lists",probs:["Merge k Sorted Lists","Merge Sorted Array","Merge Intervals","Find Smallest Common Number","Smallest Range Covering Elements from K Lists"]},
-   {name:"Sliding Window Max/Min",probs:["Sliding Window Maximum","Maximum Sum of Subarray of Size K","Minimum Window Substring","Max Consecutive Ones III","Longest Continuous Subarray With Absolute Diff <= Limit"]},
-   {name:"Design Problems",probs:["Design Twitter","Design Hit Counter","Design Browser History","Design Snake Game","Design a Leaderboard"]},
-   {name:"Construction and Manipulation",probs:["Task Scheduler","Rearrange String k Distance Apart","Reorganize String","Rearrange Words in a Sentence","Distant Barcodes"]},
-   {name:"With Graphs",probs:["Network Delay Time","Cheapest Flights Within K Stops","Path with Maximum Probability","The Maze II","Kth Smallest Element in a Sorted Matrix"]},
- ]},
- {topic:"Dynamic Programming",patterns:[
-   {name:"Basic DP",probs:["Fibonacci Number","Climbing Stairs","House Robber","Unique Paths","Minimum Path Sum"]},
-   {name:"Optimal Substructure",probs:["Maximum Subarray","Longest Increasing Subsequence","Coin Change","Edit Distance","Longest Common Subsequence"]},
-   {name:"Interval/Range DP",probs:["Minimum Falling Path Sum","Burst Balloons","Partition Equal Subset Sum","Strange Printer","Maximum Vacation Days"]},
-   {name:"Knapsack Problems",probs:["0/1 Knapsack","Partition Equal Subset Sum","Target Sum","Partition to K Equal Subsets","Equal Subset Sum Partition"]},
-   {name:"Prefix Sums DP",probs:["Subarray Sum Equals K","Range Sum Query - Immutable","Count of Range Sum","Number of Submatrices That Sum to Target","Subarray Sums Divisible by K"]},
-   {name:"Counting Problems",probs:["Unique Paths III","Distinct Subsequences","Count Different Palindromic Subsequences","Count Numbers with Consecutive Digits","Count of Smaller Numbers After Self"]},
-   {name:"Interval Partitioning",probs:["Non-overlapping Intervals","Maximum Number of Non-Overlapping Subarrays","Split Array Into Consecutive Subsequences","Longest Continuous Increasing Subsequence"]},
-   {name:"Probability & Expectations",probs:["Knight Probability in Chessboard","Dice Roll Simulation","Stone Game VII","Predict the Winner","Cherry Pickup"]},
- ]},
- {topic:"Graphs",patterns:[
-   {name:"Finding Connected Components",probs:["Number of Islands","Connected Components in Undirected Graph","Friend Circles","Accounts Merge","Redundant Connection"]},
-   {name:"Shortest Path Finding",probs:["Network Delay Time","Cheapest Flights Within K Stops","Shortest Path in Binary Matrix","Word Ladder","Maze"]},
-   {name:"Cycle Detection",probs:["Course Schedule","Find Eventual Safe States","Course Schedule II","Detect Cycle in Directed Graph","Redundant Connection II"]},
-   {name:"Bipartite Graph Check",probs:["Is Graph Bipartite?","Possible Bipartition","Bipartite","Graph Coloring","Matching Bipartite Graph"]},
-   {name:"Minimum Spanning Tree",probs:["Minimum Spanning Tree","Connecting Cities With Minimum Cost","Campus Bikes II","Optimal Division","Redundant Connection II"]},
-   {name:"DAG Traversal",probs:["Alien Dictionary","Longest Increasing Path in a Matrix","Course Schedule III","Sequence Reconstruction","All Paths from Source Lead to Destination"]},
-   {name:"Graph Coloring",probs:["Graph Coloring","Course Schedule IV","Minimum Number of Vertices to Reach All Nodes","Flower Planting With No Adjacent"]},
- ]},
-];
-let ck={};
-try{ck=JSON.parse(localStorage.getItem('dsa_v3')||'{}');}catch(e){}
-function save(){try{localStorage.setItem('dsa_v3',JSON.stringify(ck));}catch(e){}}
-function updateGlobal(){
- let t=0,d=0;
- data.forEach((topic,ti)=>topic.patterns.forEach((pat,pi)=>pat.probs.forEach((_,qi)=>{t++;if(ck[`${ti}-${pi}-${qi}`])d++;})));
- const p=t?Math.round(d/t*100):0;
- document.getElementById('fill').style.width=p+'%';
- document.getElementById('pct').textContent=p+'%';
- document.getElementById('sDone').textContent=d;
- document.getElementById('sLeft').textContent=t-d;
- document.getElementById('sTotal').textContent=t;
+// ════════════════════════════════════════
+// NAVIGATION
+// ════════════════════════════════════════
+const mentalScreens=['dsa','java','spring','sd'];
+const physicalScreens=['workout','diet','shop'];
+function goTo(id){
+ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ window.scrollTo(0,0);
+ // nav highlight
+ document.querySelectorAll('.bnav-btn').forEach(b=>b.classList.remove('active'));
+ if(id==='home') document.getElementById('nav-home').classList.add('active');
+ else if(mentalScreens.includes(id)) document.getElementById('nav-mental').classList.add('active');
+ else if(physicalScreens.includes(id)) document.getElementById('nav-physical').classList.add('active');
+ if(id==='shop') document.getElementById('nav-shop').classList.add('active');
 }
-function build(){
- const tabsEl=document.getElementById('tabs');
- const secsEl=document.getElementById('sections');
- data.forEach((topic,ti)=>{
+// ════════════════════════════════════════
+// STORAGE
+// ════════════════════════════════════════
+function load(k){try{return JSON.parse(localStorage.getItem(k)||'{}')}catch(e){return{}}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+// ════════════════════════════════════════
+// TRACKER BUILDER (DSA / Java / Spring / SD)
+// ════════════════════════════════════════
+const CLRS=[
+ {bg:'rgba(10,132,255,0.13)',f:'linear-gradient(90deg,#0A84FF,#5E5CE6)'},
+ {bg:'rgba(48,209,88,0.13)',f:'linear-gradient(90deg,#30D158,#34C759)'},
+ {bg:'rgba(94,92,230,0.13)',f:'linear-gradient(90deg,#5E5CE6,#BF5AF2)'},
+ {bg:'rgba(255,159,10,0.13)',f:'linear-gradient(90deg,#FF9F0A,#FF6B00)'},
+ {bg:'rgba(255,55,95,0.13)',f:'linear-gradient(90deg,#FF375F,#FF2D55)'},
+ {bg:'rgba(90,200,250,0.13)',f:'linear-gradient(90deg,#5AC8FA,#32ADE6)'},
+ {bg:'rgba(255,214,10,0.13)',f:'linear-gradient(90deg,#FFD60A,#FF9F0A)'},
+];
+function buildTracker(ns, topicsData, tabsEl, secsEl, storeKey){
+ const ck=load(storeKey);
+ function updateProgress(){
+   let t=0,d=0;
+   topicsData.forEach((top,ti)=>top.patterns.forEach((pat,pi)=>pat.probs.forEach((_,qi)=>{t++;if(ck[`${ti}-${pi}-${qi}`])d++;})));
+   const p=t?Math.round(d/t*100):0;
+   document.getElementById(ns+'-fill').style.width=p+'%';
+   document.getElementById(ns+'-pct').textContent=p+'%';
+   document.getElementById(ns+'-done').textContent=d;
+   document.getElementById(ns+'-left').textContent=t-d;
+   document.getElementById(ns+'-total').textContent=t;
+ }
+ topicsData.forEach((top,ti)=>{
    const tab=document.createElement('button');
    tab.className='tab'+(ti===0?' active':'');
-   tab.textContent=topic.topic;
+   tab.textContent=top.topic;
    tab.onclick=()=>{
-     document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-     document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+     tabsEl.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+     secsEl.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
      tab.classList.add('active');
-     const sec=document.getElementById('s'+ti);
+     const sec=document.getElementById(ns+'s'+ti);
      sec.classList.add('active');
-     sec.querySelectorAll('.pg').forEach((pg,i)=>{
-       pg.style.animation='none';pg.offsetHeight;
-       pg.style.animation=`su 0.45s cubic-bezier(0.34,1.56,0.64,1) ${i*0.05+0.02}s both`;
-     });
+     sec.querySelectorAll('.pg').forEach((pg,i)=>{pg.style.animation='none';pg.offsetHeight;pg.style.animation=`su .45s cubic-bezier(.34,1.56,.64,1) ${i*.05+.02}s both`;});
    };
    tabsEl.appendChild(tab);
    const sec=document.createElement('div');
    sec.className='section'+(ti===0?' active':'');
-sec.id='s'+ti;
-   topic.patterns.forEach((pat,pi)=>{
+sec.id=ns+'s'+ti;
+   top.patterns.forEach((pat,pi)=>{
      const c=CLRS[pi%CLRS.length];
-     const icArr=ICONS[ti]||[];
-     const ic=icArr[pi]||'📌';
      const total=pat.probs.length;
      const getDone=()=>pat.probs.filter((_,qi)=>ck[`${ti}-${pi}-${qi}`]).length;
-     const pg=document.createElement('div');
-     pg.className='pg';
-     // Header
-     const ph=document.createElement('div');
-     ph.className='ph';
-     ph.innerHTML=`
-<div class="ph-icon" style="background:${c.bg};">${ic}</div>
-<div class="ph-info">
-<div class="ph-name">${pat.name}</div>
-<div class="ph-sub" id="sub-${ti}-${pi}">${getDone()}/${total} completed</div>
-</div>
-<svg class="chevron" width="8" height="13" viewBox="0 0 8 13" fill="none">
-<path d="M1 1.5l5.5 5L1 11.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>`;
+     const pg=document.createElement('div');pg.className='pg';
+     const ph=document.createElement('div');ph.className='ph';
+     ph.innerHTML=`<div class="ph-icon" style="background:${c.bg}">${pat.icon||'📌'}</div><div class="ph-info"><div class="ph-name">${pat.name}</div><div class="ph-sub" id="${ns}-sub-${ti}-${pi}">${getDone()}/${total} completed</div></div><svg class="chevron" width="8" height="13" viewBox="0 0 8 13" fill="none"><path d="M1 1.5l5.5 5L1 11.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
      ph.onclick=()=>pg.classList.toggle('open');
-     // Mini bar
      const mt=document.createElement('div');mt.className='mini-track';
-     const mf=document.createElement('div');mf.className='mini-fill';
-     mf.style.background=c.f;
-     mf.style.width=(total?getDone()/total*100:0)+'%';
-     mt.appendChild(mf);
-     // Problems
+     const mf=document.createElement('div');mf.className='mini-fill';mf.style.background=c.f;
+     mf.style.width=(total?getDone()/total*100:0)+'%';mt.appendChild(mf);
      const pl=document.createElement('div');pl.className='problems';
      pat.probs.forEach((name,qi)=>{
        const key=`${ti}-${pi}-${qi}`;
-       const div=document.createElement('div');
-       div.className='prob'+(ck[key]?' done':'');
-       const cb=document.createElement('div');
-       cb.className='cb'+(ck[key]?' on':'');
-       const lbl=document.createElement('span');
-       lbl.className='prob-lbl';lbl.textContent=name;
-       const idx=document.createElement('span');
-       idx.className='prob-idx';idx.textContent=`${qi+1}`;
+       const div=document.createElement('div');div.className='prob'+(ck[key]?' done':'');
+       const cb=document.createElement('div');cb.className='cb'+(ck[key]?' on':'');
+       const lbl=document.createElement('span');lbl.className='prob-lbl';lbl.textContent=name;
+       const idx=document.createElement('span');idx.className='prob-idx';idx.textContent=`${qi+1}`;
        div.appendChild(cb);div.appendChild(lbl);div.appendChild(idx);
        div.onclick=()=>{
-         ck[key]=!ck[key];
-         const on=ck[key];
-         cb.classList.toggle('on',on);
-         div.classList.toggle('done',on);
-         cb.style.transform='scale(1.35)';
-         setTimeout(()=>{cb.style.transform='';},220);
+         ck[key]=!ck[key];cb.classList.toggle('on',ck[key]);div.classList.toggle('done',ck[key]);
+         cb.style.transform='scale(1.35)';setTimeout(()=>{cb.style.transform=''},220);
          const d2=getDone();
-         document.getElementById(`sub-${ti}-${pi}`).textContent=`${d2}/${total} completed`;
+         document.getElementById(`${ns}-sub-${ti}-${pi}`).textContent=`${d2}/${total} completed`;
          mf.style.width=(total?d2/total*100:0)+'%';
-         save();updateGlobal();
+         save(storeKey,ck);updateProgress();
        };
        pl.appendChild(div);
      });
-     pg.appendChild(ph);pg.appendChild(mt);pg.appendChild(pl);
-     sec.appendChild(pg);
+     pg.appendChild(ph);pg.appendChild(mt);pg.appendChild(pl);sec.appendChild(pg);
    });
    secsEl.appendChild(sec);
  });
- updateGlobal();
+ updateProgress();
 }
-build();
+// ════════════════════════════════════════
+// INTERVIEW Q BUILDER
+// ════════════════════════════════════════
+function buildIQ(container, sections, storeKey){
+ const ck=load(storeKey);
+ sections.forEach((sec,si)=>{
+   const card=document.createElement('div');card.className='iq-card';
+   const hdr=document.createElement('div');hdr.className='iq-header';
+   hdr.innerHTML=`<div class="iq-badge" style="background:${sec.color}">${sec.icon}</div><div class="iq-title">${sec.title}</div><svg class="chevron" width="8" height="13" viewBox="0 0 8 13" fill="none"><path d="M1 1.5l5.5 5L1 11.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+   hdr.onclick=()=>card.classList.toggle('open');
+   const body=document.createElement('div');body.className='iq-body';
+   sec.qs.forEach((q,qi)=>{
+     const key=`${si}-${qi}`;
+     const item=document.createElement('div');item.className='iq-item'+(ck[key]?' done':'');
+     const cb=document.createElement('div');cb.className='cb'+(ck[key]?' on':'');cb.style.flexShrink='0';
+     const lbl=document.createElement('span');lbl.className='iq-q';lbl.textContent=q;
+     item.appendChild(cb);item.appendChild(lbl);
+     item.onclick=()=>{
+       ck[key]=!ck[key];cb.classList.toggle('on',ck[key]);item.classList.toggle('done',ck[key]);
+       cb.style.transform='scale(1.35)';setTimeout(()=>{cb.style.transform=''},220);
+       save(storeKey,ck);
+     };
+     body.appendChild(item);
+   });
+   card.appendChild(hdr);card.appendChild(body);container.appendChild(card);
+ });
+}
+// ════════════════════════════════════════
+// DSA DATA
+// ════════════════════════════════════════
+const dsaData=[
+ {topic:'Arrays',patterns:[
+   {name:'Two Pointers',icon:'↔️',probs:['Two Sum','3Sum','3Sum Closest','Remove Duplicates from Sorted Array','Squares of a Sorted Array']},
+   {name:'Merge Intervals',icon:'⏱️',probs:['Merge Intervals','Insert Interval','Non-overlapping Intervals','Interval List Intersections']},
+   {name:'Sorting',icon:'↕️',probs:['Sort Colors','Meeting Rooms II','Largest Number','Wiggle Sort II','Merge Sorted Array']},
+   {name:'Sliding Window',icon:'🪟',probs:['Minimum Size Subarray Sum','Longest Mountain in Array','Longest Continuous Increasing Subsequence','Maximum Points You Can Obtain from Cards','Maximum Product Subarray']},
+   {name:'Prefix Sums',icon:'∑',probs:['Count of Smaller Numbers After Self','Range Sum Query - Mutable','Count of Range Sum','Subarray Product Less Than K','Find All Duplicates in an Array']},
+ ]},
+ {topic:'Strings',patterns:[
+   {name:'Two Pointers',icon:'↔️',probs:['Valid Palindrome','Reverse Words in a String','Longest Palindromic Substring','Implement strStr()','Remove Duplicates from Sorted Array']},
+   {name:'Sliding Window',icon:'🪟',probs:['Minimum Window Substring','Longest Substring Without Repeating Characters','Longest Substring with At Most K Distinct Characters','Find All Anagrams in a String','Longest Repeating Character Replacement']},
+   {name:'Hashmaps',icon:'#️⃣',probs:['Group Anagrams','First Unique Character in a String','Valid Anagram','Longest Palindromic Substring','String Compression']},
+   {name:'String Manipulation',icon:'✏️',probs:['Reverse String','Reverse Integer','String to Integer (atoi)','Count and Say','Implement strStr()']},
+   {name:'Regular Expressions',icon:'.*',probs:['Regular Expression Matching','Regular Expression Matching (with . and *)','Wildcard Matching','Decode String','Validate IP Address']},
+ ]},
+ {topic:'Binary Search',patterns:[
+   {name:'Basic Binary Search',icon:'🎯',probs:['Search Insert Position','Find Minimum in Rotated Sorted Array','Peak Index in a Mountain Array','Find Smallest Letter Greater Than Target','Valid Perfect Square']},
+   {name:'Range Search',icon:'📐',probs:['Split Array Largest Sum','Find Kth Smallest Element in a Sorted Matrix','Capacity To Ship Packages Within D Days','Maximum Average Subarray I']},
+   {name:'Allocation Problems',icon:'📦',probs:['Allocate Minimum Number of Pages','Minimize Maximum Pair Sum in Array','Divide Chocolate','Maximum Distance to Gas Station']},
+   {name:'Counting Occurrences',icon:'🔢',probs:['Find First and Last Position of Element in Sorted Array','Count Negative Numbers in a Sorted Matrix','Search a 2D Matrix II','Find Minimum in Rotated Sorted Array II','Count Primes']},
+   {name:'Bitonic Array Search',icon:'🗻',probs:['Find Peak Element','Find in Mountain Array','Longest Mountain in Array','Peak Index in a Mountain Array','Maximum Value at a Given Index in a Bounded Array']},
+ ]},
+ {topic:'Recursion',patterns:[
+   {name:'Basic Recursive Functions',icon:'🔁',probs:['Factorial','Fibonacci Number','Pow(x, n)','Greatest Common Divisor of Strings','Minimum Moves to Move a Box to Their Target Location']},
+   {name:'Divide & Conquer',icon:'⚔️',probs:['Binary Search','Merge Sort','Quick Sort','Maximum Subarray','Maximum Subarray']},
+   {name:'Backtracking',icon:'🌿',probs:['Generate Parentheses','Combination Sum','N-Queens','Letter Combinations of a Phone Number','Word Search']},
+   {name:'Recursive Search',icon:'🔍',probs:['Sudoku Solver','Number of Islands','Path Sum','Word Search II']},
+ ]},
+ {topic:'Linked List',patterns:[
+   {name:'Fast and Slow Pointers',icon:'🐢',probs:['Middle of the Linked List','Linked List Cycle','Intersection of Two Linked Lists','Merge Two Sorted Lists','Palindrome Linked List']},
+   {name:'Dummy Node Technique',icon:'🪄',probs:['Add Two Numbers','Swap Nodes in Pairs','Remove Duplicates from Sorted List II','Palindrome Linked List','Rotate List']},
+   {name:'Recursion Technique',icon:'♻️',probs:['Reverse Linked List','Swap Nodes in Pairs','Flatten a Multilevel Doubly Linked List']},
+   {name:'In-Place Reversal',icon:'🔃',probs:['Reverse Linked List','Reorder List','Rotate List','Reverse Nodes in k-Group','Split Linked List in Parts']},
+ ]},
+ {topic:'Stacks & Queues',patterns:[
+   {name:'Design Problems',icon:'🏗️',probs:['Implement Queue using Stacks','Implement Stack using Queues','Design Browser History','Design Hit Counter','Design Circular Queue','Design Twitter','Design Snake Game']},
+   {name:'Monotonic Stack',icon:'📊',probs:['Next Greater Element I','Largest Rectangle in Histogram','Online Stock Span','Daily Temperatures','Remove Duplicate Letters']},
+   {name:'Expression Evaluation',icon:'🧮',probs:['Basic Calculator II','Evaluate Division','Simplify Path','Basic Calculator','Decode String']},
+   {name:'Two Stacks',icon:'📚',probs:['Evaluate Reverse Polish Notation','Min Stack','Design a Stack With Increment Operation','Baseball Game','Backspace String Compare']},
+   {name:'Sliding Window & Monotonic Queue',icon:'🪟',probs:['Sliding Window Maximum','Design Circular Deque','Moving Average from Data Stream','First Unique Number','Max Sum of Rectangle No Larger Than K']},
+ ]},
+ {topic:'Binary Trees',patterns:[
+   {name:'Traversal',icon:'🌿',probs:['Binary Tree Inorder Traversal','Binary Tree Preorder Traversal','Binary Tree Postorder Traversal','Binary Tree Level Order Traversal','Binary Tree Zigzag Level Order Traversal']},
+   {name:'Construction',icon:'🏗️',probs:['Construct Binary Tree from Preorder and Inorder','Construct Binary Tree from Inorder and Postorder','Construct Binary Tree from Preorder and Postorder','Daily Temperatures','Remove Duplicate Letters']},
+   {name:'Mirror & Symmetry',icon:'🪞',probs:['Invert Binary Tree','Symmetric Tree','Flip Equivalent Binary Trees','Convert Sorted Array to BST','Convert Sorted List to BST']},
+   {name:'Path Sum & Root to Leaf',icon:'🛤️',probs:['Path Sum','Path Sum II','Sum Root to Leaf Numbers','Binary Tree Maximum Path Sum','Path Sum III']},
+   {name:'Traversal & Search',icon:'🔎',probs:['Lowest Common Ancestor','Binary Tree Level Order Traversal II','Search in a BST','Validate Binary Search Tree','Closest BST Value']},
+   {name:'Validation & Properties',icon:'✅',probs:['Diameter of Binary Tree','Count Complete Tree Nodes','Balanced Binary Tree','Binary Tree Longest Consecutive Sequence','Subtree of Another Tree']},
+ ]},
+ {topic:'Priority Queues',patterns:[
+   {name:'Finding Kth Largest/Smallest',icon:'🏆',probs:['Kth Largest Element in an Array','Kth Smallest Element in a Sorted Matrix','Find Median from Data Stream','K Closest Points to Origin','Kth Largest Element in a Stream']},
+   {name:'Top K Frequent Elements',icon:'📊',probs:['Top K Frequent Elements','Sort Characters By Frequency','Top K Frequent Words','Top K Frequent Elements in a Sorted Matrix','Maximum Frequency Stack']},
+   {name:'Merge K Lists',icon:'🔀',probs:['Merge k Sorted Lists','Merge Sorted Array','Merge Intervals','Find Smallest Common Number','Smallest Range Covering Elements from K Lists']},
+   {name:'Sliding Window Max/Min',icon:'🪟',probs:['Sliding Window Maximum','Maximum Sum of Subarray of Size K','Minimum Window Substring','Max Consecutive Ones III','Longest Continuous Subarray With Absolute Diff <= Limit']},
+   {name:'Design Problems',icon:'🏗️',probs:['Design Twitter','Design Hit Counter','Design Browser History','Design Snake Game','Design a Leaderboard']},
+   {name:'Construction and Manipulation',icon:'🔧',probs:['Task Scheduler','Rearrange String k Distance Apart','Reorganize String','Rearrange Words in a Sentence','Distant Barcodes']},
+   {name:'With Graphs',icon:'🕸️',probs:['Network Delay Time','Cheapest Flights Within K Stops','Path with Maximum Probability','The Maze II','Kth Smallest Element in a Sorted Matrix']},
+ ]},
+ {topic:'Dynamic Programming',patterns:[
+   {name:'Basic DP',icon:'💡',probs:['Fibonacci Number','Climbing Stairs','House Robber','Unique Paths','Minimum Path Sum']},
+   {name:'Optimal Substructure',icon:'🏗️',probs:['Maximum Subarray','Longest Increasing Subsequence','Coin Change','Edit Distance','Longest Common Subsequence']},
+   {name:'Interval/Range DP',icon:'📏',probs:['Minimum Falling Path Sum','Burst Balloons','Partition Equal Subset Sum','Strange Printer','Maximum Vacation Days']},
+   {name:'Knapsack Problems',icon:'🎒',probs:['0/1 Knapsack','Partition Equal Subset Sum','Target Sum','Partition to K Equal Subsets','Equal Subset Sum Partition']},
+   {name:'Prefix Sums DP',icon:'∑',probs:['Subarray Sum Equals K','Range Sum Query - Immutable','Count of Range Sum','Number of Submatrices That Sum to Target','Subarray Sums Divisible by K']},
+   {name:'Counting Problems',icon:'🔢',probs:['Unique Paths III','Distinct Subsequences','Count Different Palindromic Subsequences','Count Numbers with Consecutive Digits','Count of Smaller Numbers After Self']},
+   {name:'Interval Partitioning',icon:'✂️',probs:['Non-overlapping Intervals','Maximum Number of Non-Overlapping Subarrays','Split Array Into Consecutive Subsequences','Longest Continuous Increasing Subsequence']},
+   {name:'Probability & Expectations',icon:'🎲',probs:['Knight Probability in Chessboard','Dice Roll Simulation','Stone Game VII','Predict the Winner','Cherry Pickup']},
+ ]},
+ {topic:'Graphs',patterns:[
+   {name:'Finding Connected Components',icon:'🔗',probs:['Number of Islands','Connected Components in Undirected Graph','Friend Circles','Accounts Merge','Redundant Connection']},
+   {name:'Shortest Path Finding',icon:'🗺️',probs:['Network Delay Time','Cheapest Flights Within K Stops','Shortest Path in Binary Matrix','Word Ladder','Maze']},
+   {name:'Cycle Detection',icon:'🔄',probs:['Course Schedule','Find Eventual Safe States','Course Schedule II','Detect Cycle in Directed Graph','Redundant Connection II']},
+   {name:'Bipartite Graph Check',icon:'⚖️',probs:['Is Graph Bipartite?','Possible Bipartition','Bipartite','Graph Coloring','Matching Bipartite Graph']},
+   {name:'Minimum Spanning Tree',icon:'🌲',probs:['Minimum Spanning Tree','Connecting Cities With Minimum Cost','Campus Bikes II','Optimal Division','Redundant Connection II']},
+   {name:'DAG Traversal',icon:'🧭',probs:['Alien Dictionary','Longest Increasing Path in a Matrix','Course Schedule III','Sequence Reconstruction','All Paths from Source Lead to Destination']},
+   {name:'Graph Coloring',icon:'🎨',probs:['Graph Coloring','Course Schedule IV','Minimum Number of Vertices to Reach All Nodes','Flower Planting With No Adjacent']},
+ ]},
+];
+// ════════════════════════════════════════
+// JAVA DATA
+// ════════════════════════════════════════
+const javaData=[
+ {topic:'Core Java',patterns:[
+   {name:'OOP Concepts',icon:'🧱',probs:['Classes & Objects','Inheritance','Polymorphism','Abstraction','Encapsulation','Interfaces vs Abstract Classes','Method Overloading vs Overriding']},
+   {name:'Data Types & Memory',icon:'💾',probs:['Primitive vs Reference Types','Stack vs Heap Memory','String Pool & Immutability','Autoboxing & Unboxing','Wrapper Classes','Pass by Value in Java']},
+   {name:'Exception Handling',icon:'⚠️',probs:['Checked vs Unchecked Exceptions','try-catch-finally','Custom Exceptions','throws vs throw','Multi-catch blocks','Exception chaining']},
+   {name:'Collections Framework',icon:'📦',probs:['ArrayList vs LinkedList','HashMap vs TreeMap vs LinkedHashMap','HashSet vs TreeSet','Iterator vs ListIterator','Comparable vs Comparator','PriorityQueue usage','Collections utility class']},
+ ]},
+ {topic:'Advanced Java',patterns:[
+   {name:'Generics',icon:'🔧',probs:['Generic Classes & Methods','Bounded Type Parameters','Wildcards (? extends, ? super)','Type Erasure','Generic Collections']},
+   {name:'Multithreading',icon:'⚡',probs:['Thread lifecycle','Runnable vs Thread','synchronized keyword','volatile keyword','wait() notify() notifyAll()','Deadlock & prevention','Thread pools & Executors','ReentrantLock','CountDownLatch & CyclicBarrier','Atomic classes']},
+   {name:'JVM Internals',icon:'⚙️',probs:['JVM Architecture','ClassLoader mechanism','Garbage Collection algorithms','G1 vs CMS GC','Memory areas (Heap, Stack, Metaspace)','JIT Compiler','JVM tuning flags']},
+   {name:'Java 8+ Features',icon:'🚀',probs:['Lambda Expressions','Functional Interfaces','Stream API','Optional class','Default & Static interface methods','Method References','CompletableFuture','Date-Time API','var (Java 10)','Records (Java 16)','Sealed Classes']},
+ ]},
+ {topic:'Design Patterns',patterns:[
+   {name:'Creational Patterns',icon:'🏗️',probs:['Singleton Pattern','Factory Method','Abstract Factory','Builder Pattern','Prototype Pattern']},
+   {name:'Structural Patterns',icon:'🔗',probs:['Adapter Pattern','Decorator Pattern','Proxy Pattern','Facade Pattern','Composite Pattern','Bridge Pattern']},
+   {name:'Behavioral Patterns',icon:'🎭',probs:['Strategy Pattern','Observer Pattern','Command Pattern','Template Method','State Pattern','Iterator Pattern','Chain of Responsibility']},
+ ]},
+ {topic:'Interview Questions',patterns:[
+   {name:'Core Java Questions',icon:'❓',probs:['Why is Java platform independent?','Difference between JDK, JRE, JVM','What is a ClassLoader?','Explain String immutability with memory diagram','Difference between == and .equals()','What is the String constant pool?','How does HashMap work internally?','What is ConcurrentHashMap?','Difference between ArrayList and Vector','Explain the Collections hierarchy']},
+   {name:'OOP & Design Questions',icon:'🧩',probs:['Explain SOLID principles with examples','When to use interface vs abstract class?','What is method hiding vs overriding?','Explain covariant return types','What is diamond problem & how Java solves it?','Difference between composition and aggregation','Explain Dependency Injection']},
+   {name:'Multithreading Questions',icon:'🔄',probs:['What is a race condition?','How to prevent deadlock?','Difference between sleep() and wait()','What is thread-safe code?','Explain the volatile keyword','What is the difference between synchronized method and block?','Explain Executor framework','What is ForkJoinPool?']},
+   {name:'Java 8+ Questions',icon:'⚡',probs:['What is a functional interface?','Difference between map() and flatMap()','How does Stream API work internally?','What is lazy evaluation in streams?','Explain Optional and its use','What is the difference between findFirst() and findAny()?','Explain CompletableFuture vs Future']},
+ ]},
+];
+// ════════════════════════════════════════
+// SPRING BOOT DATA
+// ════════════════════════════════════════
+const springData=[
+ {topic:'Spring Core',patterns:[
+   {name:'IoC & DI',icon:'🔄',probs:['Inversion of Control concept','Dependency Injection types','@Component @Service @Repository @Controller','@Autowired annotation','Constructor vs Setter vs Field injection','Bean lifecycle','@Configuration & @Bean','@Primary & @Qualifier']},
+   {name:'Bean Scopes & Config',icon:'⚙️',probs:['Singleton vs Prototype scope','@Scope annotation','ApplicationContext vs BeanFactory','@PropertySource & @Value','Profiles (@Profile)','Conditional beans (@Conditional)','@Lazy loading']},
+   {name:'AOP',icon:'🎯',probs:['What is AOP?','Aspect, JoinPoint, Advice','@Before @After @Around advice','Pointcut expressions','@Aspect annotation','Real-world AOP use cases (logging, security)']},
+ ]},
+ {topic:'Spring Boot',patterns:[
+   {name:'Spring Boot Basics',icon:'🌱',probs:['What is Spring Boot auto-configuration?','@SpringBootApplication annotation','spring.factories & auto-config','Starter dependencies','Embedded server (Tomcat)','application.properties vs yml','@ConfigurationProperties','Actuator endpoints']},
+   {name:'REST APIs',icon:'🌐',probs:['@RestController vs @Controller','@GetMapping @PostMapping @PutMapping @DeleteMapping','@PathVariable vs @RequestParam','@RequestBody & @ResponseBody','ResponseEntity usage','Exception handling with @ControllerAdvice','@ExceptionHandler','Content negotiation','HATEOAS basics']},
+   {name:'Data Access',icon:'🗄️',probs:['Spring Data JPA overview','JpaRepository & CrudRepository','Custom queries with @Query','JPQL vs Native query','Pagination & Sorting','@Transactional annotation','Transaction propagation levels','Optimistic vs Pessimistic locking','N+1 problem & solutions']},
+ ]},
+ {topic:'Microservices',patterns:[
+   {name:'Spring Cloud',icon:'☁️',probs:['Service discovery (Eureka)','API Gateway (Spring Cloud Gateway)','Load balancing (Ribbon/LoadBalancer)','Config server','Circuit breaker (Resilience4j)','Feign Client','Distributed tracing (Sleuth + Zipkin)']},
+   {name:'Security',icon:'🔒',probs:['Spring Security basics','Authentication vs Authorization','JWT token implementation','OAuth2 & OpenID Connect','@PreAuthorize & @Secured','CORS configuration','Password encoding (BCrypt)','Security filter chain']},
+   {name:'Messaging',icon:'📨',probs:['Kafka with Spring Boot','@KafkaListener','Producer & Consumer config','Kafka topics & partitions','RabbitMQ with Spring','@RabbitListener','Message conversion']},
+ ]},
+ {topic:'Interview Questions',patterns:[
+   {name:'Spring Core Questions',icon:'❓',probs:['What is IoC container?','Explain the Spring Bean lifecycle','How does @Autowired resolve dependencies?','What happens if two beans of same type exist?','Difference between @Component and @Bean','What is circular dependency?','How does Spring AOP differ from AspectJ?']},
+   {name:'Spring Boot Questions',icon:'🚀',probs:['How does auto-configuration work?','What is the difference between @SpringBootApplication annotations combined?','How to create a custom starter?','Explain Actuator and its security','How to externalize configuration?','What is Spring Boot DevTools?','Difference between spring.jpa.ddl-auto options']},
+   {name:'REST & Security Questions',icon:'🔐',probs:['How to handle global exceptions in Spring Boot?','Explain idempotency in REST APIs','How does JWT authentication work in Spring?','What is CORS and how to configure it?','Difference between @RestController and @Controller','How to implement API versioning?','Explain Rate Limiting strategies']},
+   {name:'Microservices Questions',icon:'☁️',probs:['What is service discovery and why needed?','Explain circuit breaker pattern','How does Feign client work?','What is API Gateway pattern?','How to handle distributed transactions?','Explain Saga pattern','What is CQRS?','Difference between synchronous and asynchronous communication']},
+ ]},
+];
+// ════════════════════════════════════════
+// SYSTEM DESIGN DATA
+// ════════════════════════════════════════
+const sdData=[
+ {topic:'HLD',patterns:[
+   {name:'Scalability Concepts',icon:'📈',probs:['Horizontal vs Vertical scaling','Load balancing algorithms','Caching strategies (CDN, Redis, Memcached)','Database sharding','Database replication (Master-Slave)','CAP theorem','ACID vs BASE','Eventual consistency']},
+   {name:'System Components',icon:'🏗️',probs:['API Gateway design','Message queues (Kafka, RabbitMQ)','Event-driven architecture','Microservices vs Monolith','Service mesh (Istio)','Rate limiting algorithms (Token bucket, Leaky bucket)','Circuit breaker pattern','Reverse proxy vs Forward proxy']},
+   {name:'Database Design',icon:'🗄️',probs:['SQL vs NoSQL when to use','Indexing strategies','Query optimization','Connection pooling','Read replicas','Write-ahead logging','B-tree vs LSM tree','Time-series databases']},
+   {name:'Design Famous Systems',icon:'🌐',probs:['Design URL Shortener','Design Twitter/Social Feed','Design WhatsApp','Design YouTube','Design Uber','Design Netflix','Design Google Drive','Design Notification System','Design Rate Limiter','Design Search Autocomplete']},
+ ]},
+ {topic:'LLD',patterns:[
+   {name:'LLD Patterns',icon:'🎨',probs:['SOLID principles application','Design Parking Lot','Design Elevator System','Design Library Management System','Design Hotel Booking System','Design ATM System','Design Snake & Ladder Game','Design Chess Game']},
+   {name:'APIs & Contracts',icon:'📋',probs:['RESTful API design principles','OpenAPI / Swagger documentation','Pagination strategies','API versioning strategies','Webhook design','GraphQL vs REST','gRPC basics','Idempotency keys']},
+ ]},
+ {topic:'Interview Questions',patterns:[
+   {name:'HLD Interview Questions',icon:'❓',probs:['How would you design Twitter?','Design a URL shortener like bit.ly','How does YouTube handle video streaming?','Design a distributed cache','How would you design WhatsApp?','Explain consistent hashing','How to handle 10M concurrent users?','What is eventual consistency? Give example','Design a leaderboard system','How does Google search autocomplete work?']},
+   {name:'LLD Interview Questions',icon:'🧩',probs:['Design a parking lot system','Design an elevator control system','Design Splitwise','How to apply SOLID in real project?','Design a notification service','Design a payment gateway','How to handle concurrency in booking systems?','Design a file storage system like Dropbox']},
+   {name:'Tradeoff Questions',icon:'⚖️',probs:['SQL vs NoSQL for your project?','When to use Kafka vs REST API?','Monolith vs Microservices for a startup?','Redis vs Memcached?','When to use GraphQL?','Synchronous vs Asynchronous communication?','Push vs Pull architecture?','Relational vs Document DB?']},
+ ]},
+];
+// ════════════════════════════════════════
+// WORKOUT DATA
+// ════════════════════════════════════════
+const workoutDays=[
+ {label:'Day 1',name:'Push — Chest + Triceps',color:'#FF375F',icon:'🔥',exercises:[
+   {name:'Incline Dumbbell Press',sets:'4 × 6–8 (main lift)'},
+   {name:'Flat Bench Press',sets:'3 × 8–10'},
+   {name:'Cable Fly',sets:'3 × 10–12'},
+   {name:'Dips',sets:'3 × 8–12'},
+   {name:'Tricep Pushdown',sets:'3 × 10–12'},
+ ]},
+ {label:'Day 2',name:'Pull — Back + Biceps',color:'#0A84FF',icon:'🔥',exercises:[
+   {name:'Lat Pulldown',sets:'4 × 8–10'},
+   {name:'One-Arm Dumbbell Row',sets:'3 × 8–10'},
+   {name:'Face Pull',sets:'3 × 12'},
+   {name:'Incline Dumbbell Curl',sets:'3 × 10–12'},
+   {name:'Preacher Curl',sets:'3 × 10–12'},
+ ]},
+ {label:'Day 3',name:'Legs + Abs',color:'#30D158',icon:'🔥',exercises:[
+   {name:'Leg Press',sets:'4 × 8–12 (heavy)'},
+   {name:'Leg Curl',sets:'3 × 10–12'},
+   {name:'Walking Lunges',sets:'3 × 10 each leg'},
+   {name:'Calf Raises',sets:'4 × 12–15'},
+   {name:'Leg Raises (Abs)',sets:'3 × 12–15'},
+   {name:'Plank',sets:'3 × 30–60 sec'},
+ ]},
+ {label:'Day 4',name:'Shoulders + Forearms',color:'#FF9F0A',icon:'🔥',exercises:[
+   {name:'Overhead / Arnold Press',sets:'4 × 6–8'},
+   {name:'Lateral Raise',sets:'4 × 12'},
+   {name:'Rear Delt Fly',sets:'3 × 12'},
+   {name:'Hammer Curl',sets:'3 × 10'},
+   {name:'Wrist Curl',sets:'3 × 12'},
+   {name:'Reverse Wrist Curl',sets:'3 × 12'},
+ ]},
+];
+function buildWorkout(){
+ const cont=document.getElementById('workout-content');
+ const ck=load('workout_ck');
+ workoutDays.forEach((day,di)=>{
+   const card=document.createElement('div');card.className='workout-day';
+   const hdr=document.createElement('div');hdr.className='wd-header';
+   hdr.innerHTML=`<div class="wd-badge" style="background:${day.color}">${day.label}</div><div class="wd-title">${day.name}</div><svg class="chevron" width="8" height="13" viewBox="0 0 8 13" fill="none"><path d="M1 1.5l5.5 5L1 11.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+   hdr.onclick=()=>card.classList.toggle('open');
+   const body=document.createElement('div');body.className='wd-body';
+   day.exercises.forEach((ex,ei)=>{
+     const key=`${di}-${ei}`;
+     const row=document.createElement('div');row.className='ex-row'+(ck[key]?' ex-done':'');
+     const cb=document.createElement('div');cb.className='ex-cb'+(ck[key]?' on':'');
+     const nm=document.createElement('span');nm.className='ex-name';nm.textContent=ex.name;
+     const st=document.createElement('span');st.className='ex-sets';st.textContent=ex.sets;
+     row.appendChild(cb);row.appendChild(nm);row.appendChild(st);
+     row.onclick=()=>{
+       ck[key]=!ck[key];cb.classList.toggle('on',ck[key]);row.classList.toggle('ex-done',ck[key]);
+       cb.style.transform='scale(1.3)';setTimeout(()=>{cb.style.transform=''},200);
+       save('workout_ck',ck);
+     };
+     body.appendChild(row);
+   });
+   card.appendChild(hdr);card.appendChild(body);cont.appendChild(card);
+ });
+}
+// ════════════════════════════════════════
+// DIET DATA
+// ════════════════════════════════════════
+const dietMeals=[
+ {time:'5:45 AM',meal:'Pre-Workout',kcal:'~130 kcal',color:'#FF9F0A',items:['1 banana','1 boiled egg','Lemon water + chia seeds (optional)'],note:'Slight protein + energy boost without heaviness'},
+ {time:'8:00 AM',meal:'Post-Workout (Main)',kcal:'~580 kcal · 32g protein',color:'#0A84FF',items:['300 ml milk','80–100g oats','1 banana','1–1.5 tbsp peanut butter','Whey (optional)'],note:'Most important meal — hits muscle protein synthesis hard'},
+ {time:'2:00 PM',meal:'Lunch',kcal:'~650 kcal · 35g protein',color:'#30D158',items:['1.5–2 cups rice','4 eggs (bhurji / boiled)','Dal / sabzi','Curd'],note:'Carb-heavy — fuels afternoon energy'},
+ {time:'5:00 PM',meal:'Evening Snack',kcal:'~220 kcal · 14g protein',color:'#5AC8FA',items:['Carrot + cucumber','1 fruit (apple / guava / orange)','2 boiled eggs'],note:'Keeps hunger away + closes protein gap'},
+ {time:'8:30 PM',meal:'Dinner',kcal:'~700 kcal · 60g protein',color:'#5E5CE6',items:['Chicken 220–250g (grilled / curry)','3 roti','Veggies (spinach / broccoli / beans)','2 eggs'],note:'Biggest protein meal — drives overnight muscle repair'},
+ {time:'Saturday',meal:'Full Veg Day 🥗',kcal:'Same macros target',color:'#FF375F',items:['Replace chicken with Paneer (150g) OR Soya chunks','Replace eggs with extra dal (Moong / Chana / Rajma)','Keep all other meals same'],note:'Hit same ~150g protein — paneer + dal + milk combination works'},
+];
+function buildDiet(){
+ const cont=document.getElementById('diet-content');
+ dietMeals.forEach((meal,mi)=>{
+   const card=document.createElement('div');card.className='diet-card';
+   card.innerHTML=`
+<div class="dc-header">
+<div style="width:4px;height:36px;border-radius:2px;background:${meal.color};flex-shrink:0"></div>
+<div style="flex:1">
+<div class="dc-time">${meal.time}</div>
+<div class="dc-meal">${meal.meal}</div>
+</div>
+<div class="dc-kcal">${meal.kcal}</div>
+</div>
+<div class="dc-body">
+       ${meal.items.map(i=>`<div class="dc-item">${i}</div>`).join('')}
+<div class="dc-note">👉 ${meal.note}</div>
+</div>`;
+   cont.appendChild(card);
+ });
+}
+// ════════════════════════════════════════
+// SHOP DATA
+// ════════════════════════════════════════
+const shopSections=[
+ {title:'🍗 Protein',items:[
+   {emoji:'🥚',name:'Eggs',qty:'52 pcs (~₹250)'},
+   {emoji:'🍗',name:'Chicken',qty:'1.6 kg (~₹320)'},
+ ]},
+ {title:'🌱 Veg Protein (Saturday)',items:[
+   {emoji:'🧀',name:'Paneer',qty:'400g'},
+   {emoji:'🫘',name:'Soya Chunks',qty:'200g'},
+ ]},
+ {title:'🍌 Fruits',items:[
+   {emoji:'🍌',name:'Bananas',qty:'16 pcs'},
+   {emoji:'🍎',name:'Apples / Guava',qty:'5 pcs'},
+   {emoji:'🍊',name:'Oranges',qty:'4 pcs'},
+ ]},
+ {title:'🥦 Vegetables',items:[
+   {emoji:'🌿',name:'Spinach (palak)',qty:'2 bunches'},
+   {emoji:'🥦',name:'Beans / Broccoli',qty:'350g'},
+   {emoji:'🥕',name:'Carrots',qty:'500g'},
+   {emoji:'🥒',name:'Cucumber',qty:'5 pcs'},
+   {emoji:'🍋',name:'Lemon',qty:'5 pcs'},
+ ]},
+];
+const shopAvail=['Rice','Atta','Oats','Milk','Curd','Peanut butter','Almonds','Chia seeds','Ghee','Onion','Tomato','Garlic','Basic spices'];
+function buildShop(){
+ const cont=document.getElementById('shop-content');
+ const ck=load('shop_ck');
+ shopSections.forEach((sec,si)=>{
+   const wrap=document.createElement('div');wrap.className='shop-section';
+   const title=document.createElement('div');title.className='shop-sec-title';title.textContent=sec.title;
+   const card=document.createElement('div');card.className='shop-card';
+   sec.items.forEach((item,ii)=>{
+     const key=`${si}-${ii}`;
+     const row=document.createElement('div');row.className='shop-item';
+     const cb=document.createElement('div');cb.className='shop-cb'+(ck[key]?' on':'');
+     row.innerHTML=`<span class="shop-emoji">${item.emoji}</span><div class="shop-info"><div class="shop-name">${item.name}</div><div class="shop-qty">${item.qty}</div></div>`;
+     row.appendChild(cb);
+     row.onclick=()=>{
+       ck[key]=!ck[key];cb.classList.toggle('on',ck[key]);
+       cb.style.transform='scale(1.3)';setTimeout(()=>{cb.style.transform=''},200);
+       save('shop_ck',ck);
+     };
+     card.appendChild(row);
+   });
+   wrap.appendChild(title);wrap.appendChild(card);cont.appendChild(wrap);
+ });
+ // Available items
+ const avWrap=document.createElement('div');avWrap.className='shop-section';
+ const avTitle=document.createElement('div');avTitle.className='shop-sec-title';avTitle.textContent='📦 Already Have (Skip Buying)';
+ const avCard=document.createElement('div');avCard.className='shop-avail';
+ avCard.innerHTML=`<div class="avail-grid">${shopAvail.map(a=>`<div class="avail-pill">✓ ${a}</div>`).join('')}</div>`;
+ avWrap.appendChild(avTitle);avWrap.appendChild(avCard);cont.appendChild(avWrap);
+}
+// ════════════════════════════════════════
+// INIT ALL
+// ════════════════════════════════════════
+buildTracker('dsa',dsaData,document.getElementById('dsa-tabs'),document.getElementById('dsa-secs'),'dsa_v3');
+buildTracker('java',javaData,document.getElementById('java-tabs'),document.getElementById('java-secs'),'java_v1');
+buildTracker('spring',springData,document.getElementById('spring-tabs'),document.getElementById('spring-secs'),'spring_v1');
+buildTracker('sd',sdData,document.getElementById('sd-tabs'),document.getElementById('sd-secs'),'sd_v1');
+buildWorkout();
+buildDiet();
+buildShop();
 </script>
 </body>
 </html>
