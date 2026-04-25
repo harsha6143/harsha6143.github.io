@@ -9,79 +9,79 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 :root {
- --blur: blur(48px) saturate(200%) brightness(1.06);
- --blur-sm: blur(24px) saturate(180%);
- --rx: 26px; --rl: 20px; --rm: 14px; --rs: 10px;
- --blue:#0A84FF; --green:#30D158; --indigo:#5E5CE6; --pink:#FF375F; --orange:#FF9F0A; --teal:#5AC8FA;
- --bg:#F2F2F7;
- --glass:rgba(255,255,255,0.82);
- --glass-tab:rgba(255,255,255,0.65);
- --glass-stat:rgba(0,0,0,0.045);
- --glass-track:rgba(0,0,0,0.07);
- --border:rgba(255,255,255,0.9);
- --border-sub:rgba(0,0,0,0.055);
- --tp:#1C1C1E; --ts:#3C3C43;
- --tt:rgba(60,60,67,0.58); --tq:rgba(60,60,67,0.26);
- --tab-t:#3C3C43;
- --tab-abg:rgba(28,28,30,0.92); --tab-at:#fff;
- --sh-sm:0 1px 3px rgba(0,0,0,0.06),0 4px 12px rgba(0,0,0,0.07);
- --sh-md:0 4px 24px rgba(0,0,0,0.10),0 1px 4px rgba(0,0,0,0.06);
- --cb-b:rgba(0,0,0,0.14); --cb-bg:rgba(255,255,255,0.6);
- --ins:rgba(255,255,255,0.7);
+--blur: blur(48px) saturate(200%) brightness(1.06);
+--blur-sm: blur(24px) saturate(180%);
+--rx: 26px; --rl: 20px; --rm: 14px; --rs: 10px;
+--blue:#0A84FF; --green:#30D158; --indigo:#5E5CE6; --pink:#FF375F; --orange:#FF9F0A; --teal:#5AC8FA;
+--bg:#F2F2F7;
+--glass:rgba(255,255,255,0.82);
+--glass-tab:rgba(255,255,255,0.65);
+--glass-stat:rgba(0,0,0,0.045);
+--glass-track:rgba(0,0,0,0.07);
+--border:rgba(255,255,255,0.9);
+--border-sub:rgba(0,0,0,0.055);
+--tp:#1C1C1E; --ts:#3C3C43;
+--tt:rgba(60,60,67,0.58); --tq:rgba(60,60,67,0.26);
+--tab-t:#3C3C43;
+--tab-abg:rgba(28,28,30,0.92); --tab-at:#fff;
+--sh-sm:0 1px 3px rgba(0,0,0,0.06),0 4px 12px rgba(0,0,0,0.07);
+--sh-md:0 4px 24px rgba(0,0,0,0.10),0 1px 4px rgba(0,0,0,0.06);
+--cb-b:rgba(0,0,0,0.14); --cb-bg:rgba(255,255,255,0.6);
+--ins:rgba(255,255,255,0.7);
 }
 @media(prefers-color-scheme:dark){:root{
- --blur:blur(48px) saturate(220%) brightness(0.85);
- --bg:#000;
- --glass:rgba(18,18,18,0.82);
- --glass-tab:rgba(26,26,26,0.78);
- --glass-stat:rgba(255,255,255,0.07);
- --glass-track:rgba(255,255,255,0.09);
- --border:rgba(255,255,255,0.11);
- --border-sub:rgba(255,255,255,0.065);
- --tp:#F2F2F7; --ts:#EBEBF5;
- --tt:rgba(235,235,245,0.55); --tq:rgba(235,235,245,0.24);
- --tab-t:rgba(235,235,245,0.68);
- --tab-abg:rgba(248,248,255,0.95); --tab-at:#1C1C1E;
- --sh-sm:0 1px 3px rgba(0,0,0,0.35),0 4px 12px rgba(0,0,0,0.28);
- --sh-md:0 4px 24px rgba(0,0,0,0.50),0 1px 4px rgba(0,0,0,0.35);
- --cb-b:rgba(255,255,255,0.17); --cb-bg:rgba(255,255,255,0.07);
- --ins:rgba(255,255,255,0.07);
+--blur:blur(48px) saturate(220%) brightness(0.85);
+--bg:#000;
+--glass:rgba(18,18,18,0.82);
+--glass-tab:rgba(26,26,26,0.78);
+--glass-stat:rgba(255,255,255,0.07);
+--glass-track:rgba(255,255,255,0.09);
+--border:rgba(255,255,255,0.11);
+--border-sub:rgba(255,255,255,0.065);
+--tp:#F2F2F7; --ts:#EBEBF5;
+--tt:rgba(235,235,245,0.55); --tq:rgba(235,235,245,0.24);
+--tab-t:rgba(235,235,245,0.68);
+--tab-abg:rgba(248,248,255,0.95); --tab-at:#1C1C1E;
+--sh-sm:0 1px 3px rgba(0,0,0,0.35),0 4px 12px rgba(0,0,0,0.28);
+--sh-md:0 4px 24px rgba(0,0,0,0.50),0 1px 4px rgba(0,0,0,0.35);
+--cb-b:rgba(255,255,255,0.17); --cb-bg:rgba(255,255,255,0.07);
+--ins:rgba(255,255,255,0.07);
 }}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;min-height:100vh;background:var(--bg);overflow-x:hidden;transition:background .35s ease}
-/* ══ SCREEN SYSTEM ══ */
-.screen{display:none;min-height:100vh;padding-bottom:calc(env(safe-area-inset-bottom)+80px)}
+/* ══ SCREEN SYSTEM — SCROLL FIX ══ */
+.screen{display:none;min-height:100vh;padding-bottom:calc(env(safe-area-inset-bottom) + 100px)}
 .screen.active{display:block}
 /* ══ HOME SCREEN ══ */
 #home{background:var(--bg)}
 .home-wrap{max-width:430px;margin:0 auto;padding:0 20px}
 .home-hero{padding:70px 0 32px;text-align:center}
 .aura-logo{
- font-size:58px;font-weight:900;letter-spacing:-2px;
- background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,0.9) 30%,#a8d4ff 60%,#c9b3ff 80%,#fff 100%);
- -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
- filter:drop-shadow(0 0 30px rgba(150,180,255,0.5)) drop-shadow(0 2px 4px rgba(0,0,0,0.3));
- line-height:1;
+font-size:58px;font-weight:900;letter-spacing:-2px;
+background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,0.9) 30%,#a8d4ff 60%,#c9b3ff 80%,#fff 100%);
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+filter:drop-shadow(0 0 30px rgba(150,180,255,0.5)) drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+line-height:1;
 }
 @media(prefers-color-scheme:light){.aura-logo{
- background:linear-gradient(135deg,#1C1C1E 0%,#3a3a5c 40%,#0A84FF 70%,#5E5CE6 100%);
- -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
- filter:drop-shadow(0 2px 8px rgba(10,132,255,0.25));
+background:linear-gradient(135deg,#1C1C1E 0%,#3a3a5c 40%,#0A84FF 70%,#5E5CE6 100%);
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+filter:drop-shadow(0 2px 8px rgba(10,132,255,0.25));
 }}
 .home-sub{font-size:14px;color:var(--tt);margin-top:8px;font-weight:500;letter-spacing:0.5px}
-/* Home category cards */
 .home-cats{display:flex;flex-direction:column;gap:14px;padding-bottom:20px}
 .cat-card{
- background:var(--glass);
- backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
- border-radius:var(--rx);border:1px solid var(--border);
- padding:20px;box-shadow:var(--sh-md),inset 0 1px 0 var(--ins);
- cursor:pointer;transition:transform .2s cubic-bezier(.34,1.56,.64,1),box-shadow .2s;
- animation:su .45s cubic-bezier(.34,1.56,.64,1) both;
+background:var(--glass);
+backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
+border-radius:var(--rx);border:1px solid var(--border);
+padding:20px;box-shadow:var(--sh-md),inset 0 1px 0 var(--ins);
+cursor:pointer;transition:transform .2s cubic-bezier(.34,1.56,.64,1),box-shadow .2s;
+animation:su .45s cubic-bezier(.34,1.56,.64,1) both;
 }
 .cat-card:nth-child(1){animation-delay:.05s}
 .cat-card:nth-child(2){animation-delay:.12s}
+.cat-card:nth-child(3){animation-delay:.19s}
 .cat-card:active{transform:scale(.97)}
 .cat-header{display:flex;align-items:center;gap:14px;margin-bottom:14px}
 .cat-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,0.15)}
@@ -89,25 +89,23 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;min-height:
 .cat-desc{font-size:13px;color:var(--tt);margin-top:2px;font-weight:500}
 .sub-items{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .sub-item{
- background:var(--glass-stat);border-radius:var(--rm);padding:12px 14px;
- cursor:pointer;transition:all .2s;border:1px solid var(--border-sub);
- display:flex;align-items:center;gap:10px;
+background:var(--glass-stat);border-radius:var(--rm);padding:12px 14px;
+cursor:pointer;transition:all .2s;border:1px solid var(--border-sub);
+display:flex;align-items:center;gap:10px;
 }
 .sub-item:active{transform:scale(.95)}
 .sub-emoji{font-size:20px}
 .sub-label{font-size:13px;font-weight:600;color:var(--tp)}
 .sub-count{font-size:11px;color:var(--tt);margin-top:1px}
-/* Physical sub items full width */
-.sub-items.full .sub-item{grid-column:span 1}
 /* ══ INNER PAGE COMMON ══ */
 .page{max-width:430px;margin:0 auto}
 .page-header{padding:56px 20px 16px;display:flex;align-items:center;gap:14px}
 .back-btn{
- width:36px;height:36px;border-radius:50%;background:var(--glass-tab);
- backdrop-filter:var(--blur-sm);-webkit-backdrop-filter:var(--blur-sm);
- border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
- cursor:pointer;box-shadow:var(--sh-sm);flex-shrink:0;font-size:18px;
- transition:transform .2s;
+width:36px;height:36px;border-radius:50%;background:var(--glass-tab);
+backdrop-filter:var(--blur-sm);-webkit-backdrop-filter:var(--blur-sm);
+border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
+cursor:pointer;box-shadow:var(--sh-sm);flex-shrink:0;font-size:18px;
+transition:transform .2s;
 }
 .back-btn:active{transform:scale(.9)}
 .page-title-wrap{flex:1}
@@ -115,10 +113,10 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;min-height:
 .page-subtitle{font-size:12px;color:var(--tt);margin-top:2px;font-weight:500}
 /* ══ TRACKER COMMON ══ */
 .progress-card{
- margin:0 16px 16px;background:var(--glass);
- backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
- border-radius:var(--rx);border:1px solid var(--border);
- padding:18px 20px;box-shadow:var(--sh-md),inset 0 1px 0 var(--ins);
+margin:0 16px 16px;background:var(--glass);
+backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
+border-radius:var(--rx);border:1px solid var(--border);
+padding:18px 20px;box-shadow:var(--sh-md),inset 0 1px 0 var(--ins);
 }
 .progress-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .progress-top span{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--tt)}
@@ -240,8 +238,42 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;min-height:
 .iq-item:active{background:rgba(128,128,128,.08)}
 .iq-q{flex:1;font-size:14px;color:var(--tp);line-height:1.4}
 .iq-item.done .iq-q{color:var(--tq);text-decoration:line-through}
-/* Section label inside tracker pages */
 .sec-label{font-size:11px;font-weight:700;color:var(--tt);text-transform:uppercase;letter-spacing:.6px;padding:12px 16px 4px;display:block}
+/* ══ PROJECT TRACKER ══ */
+.proj-screen{}
+.proj-hero{margin:0 16px 16px;background:linear-gradient(135deg,#0A84FF 0%,#5E5CE6 60%,#BF5AF2 100%);border-radius:var(--rx);padding:20px;box-shadow:0 8px 32px rgba(10,132,255,0.3),inset 0 1px 0 rgba(255,255,255,0.2)}
+.proj-hero-name{font-size:22px;font-weight:900;color:#fff;letter-spacing:-.5px}
+.proj-hero-tag{font-size:12px;color:rgba(255,255,255,0.75);margin-top:3px;font-weight:500}
+.proj-hero-stats{display:flex;gap:10px;margin-top:14px}
+.proj-stat{flex:1;background:rgba(255,255,255,0.15);border-radius:12px;padding:10px;text-align:center;backdrop-filter:blur(10px)}
+.proj-stat-n{font-size:20px;font-weight:800;color:#fff;line-height:1}
+.proj-stat-l{font-size:10px;color:rgba(255,255,255,0.75);margin-top:2px;font-weight:600;text-transform:uppercase;letter-spacing:.3px}
+.proj-week{margin:0 16px 12px}
+.proj-week-title{font-size:13px;font-weight:700;color:var(--tt);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px;padding-left:4px}
+.proj-week-card{background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border-radius:var(--rx);border:1px solid var(--border);overflow:hidden;box-shadow:var(--sh-sm),inset 0 1px 0 var(--ins)}
+.proj-day{border-bottom:1px solid var(--border-sub)}
+.proj-day:last-child{border-bottom:none}
+.proj-day-hdr{display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer}
+.proj-day-badge{padding:4px 10px;border-radius:999px;font-size:11px;font-weight:700;color:#fff;flex-shrink:0}
+.proj-day-info{flex:1}
+.proj-day-name{font-size:14px;font-weight:600;color:var(--tp)}
+.proj-day-goal{font-size:11px;color:var(--tt);margin-top:1px}
+.proj-day-body{display:none;padding:8px 16px 12px;border-top:1px solid var(--border-sub);background:var(--glass-stat)}
+.proj-day.open .proj-day-body{display:block}
+.proj-day.open .chevron{transform:rotate(90deg)}
+.proj-task{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border-sub)}
+.proj-task:last-child{border-bottom:none}
+.proj-task-cb{width:20px;height:20px;border-radius:6px;border:2px solid var(--cb-b);background:var(--cb-bg);flex-shrink:0;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .26s cubic-bezier(.34,1.56,.64,1);margin-top:1px}
+.proj-task-cb.on{background:var(--indigo);border-color:var(--indigo);box-shadow:0 2px 8px rgba(94,92,230,.4)}
+.proj-task-cb.on::after{content:'';display:block;width:5px;height:8px;border:2px solid #fff;border-top:none;border-left:none;transform:rotate(45deg) translate(-.5px,-1px)}
+.proj-task-lbl{flex:1;font-size:13px;color:var(--tp);line-height:1.4}
+.proj-task.done .proj-task-lbl{color:var(--tq);text-decoration:line-through}
+.proj-output{font-size:12px;color:var(--blue);margin-top:8px;padding:8px 10px;background:rgba(10,132,255,0.08);border-radius:8px;font-weight:500}
+.proj-rules{margin:0 16px 12px;background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border-radius:var(--rx);border:1px solid var(--border);padding:16px 18px;box-shadow:var(--sh-sm),inset 0 1px 0 var(--ins)}
+.proj-rules-title{font-size:12px;font-weight:700;color:var(--tt);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.proj-rule{font-size:13px;color:var(--ts);padding:5px 0;border-bottom:1px solid var(--border-sub);display:flex;align-items:center;gap:8px}
+.proj-rule:last-child{border-bottom:none}
+.proj-rule::before{content:'📌';font-size:12px;flex-shrink:0}
 </style>
 </head>
 <body>
@@ -259,7 +291,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;min-height:
 <div class="cat-icon" style="background:linear-gradient(135deg,#0A84FF,#5E5CE6)">🧠</div>
 <div>
 <div class="cat-title">Mental Tasks</div>
-<div class="cat-desc">DSA · Java · Spring Boot · System Design</div>
+<div class="cat-desc">DSA · Java · SQL · Spring Boot · System Design</div>
 </div>
 </div>
 <div class="sub-items">
@@ -271,13 +303,17 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;min-height:
 <span class="sub-emoji">☕</span>
 <div><div class="sub-label">Java</div><div class="sub-count">Topics + Interview</div></div>
 </div>
+<div class="sub-item" onclick="goTo('sql')">
+<span class="sub-emoji">🗄️</span>
+<div><div class="sub-label">SQL</div><div class="sub-count">Topics + Interview</div></div>
+</div>
 <div class="sub-item" onclick="goTo('spring')">
 <span class="sub-emoji">🌱</span>
 <div><div class="sub-label">Spring Boot</div><div class="sub-count">Topics + Interview</div></div>
 </div>
-<div class="sub-item" onclick="goTo('sd')">
+<div class="sub-item" onclick="goTo('sd')" style="grid-column:span 2">
 <span class="sub-emoji">🏗️</span>
-<div><div class="sub-label">System Design</div><div class="sub-count">Topics + Interview</div></div>
+<div><div class="sub-label">System Design</div><div class="sub-count">HLD · LLD + Interview</div></div>
 </div>
 </div>
 </div>
@@ -302,6 +338,22 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;min-height:
 <div class="sub-item" onclick="goTo('shop')" style="grid-column:span 2">
 <span class="sub-emoji">🛒</span>
 <div><div class="sub-label">Weekly Shop</div><div class="sub-count">Groceries checklist</div></div>
+</div>
+</div>
+</div>
+<!-- Projects -->
+<div class="cat-card">
+<div class="cat-header">
+<div class="cat-icon" style="background:linear-gradient(135deg,#FF9F0A,#FF375F)">🚀</div>
+<div>
+<div class="cat-title">Projects</div>
+<div class="cat-desc">CodeLensAI · Execution tracker</div>
+</div>
+</div>
+<div class="sub-items">
+<div class="sub-item" onclick="goTo('codelens')" style="grid-column:span 2">
+<span class="sub-emoji">🔍</span>
+<div><div class="sub-label">CodeLensAI</div><div class="sub-count">AI Code Reviewer — 14 Day Plan</div></div>
 </div>
 </div>
 </div>
@@ -352,6 +404,29 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;min-height:
 </div>
 <div class="tabs-scroll"><div class="tabs" id="java-tabs"></div></div>
 <div id="java-secs"></div>
+</div>
+</div>
+<!-- ══════════════════ SQL SCREEN ══════════════════ -->
+<div id="sql" class="screen">
+<div class="page">
+<div class="page-header">
+<div class="back-btn" onclick="goTo('home')">←</div>
+<div class="page-title-wrap">
+<div class="page-title">🗄️ SQL</div>
+<div class="page-subtitle">Core topics + interview questions</div>
+</div>
+</div>
+<div class="progress-card">
+<div class="progress-top"><span>SQL Progress</span><span class="p-pct" id="sql-pct">0%</span></div>
+<div class="p-track"><div class="p-fill" id="sql-fill" style="width:0%"></div></div>
+<div class="stats">
+<div class="stat"><div class="stat-n" id="sql-done">0</div><div class="stat-l">Done</div></div>
+<div class="stat"><div class="stat-n" id="sql-left">0</div><div class="stat-l">Left</div></div>
+<div class="stat"><div class="stat-n" id="sql-total">0</div><div class="stat-l">Total</div></div>
+</div>
+</div>
+<div class="tabs-scroll"><div class="tabs" id="sql-tabs"></div></div>
+<div id="sql-secs"></div>
 </div>
 </div>
 <!-- ══════════════════ SPRING BOOT SCREEN ══════════════════ -->
@@ -448,6 +523,35 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;min-height:
 <div id="shop-content"></div>
 </div>
 </div>
+<!-- ══════════════════ CODELENS AI TRACKER ══════════════════ -->
+<div id="codelens" class="screen">
+<div class="page">
+<div class="page-header">
+<div class="back-btn" onclick="goTo('home')">←</div>
+<div class="page-title-wrap">
+<div class="page-title">🔍 CodeLensAI</div>
+<div class="page-subtitle">AI Code Reviewer — Execution Tracker</div>
+</div>
+</div>
+<div class="proj-hero">
+<div class="proj-hero-name">🚀 CodeLensAI</div>
+<div class="proj-hero-tag">AI Code Reviewer · Spring Boot + Ollama + GitHub Integration</div>
+<div class="proj-hero-stats">
+<div class="proj-stat"><div class="proj-stat-n" id="cl-done">0</div><div class="proj-stat-l">Done</div></div>
+<div class="proj-stat"><div class="proj-stat-n" id="cl-left">0</div><div class="proj-stat-l">Left</div></div>
+<div class="proj-stat"><div class="proj-stat-n" id="cl-pct">0%</div><div class="proj-stat-l">Progress</div></div>
+</div>
+</div>
+<div class="proj-rules">
+<div class="proj-rules-title">📌 Rules — Read Once, Follow Daily</div>
+<div class="proj-rule">Minimum 60–90 mins/day</div>
+<div class="proj-rule">Don't skip steps</div>
+<div class="proj-rule">Don't jump ahead</div>
+<div class="proj-rule">Mark progress daily (✅ / ❌)</div>
+</div>
+<div id="codelens-content"></div>
+</div>
+</div>
 <!-- ══════════════════ BOTTOM NAV ══════════════════ -->
 <div class="bnav">
 <div class="bnav-inner">
@@ -463,24 +567,31 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;min-height:
 <button class="bnav-btn" id="nav-shop" onclick="goTo('shop')">
 <span class="bnav-icon">🛒</span><span class="bnav-lbl">Shop</span>
 </button>
+<button class="bnav-btn" id="nav-projects" onclick="goTo('codelens')">
+<span class="bnav-icon">🚀</span><span class="bnav-lbl">Projects</span>
+</button>
 </div>
 </div>
 <script>
 // ════════════════════════════════════════
 // NAVIGATION
 // ════════════════════════════════════════
-const mentalScreens=['dsa','java','spring','sd'];
+const mentalScreens=['dsa','java','sql','spring','sd'];
 const physicalScreens=['workout','diet','shop'];
+const projectScreens=['codelens'];
 function goTo(id){
- document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
- document.getElementById(id).classList.add('active');
- window.scrollTo(0,0);
- // nav highlight
- document.querySelectorAll('.bnav-btn').forEach(b=>b.classList.remove('active'));
- if(id==='home') document.getElementById('nav-home').classList.add('active');
- else if(mentalScreens.includes(id)) document.getElementById('nav-mental').classList.add('active');
- else if(physicalScreens.includes(id)) document.getElementById('nav-physical').classList.add('active');
- if(id==='shop') document.getElementById('nav-shop').classList.add('active');
+document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+window.scrollTo({top:0,behavior:'instant'});
+document.querySelectorAll('.bnav-btn').forEach(b=>b.classList.remove('active'));
+if(id==='home') document.getElementById('nav-home').classList.add('active');
+else if(mentalScreens.includes(id)) document.getElementById('nav-mental').classList.add('active');
+else if(physicalScreens.includes(id)){
+  document.getElementById('nav-physical').classList.add('active');
+  if(id==='shop') document.getElementById('nav-shop').classList.add('active');
+}
+if(id==='shop') document.getElementById('nav-shop').classList.add('active');
+if(projectScreens.includes(id)) document.getElementById('nav-projects').classList.add('active');
 }
 // ════════════════════════════════════════
 // STORAGE
@@ -488,339 +599,342 @@ function goTo(id){
 function load(k){try{return JSON.parse(localStorage.getItem(k)||'{}')}catch(e){return{}}}
 function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
 // ════════════════════════════════════════
-// TRACKER BUILDER (DSA / Java / Spring / SD)
+// TRACKER BUILDER
 // ════════════════════════════════════════
 const CLRS=[
- {bg:'rgba(10,132,255,0.13)',f:'linear-gradient(90deg,#0A84FF,#5E5CE6)'},
- {bg:'rgba(48,209,88,0.13)',f:'linear-gradient(90deg,#30D158,#34C759)'},
- {bg:'rgba(94,92,230,0.13)',f:'linear-gradient(90deg,#5E5CE6,#BF5AF2)'},
- {bg:'rgba(255,159,10,0.13)',f:'linear-gradient(90deg,#FF9F0A,#FF6B00)'},
- {bg:'rgba(255,55,95,0.13)',f:'linear-gradient(90deg,#FF375F,#FF2D55)'},
- {bg:'rgba(90,200,250,0.13)',f:'linear-gradient(90deg,#5AC8FA,#32ADE6)'},
- {bg:'rgba(255,214,10,0.13)',f:'linear-gradient(90deg,#FFD60A,#FF9F0A)'},
+{bg:'rgba(10,132,255,0.13)',f:'linear-gradient(90deg,#0A84FF,#5E5CE6)'},
+{bg:'rgba(48,209,88,0.13)',f:'linear-gradient(90deg,#30D158,#34C759)'},
+{bg:'rgba(94,92,230,0.13)',f:'linear-gradient(90deg,#5E5CE6,#BF5AF2)'},
+{bg:'rgba(255,159,10,0.13)',f:'linear-gradient(90deg,#FF9F0A,#FF6B00)'},
+{bg:'rgba(255,55,95,0.13)',f:'linear-gradient(90deg,#FF375F,#FF2D55)'},
+{bg:'rgba(90,200,250,0.13)',f:'linear-gradient(90deg,#5AC8FA,#32ADE6)'},
+{bg:'rgba(255,214,10,0.13)',f:'linear-gradient(90deg,#FFD60A,#FF9F0A)'},
 ];
 function buildTracker(ns, topicsData, tabsEl, secsEl, storeKey){
- const ck=load(storeKey);
- function updateProgress(){
-   let t=0,d=0;
-   topicsData.forEach((top,ti)=>top.patterns.forEach((pat,pi)=>pat.probs.forEach((_,qi)=>{t++;if(ck[`${ti}-${pi}-${qi}`])d++;})));
-   const p=t?Math.round(d/t*100):0;
-   document.getElementById(ns+'-fill').style.width=p+'%';
-   document.getElementById(ns+'-pct').textContent=p+'%';
-   document.getElementById(ns+'-done').textContent=d;
-   document.getElementById(ns+'-left').textContent=t-d;
-   document.getElementById(ns+'-total').textContent=t;
- }
- topicsData.forEach((top,ti)=>{
-   const tab=document.createElement('button');
-   tab.className='tab'+(ti===0?' active':'');
-   tab.textContent=top.topic;
-   tab.onclick=()=>{
-     tabsEl.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-     secsEl.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-     tab.classList.add('active');
-     const sec=document.getElementById(ns+'s'+ti);
-     sec.classList.add('active');
-     sec.querySelectorAll('.pg').forEach((pg,i)=>{pg.style.animation='none';pg.offsetHeight;pg.style.animation=`su .45s cubic-bezier(.34,1.56,.64,1) ${i*.05+.02}s both`;});
-   };
-   tabsEl.appendChild(tab);
-   const sec=document.createElement('div');
-   sec.className='section'+(ti===0?' active':'');
-sec.id=ns+'s'+ti;
-   top.patterns.forEach((pat,pi)=>{
-     const c=CLRS[pi%CLRS.length];
-     const total=pat.probs.length;
-     const getDone=()=>pat.probs.filter((_,qi)=>ck[`${ti}-${pi}-${qi}`]).length;
-     const pg=document.createElement('div');pg.className='pg';
-     const ph=document.createElement('div');ph.className='ph';
-     ph.innerHTML=`<div class="ph-icon" style="background:${c.bg}">${pat.icon||'📌'}</div><div class="ph-info"><div class="ph-name">${pat.name}</div><div class="ph-sub" id="${ns}-sub-${ti}-${pi}">${getDone()}/${total} completed</div></div><svg class="chevron" width="8" height="13" viewBox="0 0 8 13" fill="none"><path d="M1 1.5l5.5 5L1 11.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-     ph.onclick=()=>pg.classList.toggle('open');
-     const mt=document.createElement('div');mt.className='mini-track';
-     const mf=document.createElement('div');mf.className='mini-fill';mf.style.background=c.f;
-     mf.style.width=(total?getDone()/total*100:0)+'%';mt.appendChild(mf);
-     const pl=document.createElement('div');pl.className='problems';
-     pat.probs.forEach((name,qi)=>{
-       const key=`${ti}-${pi}-${qi}`;
-       const div=document.createElement('div');div.className='prob'+(ck[key]?' done':'');
-       const cb=document.createElement('div');cb.className='cb'+(ck[key]?' on':'');
-       const lbl=document.createElement('span');lbl.className='prob-lbl';lbl.textContent=name;
-       const idx=document.createElement('span');idx.className='prob-idx';idx.textContent=`${qi+1}`;
-       div.appendChild(cb);div.appendChild(lbl);div.appendChild(idx);
-       div.onclick=()=>{
-         ck[key]=!ck[key];cb.classList.toggle('on',ck[key]);div.classList.toggle('done',ck[key]);
-         cb.style.transform='scale(1.35)';setTimeout(()=>{cb.style.transform=''},220);
-         const d2=getDone();
-         document.getElementById(`${ns}-sub-${ti}-${pi}`).textContent=`${d2}/${total} completed`;
-         mf.style.width=(total?d2/total*100:0)+'%';
-         save(storeKey,ck);updateProgress();
-       };
-       pl.appendChild(div);
-     });
-     pg.appendChild(ph);pg.appendChild(mt);pg.appendChild(pl);sec.appendChild(pg);
-   });
-   secsEl.appendChild(sec);
- });
- updateProgress();
+const ck=load(storeKey);
+function updateProgress(){
+  let t=0,d=0;
+  topicsData.forEach((top,ti)=>top.patterns.forEach((pat,pi)=>pat.probs.forEach((_,qi)=>{t++;if(ck[`${ti}-${pi}-${qi}`])d++;})));
+  const p=t?Math.round(d/t*100):0;
+  document.getElementById(ns+'-fill').style.width=p+'%';
+  document.getElementById(ns+'-pct').textContent=p+'%';
+  document.getElementById(ns+'-done').textContent=d;
+  document.getElementById(ns+'-left').textContent=t-d;
+  document.getElementById(ns+'-total').textContent=t;
 }
-// ════════════════════════════════════════
-// INTERVIEW Q BUILDER
-// ════════════════════════════════════════
-function buildIQ(container, sections, storeKey){
- const ck=load(storeKey);
- sections.forEach((sec,si)=>{
-   const card=document.createElement('div');card.className='iq-card';
-   const hdr=document.createElement('div');hdr.className='iq-header';
-   hdr.innerHTML=`<div class="iq-badge" style="background:${sec.color}">${sec.icon}</div><div class="iq-title">${sec.title}</div><svg class="chevron" width="8" height="13" viewBox="0 0 8 13" fill="none"><path d="M1 1.5l5.5 5L1 11.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-   hdr.onclick=()=>card.classList.toggle('open');
-   const body=document.createElement('div');body.className='iq-body';
-   sec.qs.forEach((q,qi)=>{
-     const key=`${si}-${qi}`;
-     const item=document.createElement('div');item.className='iq-item'+(ck[key]?' done':'');
-     const cb=document.createElement('div');cb.className='cb'+(ck[key]?' on':'');cb.style.flexShrink='0';
-     const lbl=document.createElement('span');lbl.className='iq-q';lbl.textContent=q;
-     item.appendChild(cb);item.appendChild(lbl);
-     item.onclick=()=>{
-       ck[key]=!ck[key];cb.classList.toggle('on',ck[key]);item.classList.toggle('done',ck[key]);
-       cb.style.transform='scale(1.35)';setTimeout(()=>{cb.style.transform=''},220);
-       save(storeKey,ck);
-     };
-     body.appendChild(item);
-   });
-   card.appendChild(hdr);card.appendChild(body);container.appendChild(card);
- });
+topicsData.forEach((top,ti)=>{
+  const tab=document.createElement('button');
+  tab.className='tab'+(ti===0?' active':'');
+  tab.textContent=top.topic;
+  tab.onclick=()=>{
+    tabsEl.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    secsEl.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+    tab.classList.add('active');
+    const sec=document.getElementById(ns+'s'+ti);
+    sec.classList.add('active');
+    sec.querySelectorAll('.pg').forEach((pg,i)=>{pg.style.animation='none';pg.offsetHeight;pg.style.animation=`su .45s cubic-bezier(.34,1.56,.64,1) ${i*.05+.02}s both`;});
+  };
+  tabsEl.appendChild(tab);
+  const sec=document.createElement('div');
+  sec.className='section'+(ti===0?' active':'');
+sec.id=ns+'s'+ti;
+  top.patterns.forEach((pat,pi)=>{
+    const c=CLRS[pi%CLRS.length];
+    const total=pat.probs.length;
+    const getDone=()=>pat.probs.filter((_,qi)=>ck[`${ti}-${pi}-${qi}`]).length;
+    const pg=document.createElement('div');pg.className='pg';
+    const ph=document.createElement('div');ph.className='ph';
+    ph.innerHTML=`<div class="ph-icon" style="background:${c.bg}">${pat.icon||'📌'}</div><div class="ph-info"><div class="ph-name">${pat.name}</div><div class="ph-sub" id="${ns}-sub-${ti}-${pi}">${getDone()}/${total} completed</div></div><svg class="chevron" width="8" height="13" viewBox="0 0 8 13" fill="none"><path d="M1 1.5l5.5 5L1 11.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+    ph.onclick=()=>pg.classList.toggle('open');
+    const mt=document.createElement('div');mt.className='mini-track';
+    const mf=document.createElement('div');mf.className='mini-fill';mf.style.background=c.f;
+    mf.style.width=(total?getDone()/total*100:0)+'%';mt.appendChild(mf);
+    const pl=document.createElement('div');pl.className='problems';
+    pat.probs.forEach((name,qi)=>{
+      const key=`${ti}-${pi}-${qi}`;
+      const div=document.createElement('div');div.className='prob'+(ck[key]?' done':'');
+      const cb=document.createElement('div');cb.className='cb'+(ck[key]?' on':'');
+      const lbl=document.createElement('span');lbl.className='prob-lbl';lbl.textContent=name;
+      const idx=document.createElement('span');idx.className='prob-idx';idx.textContent=`${qi+1}`;
+      div.appendChild(cb);div.appendChild(lbl);div.appendChild(idx);
+      div.onclick=()=>{
+        ck[key]=!ck[key];cb.classList.toggle('on',ck[key]);div.classList.toggle('done',ck[key]);
+        cb.style.transform='scale(1.35)';setTimeout(()=>{cb.style.transform=''},220);
+        const d2=getDone();
+        document.getElementById(`${ns}-sub-${ti}-${pi}`).textContent=`${d2}/${total} completed`;
+        mf.style.width=(total?d2/total*100:0)+'%';
+        save(storeKey,ck);updateProgress();
+      };
+      pl.appendChild(div);
+    });
+    pg.appendChild(ph);pg.appendChild(mt);pg.appendChild(pl);sec.appendChild(pg);
+  });
+  secsEl.appendChild(sec);
+});
+updateProgress();
 }
 // ════════════════════════════════════════
 // DSA DATA
 // ════════════════════════════════════════
 const dsaData=[
- {topic:'Arrays',patterns:[
-   {name:'Two Pointers',icon:'↔️',probs:['Two Sum','3Sum','3Sum Closest','Remove Duplicates from Sorted Array','Squares of a Sorted Array']},
-   {name:'Merge Intervals',icon:'⏱️',probs:['Merge Intervals','Insert Interval','Non-overlapping Intervals','Interval List Intersections']},
-   {name:'Sorting',icon:'↕️',probs:['Sort Colors','Meeting Rooms II','Largest Number','Wiggle Sort II','Merge Sorted Array']},
-   {name:'Sliding Window',icon:'🪟',probs:['Minimum Size Subarray Sum','Longest Mountain in Array','Longest Continuous Increasing Subsequence','Maximum Points You Can Obtain from Cards','Maximum Product Subarray']},
-   {name:'Prefix Sums',icon:'∑',probs:['Count of Smaller Numbers After Self','Range Sum Query - Mutable','Count of Range Sum','Subarray Product Less Than K','Find All Duplicates in an Array']},
- ]},
- {topic:'Strings',patterns:[
-   {name:'Two Pointers',icon:'↔️',probs:['Valid Palindrome','Reverse Words in a String','Longest Palindromic Substring','Implement strStr()','Remove Duplicates from Sorted Array']},
-   {name:'Sliding Window',icon:'🪟',probs:['Minimum Window Substring','Longest Substring Without Repeating Characters','Longest Substring with At Most K Distinct Characters','Find All Anagrams in a String','Longest Repeating Character Replacement']},
-   {name:'Hashmaps',icon:'#️⃣',probs:['Group Anagrams','First Unique Character in a String','Valid Anagram','Longest Palindromic Substring','String Compression']},
-   {name:'String Manipulation',icon:'✏️',probs:['Reverse String','Reverse Integer','String to Integer (atoi)','Count and Say','Implement strStr()']},
-   {name:'Regular Expressions',icon:'.*',probs:['Regular Expression Matching','Regular Expression Matching (with . and *)','Wildcard Matching','Decode String','Validate IP Address']},
- ]},
- {topic:'Binary Search',patterns:[
-   {name:'Basic Binary Search',icon:'🎯',probs:['Search Insert Position','Find Minimum in Rotated Sorted Array','Peak Index in a Mountain Array','Find Smallest Letter Greater Than Target','Valid Perfect Square']},
-   {name:'Range Search',icon:'📐',probs:['Split Array Largest Sum','Find Kth Smallest Element in a Sorted Matrix','Capacity To Ship Packages Within D Days','Maximum Average Subarray I']},
-   {name:'Allocation Problems',icon:'📦',probs:['Allocate Minimum Number of Pages','Minimize Maximum Pair Sum in Array','Divide Chocolate','Maximum Distance to Gas Station']},
-   {name:'Counting Occurrences',icon:'🔢',probs:['Find First and Last Position of Element in Sorted Array','Count Negative Numbers in a Sorted Matrix','Search a 2D Matrix II','Find Minimum in Rotated Sorted Array II','Count Primes']},
-   {name:'Bitonic Array Search',icon:'🗻',probs:['Find Peak Element','Find in Mountain Array','Longest Mountain in Array','Peak Index in a Mountain Array','Maximum Value at a Given Index in a Bounded Array']},
- ]},
- {topic:'Recursion',patterns:[
-   {name:'Basic Recursive Functions',icon:'🔁',probs:['Factorial','Fibonacci Number','Pow(x, n)','Greatest Common Divisor of Strings','Minimum Moves to Move a Box to Their Target Location']},
-   {name:'Divide & Conquer',icon:'⚔️',probs:['Binary Search','Merge Sort','Quick Sort','Maximum Subarray','Maximum Subarray']},
-   {name:'Backtracking',icon:'🌿',probs:['Generate Parentheses','Combination Sum','N-Queens','Letter Combinations of a Phone Number','Word Search']},
-   {name:'Recursive Search',icon:'🔍',probs:['Sudoku Solver','Number of Islands','Path Sum','Word Search II']},
- ]},
- {topic:'Linked List',patterns:[
-   {name:'Fast and Slow Pointers',icon:'🐢',probs:['Middle of the Linked List','Linked List Cycle','Intersection of Two Linked Lists','Merge Two Sorted Lists','Palindrome Linked List']},
-   {name:'Dummy Node Technique',icon:'🪄',probs:['Add Two Numbers','Swap Nodes in Pairs','Remove Duplicates from Sorted List II','Palindrome Linked List','Rotate List']},
-   {name:'Recursion Technique',icon:'♻️',probs:['Reverse Linked List','Swap Nodes in Pairs','Flatten a Multilevel Doubly Linked List']},
-   {name:'In-Place Reversal',icon:'🔃',probs:['Reverse Linked List','Reorder List','Rotate List','Reverse Nodes in k-Group','Split Linked List in Parts']},
- ]},
- {topic:'Stacks & Queues',patterns:[
-   {name:'Design Problems',icon:'🏗️',probs:['Implement Queue using Stacks','Implement Stack using Queues','Design Browser History','Design Hit Counter','Design Circular Queue','Design Twitter','Design Snake Game']},
-   {name:'Monotonic Stack',icon:'📊',probs:['Next Greater Element I','Largest Rectangle in Histogram','Online Stock Span','Daily Temperatures','Remove Duplicate Letters']},
-   {name:'Expression Evaluation',icon:'🧮',probs:['Basic Calculator II','Evaluate Division','Simplify Path','Basic Calculator','Decode String']},
-   {name:'Two Stacks',icon:'📚',probs:['Evaluate Reverse Polish Notation','Min Stack','Design a Stack With Increment Operation','Baseball Game','Backspace String Compare']},
-   {name:'Sliding Window & Monotonic Queue',icon:'🪟',probs:['Sliding Window Maximum','Design Circular Deque','Moving Average from Data Stream','First Unique Number','Max Sum of Rectangle No Larger Than K']},
- ]},
- {topic:'Binary Trees',patterns:[
-   {name:'Traversal',icon:'🌿',probs:['Binary Tree Inorder Traversal','Binary Tree Preorder Traversal','Binary Tree Postorder Traversal','Binary Tree Level Order Traversal','Binary Tree Zigzag Level Order Traversal']},
-   {name:'Construction',icon:'🏗️',probs:['Construct Binary Tree from Preorder and Inorder','Construct Binary Tree from Inorder and Postorder','Construct Binary Tree from Preorder and Postorder','Daily Temperatures','Remove Duplicate Letters']},
-   {name:'Mirror & Symmetry',icon:'🪞',probs:['Invert Binary Tree','Symmetric Tree','Flip Equivalent Binary Trees','Convert Sorted Array to BST','Convert Sorted List to BST']},
-   {name:'Path Sum & Root to Leaf',icon:'🛤️',probs:['Path Sum','Path Sum II','Sum Root to Leaf Numbers','Binary Tree Maximum Path Sum','Path Sum III']},
-   {name:'Traversal & Search',icon:'🔎',probs:['Lowest Common Ancestor','Binary Tree Level Order Traversal II','Search in a BST','Validate Binary Search Tree','Closest BST Value']},
-   {name:'Validation & Properties',icon:'✅',probs:['Diameter of Binary Tree','Count Complete Tree Nodes','Balanced Binary Tree','Binary Tree Longest Consecutive Sequence','Subtree of Another Tree']},
- ]},
- {topic:'Priority Queues',patterns:[
-   {name:'Finding Kth Largest/Smallest',icon:'🏆',probs:['Kth Largest Element in an Array','Kth Smallest Element in a Sorted Matrix','Find Median from Data Stream','K Closest Points to Origin','Kth Largest Element in a Stream']},
-   {name:'Top K Frequent Elements',icon:'📊',probs:['Top K Frequent Elements','Sort Characters By Frequency','Top K Frequent Words','Top K Frequent Elements in a Sorted Matrix','Maximum Frequency Stack']},
-   {name:'Merge K Lists',icon:'🔀',probs:['Merge k Sorted Lists','Merge Sorted Array','Merge Intervals','Find Smallest Common Number','Smallest Range Covering Elements from K Lists']},
-   {name:'Sliding Window Max/Min',icon:'🪟',probs:['Sliding Window Maximum','Maximum Sum of Subarray of Size K','Minimum Window Substring','Max Consecutive Ones III','Longest Continuous Subarray With Absolute Diff <= Limit']},
-   {name:'Design Problems',icon:'🏗️',probs:['Design Twitter','Design Hit Counter','Design Browser History','Design Snake Game','Design a Leaderboard']},
-   {name:'Construction and Manipulation',icon:'🔧',probs:['Task Scheduler','Rearrange String k Distance Apart','Reorganize String','Rearrange Words in a Sentence','Distant Barcodes']},
-   {name:'With Graphs',icon:'🕸️',probs:['Network Delay Time','Cheapest Flights Within K Stops','Path with Maximum Probability','The Maze II','Kth Smallest Element in a Sorted Matrix']},
- ]},
- {topic:'Dynamic Programming',patterns:[
-   {name:'Basic DP',icon:'💡',probs:['Fibonacci Number','Climbing Stairs','House Robber','Unique Paths','Minimum Path Sum']},
-   {name:'Optimal Substructure',icon:'🏗️',probs:['Maximum Subarray','Longest Increasing Subsequence','Coin Change','Edit Distance','Longest Common Subsequence']},
-   {name:'Interval/Range DP',icon:'📏',probs:['Minimum Falling Path Sum','Burst Balloons','Partition Equal Subset Sum','Strange Printer','Maximum Vacation Days']},
-   {name:'Knapsack Problems',icon:'🎒',probs:['0/1 Knapsack','Partition Equal Subset Sum','Target Sum','Partition to K Equal Subsets','Equal Subset Sum Partition']},
-   {name:'Prefix Sums DP',icon:'∑',probs:['Subarray Sum Equals K','Range Sum Query - Immutable','Count of Range Sum','Number of Submatrices That Sum to Target','Subarray Sums Divisible by K']},
-   {name:'Counting Problems',icon:'🔢',probs:['Unique Paths III','Distinct Subsequences','Count Different Palindromic Subsequences','Count Numbers with Consecutive Digits','Count of Smaller Numbers After Self']},
-   {name:'Interval Partitioning',icon:'✂️',probs:['Non-overlapping Intervals','Maximum Number of Non-Overlapping Subarrays','Split Array Into Consecutive Subsequences','Longest Continuous Increasing Subsequence']},
-   {name:'Probability & Expectations',icon:'🎲',probs:['Knight Probability in Chessboard','Dice Roll Simulation','Stone Game VII','Predict the Winner','Cherry Pickup']},
- ]},
- {topic:'Graphs',patterns:[
-   {name:'Finding Connected Components',icon:'🔗',probs:['Number of Islands','Connected Components in Undirected Graph','Friend Circles','Accounts Merge','Redundant Connection']},
-   {name:'Shortest Path Finding',icon:'🗺️',probs:['Network Delay Time','Cheapest Flights Within K Stops','Shortest Path in Binary Matrix','Word Ladder','Maze']},
-   {name:'Cycle Detection',icon:'🔄',probs:['Course Schedule','Find Eventual Safe States','Course Schedule II','Detect Cycle in Directed Graph','Redundant Connection II']},
-   {name:'Bipartite Graph Check',icon:'⚖️',probs:['Is Graph Bipartite?','Possible Bipartition','Bipartite','Graph Coloring','Matching Bipartite Graph']},
-   {name:'Minimum Spanning Tree',icon:'🌲',probs:['Minimum Spanning Tree','Connecting Cities With Minimum Cost','Campus Bikes II','Optimal Division','Redundant Connection II']},
-   {name:'DAG Traversal',icon:'🧭',probs:['Alien Dictionary','Longest Increasing Path in a Matrix','Course Schedule III','Sequence Reconstruction','All Paths from Source Lead to Destination']},
-   {name:'Graph Coloring',icon:'🎨',probs:['Graph Coloring','Course Schedule IV','Minimum Number of Vertices to Reach All Nodes','Flower Planting With No Adjacent']},
- ]},
+{topic:'Arrays',patterns:[
+  {name:'Two Pointers',icon:'↔️',probs:['Two Sum','3Sum','3Sum Closest','Remove Duplicates from Sorted Array','Squares of a Sorted Array']},
+  {name:'Merge Intervals',icon:'⏱️',probs:['Merge Intervals','Insert Interval','Non-overlapping Intervals','Interval List Intersections']},
+  {name:'Sorting',icon:'↕️',probs:['Sort Colors','Meeting Rooms II','Largest Number','Wiggle Sort II','Merge Sorted Array']},
+  {name:'Sliding Window',icon:'🪟',probs:['Minimum Size Subarray Sum','Longest Mountain in Array','Longest Continuous Increasing Subsequence','Maximum Points You Can Obtain from Cards','Maximum Product Subarray']},
+  {name:'Prefix Sums',icon:'∑',probs:['Count of Smaller Numbers After Self','Range Sum Query - Mutable','Count of Range Sum','Subarray Product Less Than K','Find All Duplicates in an Array']},
+]},
+{topic:'Strings',patterns:[
+  {name:'Two Pointers',icon:'↔️',probs:['Valid Palindrome','Reverse Words in a String','Longest Palindromic Substring','Implement strStr()','Remove Duplicates from Sorted Array']},
+  {name:'Sliding Window',icon:'🪟',probs:['Minimum Window Substring','Longest Substring Without Repeating Characters','Longest Substring with At Most K Distinct Characters','Find All Anagrams in a String','Longest Repeating Character Replacement']},
+  {name:'Hashmaps',icon:'#️⃣',probs:['Group Anagrams','First Unique Character in a String','Valid Anagram','Longest Palindromic Substring','String Compression']},
+  {name:'String Manipulation',icon:'✏️',probs:['Reverse String','Reverse Integer','String to Integer (atoi)','Count and Say','Implement strStr()']},
+  {name:'Regular Expressions',icon:'.*',probs:['Regular Expression Matching','Wildcard Matching','Decode String','Validate IP Address']},
+]},
+{topic:'Binary Search',patterns:[
+  {name:'Basic Binary Search',icon:'🎯',probs:['Search Insert Position','Find Minimum in Rotated Sorted Array','Peak Index in a Mountain Array','Find Smallest Letter Greater Than Target','Valid Perfect Square']},
+  {name:'Range Search',icon:'📐',probs:['Split Array Largest Sum','Find Kth Smallest Element in a Sorted Matrix','Capacity To Ship Packages Within D Days','Maximum Average Subarray I']},
+  {name:'Allocation Problems',icon:'📦',probs:['Allocate Minimum Number of Pages','Minimize Maximum Pair Sum in Array','Divide Chocolate','Maximum Distance to Gas Station']},
+  {name:'Counting Occurrences',icon:'🔢',probs:['Find First and Last Position of Element in Sorted Array','Count Negative Numbers in a Sorted Matrix','Search a 2D Matrix II','Find Minimum in Rotated Sorted Array II','Count Primes']},
+  {name:'Bitonic Array Search',icon:'🗻',probs:['Find Peak Element','Find in Mountain Array','Longest Mountain in Array','Peak Index in a Mountain Array','Maximum Value at a Given Index in a Bounded Array']},
+]},
+{topic:'Recursion',patterns:[
+  {name:'Basic Recursive Functions',icon:'🔁',probs:['Factorial','Fibonacci Number','Pow(x, n)','Greatest Common Divisor of Strings','Minimum Moves to Move a Box to Their Target Location']},
+  {name:'Divide & Conquer',icon:'⚔️',probs:['Binary Search','Merge Sort','Quick Sort','Maximum Subarray']},
+  {name:'Backtracking',icon:'🌿',probs:['Generate Parentheses','Combination Sum','N-Queens','Letter Combinations of a Phone Number','Word Search']},
+  {name:'Recursive Search',icon:'🔍',probs:['Sudoku Solver','Number of Islands','Path Sum','Word Search II']},
+]},
+{topic:'Linked List',patterns:[
+  {name:'Fast and Slow Pointers',icon:'🐢',probs:['Middle of the Linked List','Linked List Cycle','Intersection of Two Linked Lists','Merge Two Sorted Lists','Palindrome Linked List']},
+  {name:'Dummy Node Technique',icon:'🪄',probs:['Add Two Numbers','Swap Nodes in Pairs','Remove Duplicates from Sorted List II','Palindrome Linked List','Rotate List']},
+  {name:'Recursion Technique',icon:'♻️',probs:['Reverse Linked List','Swap Nodes in Pairs','Flatten a Multilevel Doubly Linked List']},
+  {name:'In-Place Reversal',icon:'🔃',probs:['Reverse Linked List','Reorder List','Rotate List','Reverse Nodes in k-Group','Split Linked List in Parts']},
+]},
+{topic:'Stacks & Queues',patterns:[
+  {name:'Design Problems',icon:'🏗️',probs:['Implement Queue using Stacks','Implement Stack using Queues','Design Browser History','Design Hit Counter','Design Circular Queue','Design Twitter','Design Snake Game']},
+  {name:'Monotonic Stack',icon:'📊',probs:['Next Greater Element I','Largest Rectangle in Histogram','Online Stock Span','Daily Temperatures','Remove Duplicate Letters']},
+  {name:'Expression Evaluation',icon:'🧮',probs:['Basic Calculator II','Evaluate Division','Simplify Path','Basic Calculator','Decode String']},
+  {name:'Two Stacks',icon:'📚',probs:['Evaluate Reverse Polish Notation','Min Stack','Design a Stack With Increment Operation','Baseball Game','Backspace String Compare']},
+  {name:'Sliding Window & Monotonic Queue',icon:'🪟',probs:['Sliding Window Maximum','Design Circular Deque','Moving Average from Data Stream','First Unique Number','Max Sum of Rectangle No Larger Than K']},
+]},
+{topic:'Binary Trees',patterns:[
+  {name:'Traversal',icon:'🌿',probs:['Binary Tree Inorder Traversal','Binary Tree Preorder Traversal','Binary Tree Postorder Traversal','Binary Tree Level Order Traversal','Binary Tree Zigzag Level Order Traversal']},
+  {name:'Construction',icon:'🏗️',probs:['Construct Binary Tree from Preorder and Inorder','Construct Binary Tree from Inorder and Postorder','Construct Binary Tree from Preorder and Postorder']},
+  {name:'Mirror & Symmetry',icon:'🪞',probs:['Invert Binary Tree','Symmetric Tree','Flip Equivalent Binary Trees','Convert Sorted Array to BST','Convert Sorted List to BST']},
+  {name:'Path Sum & Root to Leaf',icon:'🛤️',probs:['Path Sum','Path Sum II','Sum Root to Leaf Numbers','Binary Tree Maximum Path Sum','Path Sum III']},
+  {name:'Traversal & Search',icon:'🔎',probs:['Lowest Common Ancestor','Binary Tree Level Order Traversal II','Search in a BST','Validate Binary Search Tree','Closest BST Value']},
+  {name:'Validation & Properties',icon:'✅',probs:['Diameter of Binary Tree','Count Complete Tree Nodes','Balanced Binary Tree','Binary Tree Longest Consecutive Sequence','Subtree of Another Tree']},
+]},
+{topic:'Priority Queues',patterns:[
+  {name:'Finding Kth Largest/Smallest',icon:'🏆',probs:['Kth Largest Element in an Array','Kth Smallest Element in a Sorted Matrix','Find Median from Data Stream','K Closest Points to Origin','Kth Largest Element in a Stream']},
+  {name:'Top K Frequent Elements',icon:'📊',probs:['Top K Frequent Elements','Sort Characters By Frequency','Top K Frequent Words','Maximum Frequency Stack']},
+  {name:'Merge K Lists',icon:'🔀',probs:['Merge k Sorted Lists','Merge Sorted Array','Merge Intervals','Smallest Range Covering Elements from K Lists']},
+  {name:'Sliding Window Max/Min',icon:'🪟',probs:['Sliding Window Maximum','Maximum Sum of Subarray of Size K','Minimum Window Substring','Max Consecutive Ones III','Longest Continuous Subarray With Absolute Diff <= Limit']},
+  {name:'Design Problems',icon:'🏗️',probs:['Design Twitter','Design Hit Counter','Design Browser History','Design Snake Game','Design a Leaderboard']},
+  {name:'Construction and Manipulation',icon:'🔧',probs:['Task Scheduler','Rearrange String k Distance Apart','Reorganize String','Distant Barcodes']},
+  {name:'With Graphs',icon:'🕸️',probs:['Network Delay Time','Cheapest Flights Within K Stops','Path with Maximum Probability','The Maze II','Kth Smallest Element in a Sorted Matrix']},
+]},
+{topic:'Dynamic Programming',patterns:[
+  {name:'Basic DP',icon:'💡',probs:['Fibonacci Number','Climbing Stairs','House Robber','Unique Paths','Minimum Path Sum']},
+  {name:'Optimal Substructure',icon:'🏗️',probs:['Maximum Subarray','Longest Increasing Subsequence','Coin Change','Edit Distance','Longest Common Subsequence']},
+  {name:'Interval/Range DP',icon:'📏',probs:['Minimum Falling Path Sum','Burst Balloons','Partition Equal Subset Sum','Strange Printer','Maximum Vacation Days']},
+  {name:'Knapsack Problems',icon:'🎒',probs:['0/1 Knapsack','Partition Equal Subset Sum','Target Sum','Partition to K Equal Subsets']},
+  {name:'Prefix Sums DP',icon:'∑',probs:['Subarray Sum Equals K','Range Sum Query - Immutable','Count of Range Sum','Number of Submatrices That Sum to Target','Subarray Sums Divisible by K']},
+  {name:'Counting Problems',icon:'🔢',probs:['Unique Paths III','Distinct Subsequences','Count Different Palindromic Subsequences','Count of Smaller Numbers After Self']},
+  {name:'Interval Partitioning',icon:'✂️',probs:['Non-overlapping Intervals','Maximum Number of Non-Overlapping Subarrays','Split Array Into Consecutive Subsequences']},
+  {name:'Probability & Expectations',icon:'🎲',probs:['Knight Probability in Chessboard','Dice Roll Simulation','Stone Game VII','Predict the Winner','Cherry Pickup']},
+]},
+{topic:'Graphs',patterns:[
+  {name:'Finding Connected Components',icon:'🔗',probs:['Number of Islands','Connected Components in Undirected Graph','Friend Circles','Accounts Merge','Redundant Connection']},
+  {name:'Shortest Path Finding',icon:'🗺️',probs:['Network Delay Time','Cheapest Flights Within K Stops','Shortest Path in Binary Matrix','Word Ladder','Maze']},
+  {name:'Cycle Detection',icon:'🔄',probs:['Course Schedule','Find Eventual Safe States','Course Schedule II','Redundant Connection II']},
+  {name:'Bipartite Graph Check',icon:'⚖️',probs:['Is Graph Bipartite?','Possible Bipartition','Graph Coloring']},
+  {name:'Minimum Spanning Tree',icon:'🌲',probs:['Minimum Spanning Tree','Connecting Cities With Minimum Cost','Redundant Connection II']},
+  {name:'DAG Traversal',icon:'🧭',probs:['Alien Dictionary','Longest Increasing Path in a Matrix','Course Schedule III','Sequence Reconstruction']},
+  {name:'Graph Coloring',icon:'🎨',probs:['Graph Coloring','Course Schedule IV','Minimum Number of Vertices to Reach All Nodes','Flower Planting With No Adjacent']},
+]},
 ];
 // ════════════════════════════════════════
 // JAVA DATA
 // ════════════════════════════════════════
 const javaData=[
- {topic:'Core Java',patterns:[
-   {name:'OOP Concepts',icon:'🧱',probs:['Classes & Objects','Inheritance','Polymorphism','Abstraction','Encapsulation','Interfaces vs Abstract Classes','Method Overloading vs Overriding']},
-   {name:'Data Types & Memory',icon:'💾',probs:['Primitive vs Reference Types','Stack vs Heap Memory','String Pool & Immutability','Autoboxing & Unboxing','Wrapper Classes','Pass by Value in Java']},
-   {name:'Exception Handling',icon:'⚠️',probs:['Checked vs Unchecked Exceptions','try-catch-finally','Custom Exceptions','throws vs throw','Multi-catch blocks','Exception chaining']},
-   {name:'Collections Framework',icon:'📦',probs:['ArrayList vs LinkedList','HashMap vs TreeMap vs LinkedHashMap','HashSet vs TreeSet','Iterator vs ListIterator','Comparable vs Comparator','PriorityQueue usage','Collections utility class']},
- ]},
- {topic:'Advanced Java',patterns:[
-   {name:'Generics',icon:'🔧',probs:['Generic Classes & Methods','Bounded Type Parameters','Wildcards (? extends, ? super)','Type Erasure','Generic Collections']},
-   {name:'Multithreading',icon:'⚡',probs:['Thread lifecycle','Runnable vs Thread','synchronized keyword','volatile keyword','wait() notify() notifyAll()','Deadlock & prevention','Thread pools & Executors','ReentrantLock','CountDownLatch & CyclicBarrier','Atomic classes']},
-   {name:'JVM Internals',icon:'⚙️',probs:['JVM Architecture','ClassLoader mechanism','Garbage Collection algorithms','G1 vs CMS GC','Memory areas (Heap, Stack, Metaspace)','JIT Compiler','JVM tuning flags']},
-   {name:'Java 8+ Features',icon:'🚀',probs:['Lambda Expressions','Functional Interfaces','Stream API','Optional class','Default & Static interface methods','Method References','CompletableFuture','Date-Time API','var (Java 10)','Records (Java 16)','Sealed Classes']},
- ]},
- {topic:'Design Patterns',patterns:[
-   {name:'Creational Patterns',icon:'🏗️',probs:['Singleton Pattern','Factory Method','Abstract Factory','Builder Pattern','Prototype Pattern']},
-   {name:'Structural Patterns',icon:'🔗',probs:['Adapter Pattern','Decorator Pattern','Proxy Pattern','Facade Pattern','Composite Pattern','Bridge Pattern']},
-   {name:'Behavioral Patterns',icon:'🎭',probs:['Strategy Pattern','Observer Pattern','Command Pattern','Template Method','State Pattern','Iterator Pattern','Chain of Responsibility']},
- ]},
- {topic:'Interview Questions',patterns:[
-   {name:'Core Java Questions',icon:'❓',probs:['Why is Java platform independent?','Difference between JDK, JRE, JVM','What is a ClassLoader?','Explain String immutability with memory diagram','Difference between == and .equals()','What is the String constant pool?','How does HashMap work internally?','What is ConcurrentHashMap?','Difference between ArrayList and Vector','Explain the Collections hierarchy']},
-   {name:'OOP & Design Questions',icon:'🧩',probs:['Explain SOLID principles with examples','When to use interface vs abstract class?','What is method hiding vs overriding?','Explain covariant return types','What is diamond problem & how Java solves it?','Difference between composition and aggregation','Explain Dependency Injection']},
-   {name:'Multithreading Questions',icon:'🔄',probs:['What is a race condition?','How to prevent deadlock?','Difference between sleep() and wait()','What is thread-safe code?','Explain the volatile keyword','What is the difference between synchronized method and block?','Explain Executor framework','What is ForkJoinPool?']},
-   {name:'Java 8+ Questions',icon:'⚡',probs:['What is a functional interface?','Difference between map() and flatMap()','How does Stream API work internally?','What is lazy evaluation in streams?','Explain Optional and its use','What is the difference between findFirst() and findAny()?','Explain CompletableFuture vs Future']},
- ]},
+{topic:'Core Java',patterns:[
+  {name:'OOP Concepts',icon:'🧱',probs:['Classes & Objects','Inheritance','Polymorphism','Abstraction','Encapsulation','Interfaces vs Abstract Classes','Method Overloading vs Overriding']},
+  {name:'Data Types & Memory',icon:'💾',probs:['Primitive vs Reference Types','Stack vs Heap Memory','String Pool & Immutability','Autoboxing & Unboxing','Wrapper Classes','Pass by Value in Java']},
+  {name:'Exception Handling',icon:'⚠️',probs:['Checked vs Unchecked Exceptions','try-catch-finally','Custom Exceptions','throws vs throw','Multi-catch blocks','Exception chaining']},
+  {name:'Collections Framework',icon:'📦',probs:['ArrayList vs LinkedList','HashMap vs TreeMap vs LinkedHashMap','HashSet vs TreeSet','Iterator vs ListIterator','Comparable vs Comparator','PriorityQueue usage','Collections utility class']},
+]},
+{topic:'Advanced Java',patterns:[
+  {name:'Generics',icon:'🔧',probs:['Generic Classes & Methods','Bounded Type Parameters','Wildcards (? extends, ? super)','Type Erasure','Generic Collections']},
+  {name:'Multithreading',icon:'⚡',probs:['Thread lifecycle','Runnable vs Thread','synchronized keyword','volatile keyword','wait() notify() notifyAll()','Deadlock & prevention','Thread pools & Executors','ReentrantLock','CountDownLatch & CyclicBarrier','Atomic classes']},
+  {name:'JVM Internals',icon:'⚙️',probs:['JVM Architecture','ClassLoader mechanism','Garbage Collection algorithms','G1 vs CMS GC','Memory areas (Heap, Stack, Metaspace)','JIT Compiler','JVM tuning flags']},
+  {name:'Java 8+ Features',icon:'🚀',probs:['Lambda Expressions','Functional Interfaces','Stream API','Optional class','Default & Static interface methods','Method References','CompletableFuture','Date-Time API','var (Java 10)','Records (Java 16)','Sealed Classes']},
+]},
+{topic:'Design Patterns',patterns:[
+  {name:'Creational Patterns',icon:'🏗️',probs:['Singleton Pattern','Factory Method','Abstract Factory','Builder Pattern','Prototype Pattern']},
+  {name:'Structural Patterns',icon:'🔗',probs:['Adapter Pattern','Decorator Pattern','Proxy Pattern','Facade Pattern','Composite Pattern','Bridge Pattern']},
+  {name:'Behavioral Patterns',icon:'🎭',probs:['Strategy Pattern','Observer Pattern','Command Pattern','Template Method','State Pattern','Iterator Pattern','Chain of Responsibility']},
+]},
+{topic:'Interview Questions',patterns:[
+  {name:'Core Java Questions',icon:'❓',probs:['Why is Java platform independent?','Difference between JDK, JRE, JVM','What is a ClassLoader?','Explain String immutability with memory diagram','Difference between == and .equals()','What is the String constant pool?','How does HashMap work internally?','What is ConcurrentHashMap?','Difference between ArrayList and Vector','Explain the Collections hierarchy']},
+  {name:'OOP & Design Questions',icon:'🧩',probs:['Explain SOLID principles with examples','When to use interface vs abstract class?','What is method hiding vs overriding?','Explain covariant return types','What is diamond problem & how Java solves it?','Difference between composition and aggregation','Explain Dependency Injection']},
+  {name:'Multithreading Questions',icon:'🔄',probs:['What is a race condition?','How to prevent deadlock?','Difference between sleep() and wait()','What is thread-safe code?','Explain the volatile keyword','What is the difference between synchronized method and block?','Explain Executor framework','What is ForkJoinPool?']},
+  {name:'Java 8+ Questions',icon:'⚡',probs:['What is a functional interface?','Difference between map() and flatMap()','How does Stream API work internally?','What is lazy evaluation in streams?','Explain Optional and its use','What is the difference between findFirst() and findAny()?','Explain CompletableFuture vs Future']},
+]},
+];
+// ════════════════════════════════════════
+// SQL DATA
+// ════════════════════════════════════════
+const sqlData=[
+{topic:'SQL Basics',patterns:[
+  {name:'DDL Commands',icon:'🏗️',probs:['CREATE TABLE syntax','ALTER TABLE (add/drop/modify column)','DROP TABLE vs TRUNCATE vs DELETE','PRIMARY KEY constraint','FOREIGN KEY & references','UNIQUE constraint','NOT NULL & DEFAULT','CHECK constraint','CREATE INDEX']},
+  {name:'DML Commands',icon:'✏️',probs:['INSERT INTO syntax','UPDATE with WHERE clause','DELETE with WHERE clause','SELECT basics','SELECT DISTINCT','ORDER BY ASC/DESC','LIMIT and OFFSET','INSERT INTO SELECT']},
+  {name:'Filtering & Conditions',icon:'🔍',probs:['WHERE clause operators (=, !=, <, >)','BETWEEN operator','IN and NOT IN','LIKE and wildcards (%, _)','IS NULL / IS NOT NULL','AND OR NOT logic','CASE WHEN THEN ELSE END']},
+]},
+{topic:'Joins & Relations',patterns:[
+  {name:'Types of Joins',icon:'🔗',probs:['INNER JOIN','LEFT JOIN (LEFT OUTER JOIN)','RIGHT JOIN (RIGHT OUTER JOIN)','FULL OUTER JOIN','CROSS JOIN','SELF JOIN','Multiple table joins']},
+  {name:'Subqueries',icon:'🎯',probs:['Subquery in WHERE clause','Subquery in FROM clause (derived table)','Correlated subquery','EXISTS vs IN','NOT EXISTS','Scalar subquery in SELECT']},
+  {name:'Set Operations',icon:'⚙️',probs:['UNION vs UNION ALL','INTERSECT','EXCEPT / MINUS','Combining queries with set ops']},
+]},
+{topic:'Aggregation',patterns:[
+  {name:'Aggregate Functions',icon:'∑',probs:['COUNT(*) vs COUNT(col)','SUM and AVG','MIN and MAX','GROUP BY clause','HAVING vs WHERE','Grouping with multiple columns','ROLLUP and CUBE']},
+  {name:'Window Functions',icon:'🪟',probs:['ROW_NUMBER()','RANK() vs DENSE_RANK()','NTILE()','LAG() and LEAD()','FIRST_VALUE() and LAST_VALUE()','SUM OVER (PARTITION BY)','Running total with window functions','PARTITION BY vs GROUP BY']},
+]},
+{topic:'Advanced SQL',patterns:[
+  {name:'CTEs & Views',icon:'📋',probs:['WITH clause (CTE)','Recursive CTE','CTE vs Subquery','CREATE VIEW','Updatable views','Materialized views concept']},
+  {name:'Indexes & Performance',icon:'⚡',probs:['What is an index?','Clustered vs Non-clustered index','Composite index','When NOT to use indexes','EXPLAIN / EXPLAIN ANALYZE','Query optimization basics','Index scan vs full table scan','Covering index']},
+  {name:'Transactions & ACID',icon:'🔒',probs:['ACID properties explained','BEGIN / COMMIT / ROLLBACK','SAVEPOINT','Isolation levels (READ UNCOMMITTED to SERIALIZABLE)','Dirty read, Phantom read, Non-repeatable read','Deadlock in SQL','FOR UPDATE lock']},
+  {name:'Stored Procedures & Functions',icon:'⚙️',probs:['CREATE PROCEDURE syntax','IN OUT INOUT parameters','CREATE FUNCTION','Triggers (BEFORE / AFTER)','Cursors concept','Difference: Procedure vs Function']},
+]},
+{topic:'Interview Questions',patterns:[
+  {name:'Core SQL Questions',icon:'❓',probs:['Difference between DELETE, TRUNCATE, DROP','What is normalization? 1NF 2NF 3NF BCNF','What is denormalization?','Difference between HAVING and WHERE','What is a correlated subquery?','Explain ACID properties','What is a primary key vs unique key?','Difference between UNION and UNION ALL','What are indexes and why use them?','What is a view?']},
+  {name:'Joins & Query Questions',icon:'🔗',probs:['Difference between INNER JOIN and LEFT JOIN?','How does a self-join work?','What is a Cartesian join?','How to find duplicate rows in a table?','How to find the 2nd highest salary?','How to find employees with no manager?','Write a query to get department-wise max salary','How to delete duplicate rows keeping one?']},
+  {name:'Advanced Questions',icon:'🚀',probs:['What are window functions? Give example','Explain ROW_NUMBER vs RANK vs DENSE_RANK','What is a CTE and when to use it?','How does EXPLAIN work?','What is query execution plan?','Clustered vs non-clustered index difference?','What is isolation level and why does it matter?','How to optimize a slow query?','What is a covering index?','Difference between stored procedure and function?']},
+]},
 ];
 // ════════════════════════════════════════
 // SPRING BOOT DATA
 // ════════════════════════════════════════
 const springData=[
- {topic:'Spring Core',patterns:[
-   {name:'IoC & DI',icon:'🔄',probs:['Inversion of Control concept','Dependency Injection types','@Component @Service @Repository @Controller','@Autowired annotation','Constructor vs Setter vs Field injection','Bean lifecycle','@Configuration & @Bean','@Primary & @Qualifier']},
-   {name:'Bean Scopes & Config',icon:'⚙️',probs:['Singleton vs Prototype scope','@Scope annotation','ApplicationContext vs BeanFactory','@PropertySource & @Value','Profiles (@Profile)','Conditional beans (@Conditional)','@Lazy loading']},
-   {name:'AOP',icon:'🎯',probs:['What is AOP?','Aspect, JoinPoint, Advice','@Before @After @Around advice','Pointcut expressions','@Aspect annotation','Real-world AOP use cases (logging, security)']},
- ]},
- {topic:'Spring Boot',patterns:[
-   {name:'Spring Boot Basics',icon:'🌱',probs:['What is Spring Boot auto-configuration?','@SpringBootApplication annotation','spring.factories & auto-config','Starter dependencies','Embedded server (Tomcat)','application.properties vs yml','@ConfigurationProperties','Actuator endpoints']},
-   {name:'REST APIs',icon:'🌐',probs:['@RestController vs @Controller','@GetMapping @PostMapping @PutMapping @DeleteMapping','@PathVariable vs @RequestParam','@RequestBody & @ResponseBody','ResponseEntity usage','Exception handling with @ControllerAdvice','@ExceptionHandler','Content negotiation','HATEOAS basics']},
-   {name:'Data Access',icon:'🗄️',probs:['Spring Data JPA overview','JpaRepository & CrudRepository','Custom queries with @Query','JPQL vs Native query','Pagination & Sorting','@Transactional annotation','Transaction propagation levels','Optimistic vs Pessimistic locking','N+1 problem & solutions']},
- ]},
- {topic:'Microservices',patterns:[
-   {name:'Spring Cloud',icon:'☁️',probs:['Service discovery (Eureka)','API Gateway (Spring Cloud Gateway)','Load balancing (Ribbon/LoadBalancer)','Config server','Circuit breaker (Resilience4j)','Feign Client','Distributed tracing (Sleuth + Zipkin)']},
-   {name:'Security',icon:'🔒',probs:['Spring Security basics','Authentication vs Authorization','JWT token implementation','OAuth2 & OpenID Connect','@PreAuthorize & @Secured','CORS configuration','Password encoding (BCrypt)','Security filter chain']},
-   {name:'Messaging',icon:'📨',probs:['Kafka with Spring Boot','@KafkaListener','Producer & Consumer config','Kafka topics & partitions','RabbitMQ with Spring','@RabbitListener','Message conversion']},
- ]},
- {topic:'Interview Questions',patterns:[
-   {name:'Spring Core Questions',icon:'❓',probs:['What is IoC container?','Explain the Spring Bean lifecycle','How does @Autowired resolve dependencies?','What happens if two beans of same type exist?','Difference between @Component and @Bean','What is circular dependency?','How does Spring AOP differ from AspectJ?']},
-   {name:'Spring Boot Questions',icon:'🚀',probs:['How does auto-configuration work?','What is the difference between @SpringBootApplication annotations combined?','How to create a custom starter?','Explain Actuator and its security','How to externalize configuration?','What is Spring Boot DevTools?','Difference between spring.jpa.ddl-auto options']},
-   {name:'REST & Security Questions',icon:'🔐',probs:['How to handle global exceptions in Spring Boot?','Explain idempotency in REST APIs','How does JWT authentication work in Spring?','What is CORS and how to configure it?','Difference between @RestController and @Controller','How to implement API versioning?','Explain Rate Limiting strategies']},
-   {name:'Microservices Questions',icon:'☁️',probs:['What is service discovery and why needed?','Explain circuit breaker pattern','How does Feign client work?','What is API Gateway pattern?','How to handle distributed transactions?','Explain Saga pattern','What is CQRS?','Difference between synchronous and asynchronous communication']},
- ]},
+{topic:'Spring Core',patterns:[
+  {name:'IoC & DI',icon:'🔄',probs:['Inversion of Control concept','Dependency Injection types','@Component @Service @Repository @Controller','@Autowired annotation','Constructor vs Setter vs Field injection','Bean lifecycle','@Configuration & @Bean','@Primary & @Qualifier']},
+  {name:'Bean Scopes & Config',icon:'⚙️',probs:['Singleton vs Prototype scope','@Scope annotation','ApplicationContext vs BeanFactory','@PropertySource & @Value','Profiles (@Profile)','Conditional beans (@Conditional)','@Lazy loading']},
+  {name:'AOP',icon:'🎯',probs:['What is AOP?','Aspect, JoinPoint, Advice','@Before @After @Around advice','Pointcut expressions','@Aspect annotation','Real-world AOP use cases (logging, security)']},
+]},
+{topic:'Spring Boot',patterns:[
+  {name:'Spring Boot Basics',icon:'🌱',probs:['What is Spring Boot auto-configuration?','@SpringBootApplication annotation','spring.factories & auto-config','Starter dependencies','Embedded server (Tomcat)','application.properties vs yml','@ConfigurationProperties','Actuator endpoints']},
+  {name:'REST APIs',icon:'🌐',probs:['@RestController vs @Controller','@GetMapping @PostMapping @PutMapping @DeleteMapping','@PathVariable vs @RequestParam','@RequestBody & @ResponseBody','ResponseEntity usage','Exception handling with @ControllerAdvice','@ExceptionHandler','Content negotiation','HATEOAS basics']},
+  {name:'Data Access',icon:'🗄️',probs:['Spring Data JPA overview','JpaRepository & CrudRepository','Custom queries with @Query','JPQL vs Native query','Pagination & Sorting','@Transactional annotation','Transaction propagation levels','Optimistic vs Pessimistic locking','N+1 problem & solutions']},
+]},
+{topic:'Microservices',patterns:[
+  {name:'Spring Cloud',icon:'☁️',probs:['Service discovery (Eureka)','API Gateway (Spring Cloud Gateway)','Load balancing (Ribbon/LoadBalancer)','Config server','Circuit breaker (Resilience4j)','Feign Client','Distributed tracing (Sleuth + Zipkin)']},
+  {name:'Security',icon:'🔒',probs:['Spring Security basics','Authentication vs Authorization','JWT token implementation','OAuth2 & OpenID Connect','@PreAuthorize & @Secured','CORS configuration','Password encoding (BCrypt)','Security filter chain']},
+  {name:'Messaging',icon:'📨',probs:['Kafka with Spring Boot','@KafkaListener','Producer & Consumer config','Kafka topics & partitions','RabbitMQ with Spring','@RabbitListener','Message conversion']},
+]},
+{topic:'Interview Questions',patterns:[
+  {name:'Spring Core Questions',icon:'❓',probs:['What is IoC container?','Explain the Spring Bean lifecycle','How does @Autowired resolve dependencies?','What happens if two beans of same type exist?','Difference between @Component and @Bean','What is circular dependency?','How does Spring AOP differ from AspectJ?']},
+  {name:'Spring Boot Questions',icon:'🚀',probs:['How does auto-configuration work?','What is the difference between @SpringBootApplication annotations combined?','How to create a custom starter?','Explain Actuator and its security','How to externalize configuration?','What is Spring Boot DevTools?','Difference between spring.jpa.ddl-auto options']},
+  {name:'REST & Security Questions',icon:'🔐',probs:['How to handle global exceptions in Spring Boot?','Explain idempotency in REST APIs','How does JWT authentication work in Spring?','What is CORS and how to configure it?','Difference between @RestController and @Controller','How to implement API versioning?','Explain Rate Limiting strategies']},
+  {name:'Microservices Questions',icon:'☁️',probs:['What is service discovery and why needed?','Explain circuit breaker pattern','How does Feign client work?','What is API Gateway pattern?','How to handle distributed transactions?','Explain Saga pattern','What is CQRS?','Difference between synchronous and asynchronous communication']},
+]},
 ];
 // ════════════════════════════════════════
 // SYSTEM DESIGN DATA
 // ════════════════════════════════════════
 const sdData=[
- {topic:'HLD',patterns:[
-   {name:'Scalability Concepts',icon:'📈',probs:['Horizontal vs Vertical scaling','Load balancing algorithms','Caching strategies (CDN, Redis, Memcached)','Database sharding','Database replication (Master-Slave)','CAP theorem','ACID vs BASE','Eventual consistency']},
-   {name:'System Components',icon:'🏗️',probs:['API Gateway design','Message queues (Kafka, RabbitMQ)','Event-driven architecture','Microservices vs Monolith','Service mesh (Istio)','Rate limiting algorithms (Token bucket, Leaky bucket)','Circuit breaker pattern','Reverse proxy vs Forward proxy']},
-   {name:'Database Design',icon:'🗄️',probs:['SQL vs NoSQL when to use','Indexing strategies','Query optimization','Connection pooling','Read replicas','Write-ahead logging','B-tree vs LSM tree','Time-series databases']},
-   {name:'Design Famous Systems',icon:'🌐',probs:['Design URL Shortener','Design Twitter/Social Feed','Design WhatsApp','Design YouTube','Design Uber','Design Netflix','Design Google Drive','Design Notification System','Design Rate Limiter','Design Search Autocomplete']},
- ]},
- {topic:'LLD',patterns:[
-   {name:'LLD Patterns',icon:'🎨',probs:['SOLID principles application','Design Parking Lot','Design Elevator System','Design Library Management System','Design Hotel Booking System','Design ATM System','Design Snake & Ladder Game','Design Chess Game']},
-   {name:'APIs & Contracts',icon:'📋',probs:['RESTful API design principles','OpenAPI / Swagger documentation','Pagination strategies','API versioning strategies','Webhook design','GraphQL vs REST','gRPC basics','Idempotency keys']},
- ]},
- {topic:'Interview Questions',patterns:[
-   {name:'HLD Interview Questions',icon:'❓',probs:['How would you design Twitter?','Design a URL shortener like bit.ly','How does YouTube handle video streaming?','Design a distributed cache','How would you design WhatsApp?','Explain consistent hashing','How to handle 10M concurrent users?','What is eventual consistency? Give example','Design a leaderboard system','How does Google search autocomplete work?']},
-   {name:'LLD Interview Questions',icon:'🧩',probs:['Design a parking lot system','Design an elevator control system','Design Splitwise','How to apply SOLID in real project?','Design a notification service','Design a payment gateway','How to handle concurrency in booking systems?','Design a file storage system like Dropbox']},
-   {name:'Tradeoff Questions',icon:'⚖️',probs:['SQL vs NoSQL for your project?','When to use Kafka vs REST API?','Monolith vs Microservices for a startup?','Redis vs Memcached?','When to use GraphQL?','Synchronous vs Asynchronous communication?','Push vs Pull architecture?','Relational vs Document DB?']},
- ]},
+{topic:'HLD',patterns:[
+  {name:'Scalability Concepts',icon:'📈',probs:['Horizontal vs Vertical scaling','Load balancing algorithms','Caching strategies (CDN, Redis, Memcached)','Database sharding','Database replication (Master-Slave)','CAP theorem','ACID vs BASE','Eventual consistency']},
+  {name:'System Components',icon:'🏗️',probs:['API Gateway design','Message queues (Kafka, RabbitMQ)','Event-driven architecture','Microservices vs Monolith','Service mesh (Istio)','Rate limiting algorithms (Token bucket, Leaky bucket)','Circuit breaker pattern','Reverse proxy vs Forward proxy']},
+  {name:'Database Design',icon:'🗄️',probs:['SQL vs NoSQL when to use','Indexing strategies','Query optimization','Connection pooling','Read replicas','Write-ahead logging','B-tree vs LSM tree','Time-series databases']},
+  {name:'Design Famous Systems',icon:'🌐',probs:['Design URL Shortener','Design Twitter/Social Feed','Design WhatsApp','Design YouTube','Design Uber','Design Netflix','Design Google Drive','Design Notification System','Design Rate Limiter','Design Search Autocomplete']},
+]},
+{topic:'LLD',patterns:[
+  {name:'LLD Patterns',icon:'🎨',probs:['SOLID principles application','Design Parking Lot','Design Elevator System','Design Library Management System','Design Hotel Booking System','Design ATM System','Design Snake & Ladder Game','Design Chess Game']},
+  {name:'APIs & Contracts',icon:'📋',probs:['RESTful API design principles','OpenAPI / Swagger documentation','Pagination strategies','API versioning strategies','Webhook design','GraphQL vs REST','gRPC basics','Idempotency keys']},
+]},
+{topic:'Interview Questions',patterns:[
+  {name:'HLD Interview Questions',icon:'❓',probs:['How would you design Twitter?','Design a URL shortener like bit.ly','How does YouTube handle video streaming?','Design a distributed cache','How would you design WhatsApp?','Explain consistent hashing','How to handle 10M concurrent users?','What is eventual consistency? Give example','Design a leaderboard system','How does Google search autocomplete work?']},
+  {name:'LLD Interview Questions',icon:'🧩',probs:['Design a parking lot system','Design an elevator control system','Design Splitwise','How to apply SOLID in real project?','Design a notification service','Design a payment gateway','How to handle concurrency in booking systems?','Design a file storage system like Dropbox']},
+  {name:'Tradeoff Questions',icon:'⚖️',probs:['SQL vs NoSQL for your project?','When to use Kafka vs REST API?','Monolith vs Microservices for a startup?','Redis vs Memcached?','When to use GraphQL?','Synchronous vs Asynchronous communication?','Push vs Pull architecture?','Relational vs Document DB?']},
+]},
 ];
 // ════════════════════════════════════════
 // WORKOUT DATA
 // ════════════════════════════════════════
 const workoutDays=[
- {label:'Day 1',name:'Push — Chest + Triceps',color:'#FF375F',icon:'🔥',exercises:[
-   {name:'Incline Dumbbell Press',sets:'4 × 6–8 (main lift)'},
-   {name:'Flat Bench Press',sets:'3 × 8–10'},
-   {name:'Cable Fly',sets:'3 × 10–12'},
-   {name:'Dips',sets:'3 × 8–12'},
-   {name:'Tricep Pushdown',sets:'3 × 10–12'},
- ]},
- {label:'Day 2',name:'Pull — Back + Biceps',color:'#0A84FF',icon:'🔥',exercises:[
-   {name:'Lat Pulldown',sets:'4 × 8–10'},
-   {name:'One-Arm Dumbbell Row',sets:'3 × 8–10'},
-   {name:'Face Pull',sets:'3 × 12'},
-   {name:'Incline Dumbbell Curl',sets:'3 × 10–12'},
-   {name:'Preacher Curl',sets:'3 × 10–12'},
- ]},
- {label:'Day 3',name:'Legs + Abs',color:'#30D158',icon:'🔥',exercises:[
-   {name:'Leg Press',sets:'4 × 8–12 (heavy)'},
-   {name:'Leg Curl',sets:'3 × 10–12'},
-   {name:'Walking Lunges',sets:'3 × 10 each leg'},
-   {name:'Calf Raises',sets:'4 × 12–15'},
-   {name:'Leg Raises (Abs)',sets:'3 × 12–15'},
-   {name:'Plank',sets:'3 × 30–60 sec'},
- ]},
- {label:'Day 4',name:'Shoulders + Forearms',color:'#FF9F0A',icon:'🔥',exercises:[
-   {name:'Overhead / Arnold Press',sets:'4 × 6–8'},
-   {name:'Lateral Raise',sets:'4 × 12'},
-   {name:'Rear Delt Fly',sets:'3 × 12'},
-   {name:'Hammer Curl',sets:'3 × 10'},
-   {name:'Wrist Curl',sets:'3 × 12'},
-   {name:'Reverse Wrist Curl',sets:'3 × 12'},
- ]},
+{label:'Day 1',name:'Push — Chest + Triceps',color:'#FF375F',icon:'🔥',exercises:[
+  {name:'Incline Dumbbell Press',sets:'4 × 6–8 (main lift)'},
+  {name:'Flat Bench Press',sets:'3 × 8–10'},
+  {name:'Cable Fly',sets:'3 × 10–12'},
+  {name:'Dips',sets:'3 × 8–12'},
+  {name:'Tricep Pushdown',sets:'3 × 10–12'},
+]},
+{label:'Day 2',name:'Pull — Back + Biceps',color:'#0A84FF',icon:'🔥',exercises:[
+  {name:'Lat Pulldown',sets:'4 × 8–10'},
+  {name:'One-Arm Dumbbell Row',sets:'3 × 8–10'},
+  {name:'Face Pull',sets:'3 × 12'},
+  {name:'Incline Dumbbell Curl',sets:'3 × 10–12'},
+  {name:'Preacher Curl',sets:'3 × 10–12'},
+]},
+{label:'Day 3',name:'Legs + Abs',color:'#30D158',icon:'🔥',exercises:[
+  {name:'Leg Press',sets:'4 × 8–12 (heavy)'},
+  {name:'Leg Curl',sets:'3 × 10–12'},
+  {name:'Walking Lunges',sets:'3 × 10 each leg'},
+  {name:'Calf Raises',sets:'4 × 12–15'},
+  {name:'Leg Raises (Abs)',sets:'3 × 12–15'},
+  {name:'Plank',sets:'3 × 30–60 sec'},
+]},
+{label:'Day 4',name:'Shoulders + Forearms',color:'#FF9F0A',icon:'🔥',exercises:[
+  {name:'Overhead / Arnold Press',sets:'4 × 6–8'},
+  {name:'Lateral Raise',sets:'4 × 12'},
+  {name:'Rear Delt Fly',sets:'3 × 12'},
+  {name:'Hammer Curl',sets:'3 × 10'},
+  {name:'Wrist Curl',sets:'3 × 12'},
+  {name:'Reverse Wrist Curl',sets:'3 × 12'},
+]},
 ];
 function buildWorkout(){
- const cont=document.getElementById('workout-content');
- const ck=load('workout_ck');
- workoutDays.forEach((day,di)=>{
-   const card=document.createElement('div');card.className='workout-day';
-   const hdr=document.createElement('div');hdr.className='wd-header';
-   hdr.innerHTML=`<div class="wd-badge" style="background:${day.color}">${day.label}</div><div class="wd-title">${day.name}</div><svg class="chevron" width="8" height="13" viewBox="0 0 8 13" fill="none"><path d="M1 1.5l5.5 5L1 11.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-   hdr.onclick=()=>card.classList.toggle('open');
-   const body=document.createElement('div');body.className='wd-body';
-   day.exercises.forEach((ex,ei)=>{
-     const key=`${di}-${ei}`;
-     const row=document.createElement('div');row.className='ex-row'+(ck[key]?' ex-done':'');
-     const cb=document.createElement('div');cb.className='ex-cb'+(ck[key]?' on':'');
-     const nm=document.createElement('span');nm.className='ex-name';nm.textContent=ex.name;
-     const st=document.createElement('span');st.className='ex-sets';st.textContent=ex.sets;
-     row.appendChild(cb);row.appendChild(nm);row.appendChild(st);
-     row.onclick=()=>{
-       ck[key]=!ck[key];cb.classList.toggle('on',ck[key]);row.classList.toggle('ex-done',ck[key]);
-       cb.style.transform='scale(1.3)';setTimeout(()=>{cb.style.transform=''},200);
-       save('workout_ck',ck);
-     };
-     body.appendChild(row);
-   });
-   card.appendChild(hdr);card.appendChild(body);cont.appendChild(card);
- });
+const cont=document.getElementById('workout-content');
+const ck=load('workout_ck');
+workoutDays.forEach((day,di)=>{
+  const card=document.createElement('div');card.className='workout-day';
+  const hdr=document.createElement('div');hdr.className='wd-header';
+  hdr.innerHTML=`<div class="wd-badge" style="background:${day.color}">${day.label}</div><div class="wd-title">${day.name}</div><svg class="chevron" width="8" height="13" viewBox="0 0 8 13" fill="none"><path d="M1 1.5l5.5 5L1 11.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  hdr.onclick=()=>card.classList.toggle('open');
+  const body=document.createElement('div');body.className='wd-body';
+  day.exercises.forEach((ex,ei)=>{
+    const key=`${di}-${ei}`;
+    const row=document.createElement('div');row.className='ex-row'+(ck[key]?' ex-done':'');
+    const cb=document.createElement('div');cb.className='ex-cb'+(ck[key]?' on':'');
+    const nm=document.createElement('span');nm.className='ex-name';nm.textContent=ex.name;
+    const st=document.createElement('span');st.className='ex-sets';st.textContent=ex.sets;
+    row.appendChild(cb);row.appendChild(nm);row.appendChild(st);
+    row.onclick=()=>{
+      ck[key]=!ck[key];cb.classList.toggle('on',ck[key]);row.classList.toggle('ex-done',ck[key]);
+      cb.style.transform='scale(1.3)';setTimeout(()=>{cb.style.transform=''},200);
+      save('workout_ck',ck);
+    };
+    body.appendChild(row);
+  });
+  card.appendChild(hdr);card.appendChild(body);cont.appendChild(card);
+});
 }
 // ════════════════════════════════════════
 // DIET DATA
 // ════════════════════════════════════════
 const dietMeals=[
- {time:'5:45 AM',meal:'Pre-Workout',kcal:'~130 kcal',color:'#FF9F0A',items:['1 banana','1 boiled egg','Lemon water + chia seeds (optional)'],note:'Slight protein + energy boost without heaviness'},
- {time:'8:00 AM',meal:'Post-Workout (Main)',kcal:'~580 kcal · 32g protein',color:'#0A84FF',items:['300 ml milk','80–100g oats','1 banana','1–1.5 tbsp peanut butter','Whey (optional)'],note:'Most important meal — hits muscle protein synthesis hard'},
- {time:'2:00 PM',meal:'Lunch',kcal:'~650 kcal · 35g protein',color:'#30D158',items:['1.5–2 cups rice','4 eggs (bhurji / boiled)','Dal / sabzi','Curd'],note:'Carb-heavy — fuels afternoon energy'},
- {time:'5:00 PM',meal:'Evening Snack',kcal:'~220 kcal · 14g protein',color:'#5AC8FA',items:['Carrot + cucumber','1 fruit (apple / guava / orange)','2 boiled eggs'],note:'Keeps hunger away + closes protein gap'},
- {time:'8:30 PM',meal:'Dinner',kcal:'~700 kcal · 60g protein',color:'#5E5CE6',items:['Chicken 220–250g (grilled / curry)','3 roti','Veggies (spinach / broccoli / beans)','2 eggs'],note:'Biggest protein meal — drives overnight muscle repair'},
- {time:'Saturday',meal:'Full Veg Day 🥗',kcal:'Same macros target',color:'#FF375F',items:['Replace chicken with Paneer (150g) OR Soya chunks','Replace eggs with extra dal (Moong / Chana / Rajma)','Keep all other meals same'],note:'Hit same ~150g protein — paneer + dal + milk combination works'},
+{time:'5:45 AM',meal:'Pre-Workout',kcal:'~130 kcal',color:'#FF9F0A',items:['1 banana','1 boiled egg','Lemon water + chia seeds (optional)'],note:'Slight protein + energy boost without heaviness'},
+{time:'8:00 AM',meal:'Post-Workout (Main)',kcal:'~580 kcal · 32g protein',color:'#0A84FF',items:['300 ml milk','80–100g oats','1 banana','1–1.5 tbsp peanut butter','Whey (optional)'],note:'Most important meal — hits muscle protein synthesis hard'},
+{time:'2:00 PM',meal:'Lunch',kcal:'~650 kcal · 35g protein',color:'#30D158',items:['1.5–2 cups rice','4 eggs (bhurji / boiled)','Dal / sabzi','Curd'],note:'Carb-heavy — fuels afternoon energy'},
+{time:'5:00 PM',meal:'Evening Snack',kcal:'~220 kcal · 14g protein',color:'#5AC8FA',items:['Carrot + cucumber','1 fruit (apple / guava / orange)','2 boiled eggs'],note:'Keeps hunger away + closes protein gap'},
+{time:'8:30 PM',meal:'Dinner',kcal:'~700 kcal · 60g protein',color:'#5E5CE6',items:['Chicken 220–250g (grilled / curry)','3 roti','Veggies (spinach / broccoli / beans)','2 eggs'],note:'Biggest protein meal — drives overnight muscle repair'},
+{time:'Saturday',meal:'Full Veg Day 🥗',kcal:'Same macros target',color:'#FF375F',items:['Replace chicken with Paneer (150g) OR Soya chunks','Replace eggs with extra dal (Moong / Chana / Rajma)','Keep all other meals same'],note:'Hit same ~150g protein — paneer + dal + milk combination works'},
 ];
 function buildDiet(){
- const cont=document.getElementById('diet-content');
- dietMeals.forEach((meal,mi)=>{
-   const card=document.createElement('div');card.className='diet-card';
-   card.innerHTML=`
+const cont=document.getElementById('diet-content');
+dietMeals.forEach((meal,mi)=>{
+  const card=document.createElement('div');card.className='diet-card';
+  card.innerHTML=`
 <div class="dc-header">
 <div style="width:4px;height:36px;border-radius:2px;background:${meal.color};flex-shrink:0"></div>
 <div style="flex:1">
@@ -830,77 +944,207 @@ function buildDiet(){
 <div class="dc-kcal">${meal.kcal}</div>
 </div>
 <div class="dc-body">
-       ${meal.items.map(i=>`<div class="dc-item">${i}</div>`).join('')}
+${meal.items.map(i=>`<div class="dc-item">${i}</div>`).join('')}
 <div class="dc-note">👉 ${meal.note}</div>
 </div>`;
-   cont.appendChild(card);
- });
+  cont.appendChild(card);
+});
 }
 // ════════════════════════════════════════
 // SHOP DATA
 // ════════════════════════════════════════
 const shopSections=[
- {title:'🍗 Protein',items:[
-   {emoji:'🥚',name:'Eggs',qty:'52 pcs (~₹250)'},
-   {emoji:'🍗',name:'Chicken',qty:'1.6 kg (~₹320)'},
- ]},
- {title:'🌱 Veg Protein (Saturday)',items:[
-   {emoji:'🧀',name:'Paneer',qty:'400g'},
-   {emoji:'🫘',name:'Soya Chunks',qty:'200g'},
- ]},
- {title:'🍌 Fruits',items:[
-   {emoji:'🍌',name:'Bananas',qty:'16 pcs'},
-   {emoji:'🍎',name:'Apples / Guava',qty:'5 pcs'},
-   {emoji:'🍊',name:'Oranges',qty:'4 pcs'},
- ]},
- {title:'🥦 Vegetables',items:[
-   {emoji:'🌿',name:'Spinach (palak)',qty:'2 bunches'},
-   {emoji:'🥦',name:'Beans / Broccoli',qty:'350g'},
-   {emoji:'🥕',name:'Carrots',qty:'500g'},
-   {emoji:'🥒',name:'Cucumber',qty:'5 pcs'},
-   {emoji:'🍋',name:'Lemon',qty:'5 pcs'},
- ]},
+{title:'🍗 Protein',items:[
+  {emoji:'🥚',name:'Eggs',qty:'52 pcs (~₹250)'},
+  {emoji:'🍗',name:'Chicken',qty:'1.6 kg (~₹320)'},
+]},
+{title:'🌱 Veg Protein (Saturday)',items:[
+  {emoji:'🧀',name:'Paneer',qty:'400g'},
+  {emoji:'🫘',name:'Soya Chunks',qty:'200g'},
+]},
+{title:'🍌 Fruits',items:[
+  {emoji:'🍌',name:'Bananas',qty:'16 pcs'},
+  {emoji:'🍎',name:'Apples / Guava',qty:'5 pcs'},
+  {emoji:'🍊',name:'Oranges',qty:'4 pcs'},
+]},
+{title:'🥦 Vegetables',items:[
+  {emoji:'🌿',name:'Spinach (palak)',qty:'2 bunches'},
+  {emoji:'🥦',name:'Beans / Broccoli',qty:'350g'},
+  {emoji:'🥕',name:'Carrots',qty:'500g'},
+  {emoji:'🥒',name:'Cucumber',qty:'5 pcs'},
+  {emoji:'🍋',name:'Lemon',qty:'5 pcs'},
+]},
 ];
 const shopAvail=['Rice','Atta','Oats','Milk','Curd','Peanut butter','Almonds','Chia seeds','Ghee','Onion','Tomato','Garlic','Basic spices'];
 function buildShop(){
- const cont=document.getElementById('shop-content');
- const ck=load('shop_ck');
- shopSections.forEach((sec,si)=>{
-   const wrap=document.createElement('div');wrap.className='shop-section';
-   const title=document.createElement('div');title.className='shop-sec-title';title.textContent=sec.title;
-   const card=document.createElement('div');card.className='shop-card';
-   sec.items.forEach((item,ii)=>{
-     const key=`${si}-${ii}`;
-     const row=document.createElement('div');row.className='shop-item';
-     const cb=document.createElement('div');cb.className='shop-cb'+(ck[key]?' on':'');
-     row.innerHTML=`<span class="shop-emoji">${item.emoji}</span><div class="shop-info"><div class="shop-name">${item.name}</div><div class="shop-qty">${item.qty}</div></div>`;
-     row.appendChild(cb);
-     row.onclick=()=>{
-       ck[key]=!ck[key];cb.classList.toggle('on',ck[key]);
-       cb.style.transform='scale(1.3)';setTimeout(()=>{cb.style.transform=''},200);
-       save('shop_ck',ck);
-     };
-     card.appendChild(row);
-   });
-   wrap.appendChild(title);wrap.appendChild(card);cont.appendChild(wrap);
- });
- // Available items
- const avWrap=document.createElement('div');avWrap.className='shop-section';
- const avTitle=document.createElement('div');avTitle.className='shop-sec-title';avTitle.textContent='📦 Already Have (Skip Buying)';
- const avCard=document.createElement('div');avCard.className='shop-avail';
- avCard.innerHTML=`<div class="avail-grid">${shopAvail.map(a=>`<div class="avail-pill">✓ ${a}</div>`).join('')}</div>`;
- avWrap.appendChild(avTitle);avWrap.appendChild(avCard);cont.appendChild(avWrap);
+const cont=document.getElementById('shop-content');
+const ck=load('shop_ck');
+shopSections.forEach((sec,si)=>{
+  const wrap=document.createElement('div');wrap.className='shop-section';
+  const title=document.createElement('div');title.className='shop-sec-title';title.textContent=sec.title;
+  const card=document.createElement('div');card.className='shop-card';
+  sec.items.forEach((item,ii)=>{
+    const key=`${si}-${ii}`;
+    const row=document.createElement('div');row.className='shop-item';
+    const cb=document.createElement('div');cb.className='shop-cb'+(ck[key]?' on':'');
+    row.innerHTML=`<span class="shop-emoji">${item.emoji}</span><div class="shop-info"><div class="shop-name">${item.name}</div><div class="shop-qty">${item.qty}</div></div>`;
+    row.appendChild(cb);
+    row.onclick=()=>{
+      ck[key]=!ck[key];cb.classList.toggle('on',ck[key]);
+      cb.style.transform='scale(1.3)';setTimeout(()=>{cb.style.transform=''},200);
+      save('shop_ck',ck);
+    };
+    card.appendChild(row);
+  });
+  wrap.appendChild(title);wrap.appendChild(card);cont.appendChild(wrap);
+});
+const avWrap=document.createElement('div');avWrap.className='shop-section';
+const avTitle=document.createElement('div');avTitle.className='shop-sec-title';avTitle.textContent='📦 Already Have (Skip Buying)';
+const avCard=document.createElement('div');avCard.className='shop-avail';
+avCard.innerHTML=`<div class="avail-grid">${shopAvail.map(a=>`<div class="avail-pill">✓ ${a}</div>`).join('')}</div>`;
+avWrap.appendChild(avTitle);avWrap.appendChild(avCard);cont.appendChild(avWrap);
+}
+// ════════════════════════════════════════
+// CODELENS AI PROJECT TRACKER DATA
+// ════════════════════════════════════════
+const codeLensWeeks=[
+{
+  week:'Week 1',title:'Foundation (Critical)',
+  days:[
+    {label:'Day 1',name:'Setup AI Engine',goal:'Run LLM locally',color:'#0A84FF',
+     tasks:['Install Ollama','Run model: ollama run mistral','Test API via curl / Postman','Confirm response is coming'],
+     output:'You can send prompt → get response'},
+    {label:'Day 2',name:'Backend Setup',goal:'Spring Boot ready',color:'#0A84FF',
+     tasks:['Create Spring Boot project','Add dependencies (Web, JPA, Lombok)','Create /test API','Run server'],
+     output:'http://localhost:8080/test works'},
+    {label:'Day 3',name:'Connect AI with Backend',goal:'Backend talks to LLM',color:'#0A84FF',
+     tasks:['Create LLMService','Call Ollama API','Create /review/code API','Test with sample code'],
+     output:'Send code → get AI response'},
+    {label:'Day 4',name:'Improve Response Quality',goal:'Structured output',color:'#30D158',
+     tasks:['Write better prompt','Force JSON output','Parse response (basic)'],
+     output:'Response contains: Bugs · Suggestions · Improvements'},
+    {label:'Day 5',name:'Database Integration',goal:'Store results',color:'#30D158',
+     tasks:['Setup PostgreSQL','Create ReviewResult entity','Save response in DB','Add timestamp'],
+     output:'Every request is stored'},
+    {label:'Day 6',name:'GitHub Integration Part 1',goal:'Accept repo URL',color:'#FF9F0A',
+     tasks:['Take GitHub repo URL as input','Extract repo details','Call GitHub API','Fetch file list'],
+     output:'Repo → list of files'},
+    {label:'Day 7',name:'GitHub Integration Part 2',goal:'Analyze repo code',color:'#FF9F0A',
+     tasks:['Fetch file content','Send to LLM','Return review'],
+     output:'Repo → AI review'},
+  ]
+},
+{
+  week:'Week 2',title:'Scale & Differentiation',
+  days:[
+    {label:'Day 8',name:'Async Processing',goal:"Don't block user",color:'#5E5CE6',
+     tasks:['Add @Async','Return "Processing…"','Store result later'],
+     output:'Non-blocking API'},
+    {label:'Day 9',name:'Better Response Structure',goal:'Professional output',color:'#5E5CE6',
+     tasks:['Create response DTO','Format: Issues · Suggestions · Score'],
+     output:'Clean structured JSON'},
+    {label:'Day 10',name:'Error Handling',goal:'Production readiness',color:'#FF375F',
+     tasks:['Handle API failures','Handle invalid repo','Add global exception handler'],
+     output:'No crashes'},
+    {label:'Day 11',name:'Logging',goal:'Debug like real systems',color:'#FF375F',
+     tasks:['Add logs (request/response)','Track failures'],
+     output:'You can trace issues'},
+    {label:'Day 12',name:'Redis Caching',goal:'Optimization',color:'#5AC8FA',
+     tasks:['Setup Redis','Cache repeated requests'],
+     output:'Faster responses'},
+    {label:'Day 13',name:'Dockerize',goal:'Production packaging',color:'#5AC8FA',
+     tasks:['Create Dockerfile','Build image','Run container'],
+     output:'App runs in container'},
+    {label:'Day 14',name:'Deploy',goal:'Make it live',color:'#FF9F0A',
+     tasks:['Deploy on Render or Railway','Test live API'],
+     output:'Public URL working 🎉'},
+  ]
+}
+];
+function buildCodeLens(){
+const cont=document.getElementById('codelens-content');
+const ck=load('codelens_ck');
+// Count totals
+let totalTasks=0;
+codeLensWeeks.forEach(w=>w.days.forEach(d=>totalTasks+=d.tasks.length));
+function updateStats(){
+  let done=0;
+  codeLensWeeks.forEach((w,wi)=>w.days.forEach((d,di)=>d.tasks.forEach((_,ti)=>{
+    if(ck[`${wi}-${di}-${ti}`])done++;
+  })));
+  document.getElementById('cl-done').textContent=done;
+  document.getElementById('cl-left').textContent=totalTasks-done;
+  document.getElementById('cl-pct').textContent=totalTasks?Math.round(done/totalTasks*100)+'%':'0%';
+}
+codeLensWeeks.forEach((week,wi)=>{
+  const weekWrap=document.createElement('div');weekWrap.className='proj-week';
+  const weekTitle=document.createElement('div');weekTitle.className='proj-week-title';
+  weekTitle.textContent=`🗓️ ${week.week} — ${week.title}`;
+  const weekCard=document.createElement('div');weekCard.className='proj-week-card';
+  week.days.forEach((day,di)=>{
+    const dayDiv=document.createElement('div');dayDiv.className='proj-day';
+    const hdr=document.createElement('div');hdr.className='proj-day-hdr';
+    hdr.innerHTML=`<div class="proj-day-badge" style="background:${day.color}">${day.label}</div><div class="proj-day-info"><div class="proj-day-name">${day.name}</div><div class="proj-day-goal">Goal: ${day.goal}</div></div><svg class="chevron" width="8" height="13" viewBox="0 0 8 13" fill="none"><path d="M1 1.5l5.5 5L1 11.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+    hdr.onclick=()=>dayDiv.classList.toggle('open');
+    const body=document.createElement('div');body.className='proj-day-body';
+    day.tasks.forEach((task,ti)=>{
+      const key=`${wi}-${di}-${ti}`;
+      const taskRow=document.createElement('div');taskRow.className='proj-task'+(ck[key]?' done':'');
+      const cb=document.createElement('div');cb.className='proj-task-cb'+(ck[key]?' on':'');
+      const lbl=document.createElement('span');lbl.className='proj-task-lbl';lbl.textContent=task;
+      taskRow.appendChild(cb);taskRow.appendChild(lbl);
+      taskRow.onclick=()=>{
+        ck[key]=!ck[key];cb.classList.toggle('on',ck[key]);taskRow.classList.toggle('done',ck[key]);
+        cb.style.transform='scale(1.35)';setTimeout(()=>{cb.style.transform=''},220);
+        save('codelens_ck',ck);updateStats();
+      };
+      body.appendChild(taskRow);
+    });
+    const outputDiv=document.createElement('div');outputDiv.className='proj-output';
+    outputDiv.textContent='👉 Output: '+day.output;
+    body.appendChild(outputDiv);
+    dayDiv.appendChild(hdr);dayDiv.appendChild(body);weekCard.appendChild(dayDiv);
+  });
+  weekWrap.appendChild(weekTitle);weekWrap.appendChild(weekCard);cont.appendChild(weekWrap);
+});
+// Final checklist
+const finalWrap=document.createElement('div');finalWrap.className='proj-week';
+const finalTitle=document.createElement('div');finalTitle.className='proj-week-title';finalTitle.textContent='🎯 Final Check (Non-Negotiable)';
+const finalCard=document.createElement('div');finalCard.className='proj-week-card';
+const finalItems=['Code input works','GitHub repo review works','Async processing works','Data stored in DB','Clean JSON output','Deployed link available'];
+const finalCk=load('codelens_final');
+finalItems.forEach((item,i)=>{
+  const row=document.createElement('div');row.className='proj-day';row.style.borderBottom='1px solid var(--border-sub)';
+  const hdr=document.createElement('div');hdr.className='proj-day-hdr';
+  const cb=document.createElement('div');cb.className='proj-task-cb'+(finalCk[i]?' on':'');cb.style.cssText='width:22px;height:22px;border-radius:6px;border:2px solid var(--cb-b);background:var(--cb-bg);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .26s cubic-bezier(.34,1.56,.64,1)';
+  if(finalCk[i]){cb.style.background='var(--indigo)';cb.style.borderColor='var(--indigo)';}
+  const lbl=document.createElement('div');lbl.className='proj-day-name';lbl.textContent=item;lbl.style.flex='1';
+  hdr.appendChild(cb);hdr.appendChild(lbl);
+  hdr.onclick=()=>{
+    finalCk[i]=!finalCk[i];
+    cb.classList.toggle('on',finalCk[i]);
+    if(finalCk[i]){cb.style.background='var(--indigo)';cb.style.borderColor='var(--indigo)';lbl.style.textDecoration='line-through';lbl.style.color='var(--tq)';}
+    else{cb.style.background='var(--cb-bg)';cb.style.borderColor='var(--cb-b)';lbl.style.textDecoration='';lbl.style.color='';}
+    save('codelens_final',finalCk);
+  };
+  if(finalCk[i]){lbl.style.textDecoration='line-through';lbl.style.color='var(--tq)';}
+  row.appendChild(hdr);finalCard.appendChild(row);
+});
+finalWrap.appendChild(finalTitle);finalWrap.appendChild(finalCard);cont.appendChild(finalWrap);
+updateStats();
 }
 // ════════════════════════════════════════
 // INIT ALL
 // ════════════════════════════════════════
 buildTracker('dsa',dsaData,document.getElementById('dsa-tabs'),document.getElementById('dsa-secs'),'dsa_v3');
 buildTracker('java',javaData,document.getElementById('java-tabs'),document.getElementById('java-secs'),'java_v1');
+buildTracker('sql',sqlData,document.getElementById('sql-tabs'),document.getElementById('sql-secs'),'sql_v1');
 buildTracker('spring',springData,document.getElementById('spring-tabs'),document.getElementById('spring-secs'),'spring_v1');
 buildTracker('sd',sdData,document.getElementById('sd-tabs'),document.getElementById('sd-secs'),'sd_v1');
 buildWorkout();
 buildDiet();
 buildShop();
+buildCodeLens();
 </script>
 </body>
 </html>
